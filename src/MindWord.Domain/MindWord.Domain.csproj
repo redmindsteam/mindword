@@ -10,7 +10,6 @@
     <Folder Include="Entities\" />
     <Folder Include="Enums\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Common\" />
     <Folder Include="Constants\" />
   </ItemGroup>
 
