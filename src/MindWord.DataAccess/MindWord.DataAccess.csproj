@@ -11,9 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Utils\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>
