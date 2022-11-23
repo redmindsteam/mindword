@@ -2,15 +2,21 @@
 using MindWord.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.SQLite;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+using MindWord.Domain.Constants;
 
 namespace MindWord.DataAccess.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public Task<bool> CreateAsync(User item)
+        private readonly SQLiteConnection _con = new SQLiteConnection(DbConstants.CONNECTION_STRING);
+        public  Task<bool> CreateAsync(User item)
         {
             throw new NotImplementedException();
         }
