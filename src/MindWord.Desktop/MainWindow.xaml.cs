@@ -24,7 +24,6 @@ namespace MindWord.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            File.OpenWrite("text.txt");
         }
     }
 }

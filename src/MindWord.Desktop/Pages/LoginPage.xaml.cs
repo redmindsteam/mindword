@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MindWord.Desktop.Pages
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class LoginPage : Page
     {
-        public Page1()
+        public LoginPage()
         {
             InitializeComponent();
         }
