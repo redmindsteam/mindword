@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace MindWord.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            File.OpenWrite("text.txt");
         }
     }
 }
