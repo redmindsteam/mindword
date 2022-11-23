@@ -8,6 +8,6 @@ namespace MindWord.Domain.Constants
 {
     public class DbConstants
     {
-        public const string CONNECTION_STRING = "C:/Program Files/DB Browser for SQLite/Mindword.db";
+        public const string CONNECTION_STRING = "C:/Users/mindword/databases/Mindword.db";
     }
 }
