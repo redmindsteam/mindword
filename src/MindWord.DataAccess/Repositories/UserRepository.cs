@@ -23,15 +23,20 @@ namespace MindWord.DataAccess.Repositories
             try
             {
                await _con.OpenAsync();
-                string query = @"INSERT INTO Users(Id,CreatedAt,FullName,Email,PasswordHash,Salt)" +
-                     "VALUES($Id,$CreatedAt,$FullName,$Email,$PasswordHash,$Salt)";
-                var command = new SQLiteCommand(query,_con);
-                command.Parameters.AddWithValue("id", item.Id);
-                command.Parameters.AddWithValue("CreatedAt", item.CreatedAt);
-                command.Parameters.AddWithValue("FullName", item.FullName);
-                command.Parameters.AddWithValue("Email", item.Email);
-                command.Parameters.AddWithValue("PasswordHash", item.PasswordHash);
-                command.Parameters.AddWithValue("Salt", item.Salt);
+                string query = @"INSERT INTO Users(CreatedAt,FullName,Email,PasswordHash,Salt)" +
+                     "VALUES($CreatedAt,$FullName,$Email,$PasswordHash,$Salt);";
+                var command = new SQLiteCommand(query, _con)
+                {
+                    Parameters =
+                    {
+                        new SQLiteParameter("CreatedAt", item.CreatedAt),
+                        new SQLiteParameter("FullName", item.FullName),
+                        new SQLiteParameter("Email", item.Email),
+                        new SQLiteParameter("PasswordHash", item.PasswordHash),
+                        new SQLiteParameter("Salt", item.Salt)
+                    }
+                };
+                
                 var result = await command.ExecuteNonQueryAsync();
                 return result > 0;
             }
@@ -71,7 +76,7 @@ namespace MindWord.DataAccess.Repositories
 
                 var users = new List<User>();
                 await _con.OpenAsync();
-                string query = $"select * from Users offset {skip} limit {take}";
+                string query = $"SELECT * FROM Users  lIMIT {take} OFFSET {skip};";
                 var command = new SQLiteCommand (query,_con);
                 var reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
@@ -79,7 +84,7 @@ namespace MindWord.DataAccess.Repositories
                     var user = new User()
                     {
                         Id = reader.GetInt32("Id"),
-                        CreatedAt = reader.GetDateTime("CreatedAt"),
+                        CreatedAt = DateTime.Parse(reader.GetString("CreatedAt")),
                         FullName = reader.GetString("FullName"),
                         Email = reader.GetString("Email"),
                         PasswordHash = reader.GetString("PasswordHash"),
@@ -109,7 +114,7 @@ namespace MindWord.DataAccess.Repositories
                 {
                     Parameters =
                     {
-                        new("Email",email)
+                        new SQLiteParameter ("Email",email)
                     }
                 };
                 var reader = await command.ExecuteReaderAsync();
@@ -118,11 +123,12 @@ namespace MindWord.DataAccess.Repositories
                     return new User()
                     {
                         Id = reader.GetInt32("Id"),
-                        CreatedAt = reader.GetDateTime("CreatedAt"),
+                        CreatedAt = DateTime.Parse(reader.GetString("CreatedAt")),
                         FullName = reader.GetString("FullName"),
                         Email = reader.GetString("Email"),
                         PasswordHash = reader.GetString("PasswordHash"),
                         Salt = reader.GetString("Salt")
+                        
                     };
                 }
                 else 
@@ -149,7 +155,7 @@ namespace MindWord.DataAccess.Repositories
                     return new User()
                     {
                         Id = reader.GetInt32("Id"),
-                        CreatedAt = reader.GetDateTime("CreatedAt"),
+                        CreatedAt = DateTime.Parse(reader.GetString("CreatedAt")),
                         FullName = reader.GetString("FullName"),
                         Email = reader.GetString("Email"),
                         PasswordHash = reader.GetString("PasswordHash"),
@@ -174,12 +180,12 @@ namespace MindWord.DataAccess.Repositories
                 string query = $"update Users set " +
                     "FullName = $FullName, Email = $Email," +
                     "PasswordHash = $PasswordHash, Salt = $Salt" +
-                    "Where Id = {id}";
+                    $"Where Id = {id}";
                 SQLiteCommand command = new SQLiteCommand(query, _con)
                 {
                     Parameters =
                     {
-                        new SQLiteParameter("Id",entity.Id),
+                       
                         new SQLiteParameter("FullName",entity.FullName),
                         new SQLiteParameter("Email", entity.Email),
                         new SQLiteParameter("PasswordHash",entity.PasswordHash),
