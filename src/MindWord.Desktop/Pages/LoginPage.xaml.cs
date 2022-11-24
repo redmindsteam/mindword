@@ -18,11 +18,15 @@ namespace MindWord.Desktop.Pages
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : Window
     {
         public LoginPage()
         {
             InitializeComponent();
+        }
+        private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
     }
 }
