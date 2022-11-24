@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MindWord.Domain.Entities
 {
-    public class Games : BaseEntity
+    public class Game : BaseEntity
     {
         public int UserId { get; set; }
         public DateTime StartDateTime { get; set; }
