@@ -30,13 +30,13 @@ namespace MindWord.Service.Services.Common
 
         }
 
-        public async Task SaveImageAsync(byte[] bytes, string imageName)
+        public async Task SaveImageAsync(byte[] bytes)
         {
             if (!Directory.Exists(_imageFolderPath))
             {
                 Directory.CreateDirectory(_imageFolderPath);    
             }
-           await File.WriteAllBytesAsync(_imageFolderPath+"/"+ imageName, bytes);
+           await File.WriteAllBytesAsync(_imageFolderPath+"/"+ ImageHelper.MakeImageName(), bytes);
         }
     }
 }

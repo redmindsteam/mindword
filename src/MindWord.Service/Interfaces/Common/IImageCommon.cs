@@ -10,7 +10,7 @@ namespace MindWord.Service.Interfaces.Common
 
     {
         public string ImageFolderName { get; }
-        Task SaveImageAsync(byte[] bytes, string imageName);
+        Task SaveImageAsync(byte[] bytes);
         bool DeleteImageAsync(string relativeFilePath);
     }
 }
