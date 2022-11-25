@@ -21,13 +21,12 @@ namespace MindWord.DataAccess.Repositories
             {
                 await _con.OpenAsync();
                 string query = "INSERT INTO categories(title,description,user_id)" +
-                                "VALUES($title, $description, $user_id);";
+                                " VALUES($title, $description, $user_id);";
                 var command = new SQLiteCommand(query, _con)
                 {
                     Parameters =
                     {
-                        new SQLiteParameter("id", item.Id),
-                        new SQLiteParameter("tittle",item.Title),
+                        new SQLiteParameter("title",item.Title),
                         new SQLiteParameter("description",item.Description),
                         new SQLiteParameter("user_id",item.UserId)
                     }
@@ -137,16 +136,13 @@ namespace MindWord.DataAccess.Repositories
             try
             {
                 await _con.OpenAsync();
-                string query = $"UPDATE categories SET title = '{entity.Title}'description = '{entity.Description}';";
+                string query = $"UPDATE categories SET title = $title, description = $description;";
                 var command = new SQLiteCommand(query, _con)
                 {
                     Parameters =
                     {
-                        new SQLiteParameter("id", id),
                         new SQLiteParameter("title", entity.Title),
-                        new SQLiteParameter("description", entity.Description),
-                        new SQLiteParameter("Userid", entity.UserId)
-
+                        new SQLiteParameter("description", entity.Description)
                     }
                 };
                 var result = await command.ExecuteNonQueryAsync();

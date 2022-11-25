@@ -93,9 +93,10 @@ namespace MindWord.DataAccess.Repositories
                         Description = reader.GetString(2),
                         Translate = reader.GetString(3),
                         AudioPath = reader.GetString(4),
-                        CategoryId = reader.GetInt32(5),
+                        CorrectCoins= reader.GetInt32(5),
                         ErrorCoins = reader.GetInt32(6),
-                        UserId = reader.GetInt32(7),
+                        CategoryId = reader.GetInt32(7),
+                        UserId = reader.GetInt32(8)
 
                     };
 
