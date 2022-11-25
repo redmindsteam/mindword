@@ -23,8 +23,8 @@ namespace MindWord.DataAccess.Repositories
             try
             {
                await _con.OpenAsync();
-                string query = @"INSERT INTO Users(CreatedAt,FullName,Email,PasswordHash,Salt)" +
-                     "VALUES($CreatedAt,$FullName,$Email,$PasswordHash,$Salt);";
+                string query = @"INSERT INTO Users(CreatedAt,FullName,Email,PasswordHash,Salt,account_image_path)" +
+                     "VALUES($CreatedAt,$FullName,$Email,$PasswordHash,$Salt,$account_image_path);";
                 var command = new SQLiteCommand(query, _con)
                 {
                     Parameters =
@@ -33,7 +33,8 @@ namespace MindWord.DataAccess.Repositories
                         new SQLiteParameter("FullName", item.FullName),
                         new SQLiteParameter("Email", item.Email),
                         new SQLiteParameter("PasswordHash", item.PasswordHash),
-                        new SQLiteParameter("Salt", item.Salt)
+                        new SQLiteParameter("Salt", item.Salt),
+                        new SQLiteParameter("account_image_path", item.AccountImagePath)
                     }
                 };
                 
@@ -88,7 +89,9 @@ namespace MindWord.DataAccess.Repositories
                         FullName = reader.GetString("FullName"),
                         Email = reader.GetString("Email"),
                         PasswordHash = reader.GetString("PasswordHash"),
-                        Salt = reader.GetString("Salt")
+                        Salt = reader.GetString("Salt"),
+                        AccountImagePath = reader.GetDataTypeName("account_image_path")
+                     
 
                     };
                     users.Add(user);
@@ -114,7 +117,7 @@ namespace MindWord.DataAccess.Repositories
                 {
                     Parameters =
                     {
-                        new SQLiteParameter ("Email",email)
+                        new SQLiteParameter ("email",email)
                     }
                 };
                 var reader = await command.ExecuteReaderAsync();
@@ -127,7 +130,9 @@ namespace MindWord.DataAccess.Repositories
                         FullName = reader.GetString("FullName"),
                         Email = reader.GetString("Email"),
                         PasswordHash = reader.GetString("PasswordHash"),
-                        Salt = reader.GetString("Salt")
+                        Salt = reader.GetString("Salt"),
+                        AccountImagePath = reader.GetString("account_image_path")
+
                         
                     };
                 }
@@ -159,7 +164,8 @@ namespace MindWord.DataAccess.Repositories
                         FullName = reader.GetString("FullName"),
                         Email = reader.GetString("Email"),
                         PasswordHash = reader.GetString("PasswordHash"),
-                        Salt = reader.GetString("Salt")
+                        Salt = reader.GetString("Salt"),
+                        AccountImagePath = reader.GetString("account_image_path")
                     };
                 }
                 else return null!;
@@ -179,7 +185,7 @@ namespace MindWord.DataAccess.Repositories
                await  _con.OpenAsync();
                 string query = $"update Users set " +
                     "FullName = $FullName, Email = $Email," +
-                    "PasswordHash = $PasswordHash, Salt = $Salt" +
+                    " PasswordHash = $PasswordHash, Salt = $Salt, account_image_path = $account_image_path " +
                     $"Where Id = {id}";
                 SQLiteCommand command = new SQLiteCommand(query, _con)
                 {
@@ -189,7 +195,8 @@ namespace MindWord.DataAccess.Repositories
                         new SQLiteParameter("FullName",entity.FullName),
                         new SQLiteParameter("Email", entity.Email),
                         new SQLiteParameter("PasswordHash",entity.PasswordHash),
-                        new SQLiteParameter("Salt",entity.Salt)
+                        new SQLiteParameter("Salt",entity.Salt),
+                        new SQLiteParameter("account_image_path",entity.AccountImagePath)
                     }
                 };
                 int result = await command.ExecuteNonQueryAsync();
