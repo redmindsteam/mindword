@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace MindWord.Service.Attributes
 {
-    public  class EmailAttribute : ValidationAttribute
+    public  class EmailAttribute
     {
-        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+        public (bool isSuccessful, string Message) IsValid(string email)
         {
-            if (value is null) return new ValidationResult("Email can not be null!");
+            if (email is null) return (false, "Email can not be null!");
 
             Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
 
-            if (regex.Match(value.ToString()!).Success)
-                return ValidationResult.Success;
+            if (regex.Match(email.ToString()!).Success)
+                return (true, " ");
 
-            return new ValidationResult("Enter correct email!");
+            return (false, "Enter correct email!");
         }
     }
 }

@@ -7,23 +7,22 @@ using System.Threading.Tasks;
 
 namespace MindWord.Service.Attributes
 {
-    public class StrongPasswordAttribute : ValidationAttribute
+    public class StrongPasswordAttribute
     {
-        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+        public (bool isSuccessful, string Message) IsValid(string password)
         {
 
-            if (value is null) return new ValidationResult("Password can not be null!");
+            if (password is null) return (false, "Password can not be null!");
             else
             {
-                string password = value.ToString()!;
                 if (password.Length < 8)
-                    return new ValidationResult("Password must be at least 8 characters!");
+                    return (false,"Password must be at least 8 characters!");
                 else if (password.Length > 50)
-                    return new ValidationResult("Password must be less than 50 characters!");
+                    return (false,"Password must be less than 50 characters!");
                 var result = IsStrong(password);
 
-                if (result.IsValid is false) return new ValidationResult(result.Message);
-                return ValidationResult.Success;
+                if (result.IsValid is false) return (false,result.Message);
+                return (true, result.Message);
             }
         }
 

@@ -1,8 +1,11 @@
 ﻿using MindWord.DataAccess.Interfaces.Repositories;
 using MindWord.DataAccess.Repositories;
+using MindWord.Domain.Entities;
+using MindWord.Service.Attributes;
 using MindWord.Service.Interfaces.Security;
 using MindWord.Service.Interfaces.Services;
 using MindWord.Service.Security;
+using MindWord.Service.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +36,46 @@ namespace MindWord.Service.Services
             else
             {
                 return (false, "Email is wrong!");
+            }
+        }
+
+        public async Task<(bool isSuccessful, string Message)> RegisterAsync(UserViewModel viewModel)
+        {
+            IUserRepository userRepository = new UserRepository();
+            EmailAttribute emailcheck = new EmailAttribute();
+            var result = emailcheck.IsValid(viewModel.Email);
+            if(result.isSuccessful == true)
+            {
+                StrongPasswordAttribute strongPassword = new StrongPasswordAttribute();
+                var res = strongPassword.IsValid(viewModel.Password);
+                if(res.isSuccessful == true)
+                {
+                    PasswordHasher hasher = new PasswordHasher();
+                    User user = new User();
+                    user.Email = viewModel.Email;
+                    user.FullName = viewModel.FullName;
+                    user.AccountImagePath = viewModel.AccountImagePath;
+                    var HashSalt = hasher.Hash(viewModel.Password);
+                    user.PasswordHash = HashSalt.passwordHash;
+                    user.Salt = HashSalt.salt;
+                    var createresult = await userRepository.CreateAsync(user);
+                    if(createresult == true)
+                    {
+                        return (true, " ");
+                    }
+                    else
+                    {
+                        return (false, "User not created");
+                    }
+                }
+                else
+                {
+                    return (false, res.Message);
+                }
+            }
+            else
+            {
+                return (false, result.Message);
             }
         }
     }
