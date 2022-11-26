@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Cmmon\**" />
+    <EmbeddedResource Remove="Cmmon\**" />
+    <None Remove="Cmmon\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MindWord.DataAccess\MindWord.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+  </ItemGroup>
+
 </Project>

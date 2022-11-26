@@ -8,8 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignColors" Version="2.0.9" />
-    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+    <ProjectReference Include="..\MindWord.Service\MindWord.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Images\" />
+    <Folder Include="Assets\Icons\" />
+    <Folder Include="Assets\Audios\" />
+    <Folder Include="Components\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Windows\" />
   </ItemGroup>
 
 </Project>
