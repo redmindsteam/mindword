@@ -31,14 +31,14 @@
                     HorizontalAlignment="Left"
                     Margin="0 30 0 0"/>
 
-                <TextBox
+                <TextBox x:Name="txEmail"
                     FontFamily="Jetbrains Mono"
                     HorizontalAlignment="Center"
                     Margin="0, 30, 0, 0"
                     materialDesign:HintAssist.Hint="Email"
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-                    Width="346" Height="50"/>
+                    Width="346" Height="50" TextChanged="txEmail_TextChanged"/>
 
                 <PasswordBox
                     FontFamily="Jetbrains Mono"
@@ -62,7 +62,7 @@
                     VerticalAlignment="Center"
                     Foreground="White"
                     FontSize="16"
-                    Background="#33A3A7">
+                    Background="#33A3A7" Click="Button_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border CornerRadius="4" Background="{TemplateBinding Background}">

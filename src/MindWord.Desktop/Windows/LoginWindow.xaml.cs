@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MindWord.Service.Attributes;
+using MindWord.Service.Interfaces.Services;
+using MindWord.Service.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +23,7 @@ namespace MindWord.Desktop.Windows
 
     public partial class LoginWindow : Window
   {
+        private string _password = "";
         public LoginWindow()
         {
             InitializeComponent();
@@ -33,5 +37,36 @@ namespace MindWord.Desktop.Windows
         {
 
         }
+
+        private void txEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            EmailAttribute emailAttribute = new EmailAttribute();
+            var result = emailAttribute.IsValid(txEmail.Text);
+            if (result.isSuccessful)
+            {
+                txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+            }
+            else
+            {
+                txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
+            }
+        }
+
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            IUserService service = new UserService();
+            var res = await service.LoginAsync(txEmail.Text,PasswordBox.Password);
+            if (res.isSuccessful == true)
+            {
+                // go main menu
+            }
+            else
+            {
+                MessageBox.Show(res.Message);
+
+            }
+        }
+
     }
 }
