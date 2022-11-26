@@ -6,8 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
-       Height="450" Width="750"
-      Title="LoginPage"  Background="Transparent"
+        Height="450" Width="750"
+        Title="LoginPage"  Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="MainWindow_OnMouseDown">
 
@@ -18,62 +18,75 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <Image Source="/Images/SignIn.jpg" Margin="-19,0,-19,-1"/>
-
+            <Image Source="/Images/SignIn.jpg" Margin="-19 0 -19 -1"/>
         </Grid>
 
         <Grid Grid.Column="1" Background="White">
             <StackPanel Width="350" Height="400">
                 <Label Content="Login"
-                       Foreground="Black"
-                       FontSize="25"
-                       HorizontalAlignment="Left"
-                       Margin="0, 30, 0, 0"/>
+                    FontFamily="Jetbrains Mono"
+                    Foreground="#DB872F"
+                    FontSize="20"
+                    FontWeight="SemiBold" 
+                    HorizontalAlignment="Left"
+                    Margin="0 30 0 0"/>
+
                 <TextBox
-                        HorizontalAlignment="Center"
-                        Margin="0, 30, 0, 0"
-                        materialDesign:HintAssist.Hint="Email"
-                        materialDesign:TextFieldAssist.HasClearButton="True"
-                        Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="345"
-                    />
+                    FontFamily="Jetbrains Mono"
+                    HorizontalAlignment="Center"
+                    Margin="0, 30, 0, 0"
+                    materialDesign:HintAssist.Hint="Email"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+                    Width="346" Height="50"/>
 
                 <PasswordBox
+                    FontFamily="Jetbrains Mono"
                     x:Name="PasswordBox"
                     Foreground="Black"
                     Background="White"
                     Margin="0, 30, 0, 0"
-                    Width="345"
+                    Width="346"
+                    Height="50"
                     materialDesign:HintAssist.Hint="Password"
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
 
                 <Button Height="50"
-                        Width="344"
-                        Margin="0 40"
-                        Content="Save"
-                        Foreground="Black"
-                        FontSize="35"
-                        Background="#33A3A7">
+                    Width="344"
+                    FontFamily="Jetbrains Mono"
+                    Margin="0 40"
+                    Content="LOGIN"
+                    FontWeight="SemiBold"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    FontSize="16"
+                    Background="#33A3A7">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border CornerRadius="4" Background="{TemplateBinding Background}">
-                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center"/>
+                                <ContentPresenter Content="{TemplateBinding Content}" 
+                                                  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
+                            <ControlTemplate.Triggers>
+                                
+                            </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
 
                 <TextBlock Grid.Column="1"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Bottom"   
-                   Margin="0,8" Text="Don't you have an account? ">
+                    FontSize="14"
+                    FontFamily="Jetbrains Mono"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"   
+                    Margin="0,8" Text="Don't you have an account? ">
                     <Hyperlink TextDecorations="None" Click="Login_Click">
                         Register
                     </Hyperlink>
                 </TextBlock>
-
             </StackPanel>
         </Grid>
-
     </Grid>
 </Window>
