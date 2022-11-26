@@ -10,19 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MindWord.Desktop.Pages
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for RegistorPage.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class RegistorPage : Window
     {
-        public Page1()
+        public RegistorPage()
         {
             InitializeComponent();
+        }
+        private void MainWindow_OnnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            
+            this.Hide();
         }
     }
 }
