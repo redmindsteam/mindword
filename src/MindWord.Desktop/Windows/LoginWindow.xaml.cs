@@ -17,12 +17,9 @@ namespace MindWord.Desktop.Windows
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-<<<<<<< HEAD:src/MindWord.Desktop/Windows/LoginWindow.xaml.cs
+
     public partial class LoginWindow : Window
-=======
-    public partial class LoginPage : Window
->>>>>>> fb6f136 (Login Wpf):src/MindWord.Desktop/Pages/LoginPage.xaml.cs
-    {
+  {
         public LoginWindow()
         {
             InitializeComponent();
@@ -30,6 +27,11 @@ namespace MindWord.Desktop.Windows
         private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
