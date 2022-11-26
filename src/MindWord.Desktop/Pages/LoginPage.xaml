@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MindWord.Desktop.Pages"
       mc:Ignorable="d" 
-      Height="500" Width="800"
+      Height="450" Width="750"
       Title="LoginPage"  Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="MainWindow_OnMouseDown">
@@ -18,77 +18,41 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <Image Source="/Images/image_2022-11-23_22-07-40.png" Width="500" Height="500"/>
+            <Image Source="/Images/SignIn.jpg" Margin="-19,0,-19,-1"/>
 
-            <Border x:Name="Log"
-                Visibility="Visible"
-                Background="White"
-                Height="200"
-                Width="300"
-                CornerRadius="0"
-                Opacity="0.5" Margin="0,150,50,150" >
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <Label Content="Sign Up"
-                               Foreground="Black"
-                               FontSize="30"
-                               HorizontalAlignment="Left" VerticalAlignment="Center" Margin="54,0,0,0"/>
-                    </Grid>
-
-                    <Grid Grid.Row="1">
-                        <Label Content="Sign Up to unlock exciting"
-                               Foreground="Black"
-                               FontSize="16"
-                               HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    </Grid>
-
-                    <Grid Grid.Row="2">
-                        <Label Content="experience with our services"
-                               Foreground="Black"
-                               FontSize="16"
-                               HorizontalAlignment="Left" VerticalAlignment="Top" Margin="54,0,0,0"/>
-                    </Grid>
-
-                </Grid>
-            </Border>
         </Grid>
 
-        <Grid Grid.Column="1">
-            <StackPanel Background="White">
+        <Grid Grid.Column="1" Background="White">
+            <StackPanel Width="350" Height="400">
                 <Label Content="Login"
                        Foreground="Black"
                        FontSize="25"
-                       HorizontalAlignment="Center"/>
-                <TextBox 
-                        FontSize="15"
+                       HorizontalAlignment="Left"
+                       Margin="0, 30, 0, 0"/>
+                <TextBox
                         HorizontalAlignment="Center"
-                        Foreground="Black"
-                        Background="White"
-                        materialDesign:HintAssist.Hint="Email" BorderThickness="2"
-                        BorderBrush="{DynamicResource MaterialDesignDivider}"
-                        Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="345"/>
+                        Margin="0, 30, 0, 0"
+                        materialDesign:HintAssist.Hint="Email"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="345"
+                    />
+
                 <PasswordBox
                     x:Name="PasswordBox"
                     Foreground="Black"
                     Background="White"
-                    Margin="30, 30, 0, 0"
-                    Height ="30"
+                    Margin="0, 30, 0, 0"
                     Width="345"
-                    FontSize="18"
                     materialDesign:HintAssist.Hint="Password"
-                    materialDesign:TextFieldAssist.HasClearButton="True"/>
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
 
-                <Button Height="30"
-                        Margin="20 10"
+                <Button Height="50"
+                        Width="344"
+                        Margin="0 40"
                         Content="Save"
                         Foreground="Black"
-                        FontSize="20"
+                        FontSize="35"
                         Background="#33A3A7">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
@@ -99,6 +63,15 @@
                     </Button.Template>
                 </Button>
 
+                <TextBlock Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"   
+                   Margin="0,8" Text="Don't you have an account? ">
+                    <Hyperlink TextDecorations="None" Click="Login_Click">
+                        Register
+                    </Hyperlink>
+                </TextBlock>
+                
             </StackPanel>
         </Grid>
 
