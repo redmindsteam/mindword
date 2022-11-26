@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\image_2022-11-23_22-07-40.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MindWord.Service\MindWord.Service.csproj" />
   </ItemGroup>
 
@@ -18,6 +22,15 @@
     <Folder Include="Components\" />
     <Folder Include="Pages\" />
     <Folder Include="Windows\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.0.9" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\image_2022-11-23_22-07-40.png" />
   </ItemGroup>
 
 </Project>
