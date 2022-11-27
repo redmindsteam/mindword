@@ -63,28 +63,9 @@
                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                     PasswordChanged="txPasswordLogin_TextChanged"/>
 
-                <Button Height="50"
-                    Width="344"
-                    FontFamily="Jetbrains Mono"
-                    Margin="0 40"
-                    Content="LOGIN"
-                    FontWeight="SemiBold"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Foreground="White"
-                    FontSize="16"
-                    Background="#33A3A7" Click="Button_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Border CornerRadius="4" Background="{TemplateBinding Background}">
-                                <ContentPresenter Content="{TemplateBinding Content}" 
-                                                  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button Content="LOGIN" Style="{StaticResource PrimaryButton}"
+                        Margin="0 40">
+                    
                 </Button>
 
                 <TextBlock Grid.Column="1"
