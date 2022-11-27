@@ -9,6 +9,6 @@ namespace MindWord.Domain.Constants
     public class DbConstants
     {
         public const string CONNECTION_STRING = " Data Source= ../../../../../database/Mindword.db";
-        public const string AccountImagePath = "../../../../../Images";
+        public const string AccountImagePath = "../../../../../images";
     }
 }

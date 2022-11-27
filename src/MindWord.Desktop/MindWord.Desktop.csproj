@@ -22,7 +22,6 @@
     <Folder Include="Assets\Audios\" />
     <Folder Include="Components\" />
     <Folder Include="Pages\" />
-    <Folder Include="Windows\" />
   </ItemGroup>
 
   <ItemGroup>
