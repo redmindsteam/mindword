@@ -35,7 +35,24 @@ namespace MindWord.Desktop.Windows
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Login.Visibility == Visibility.Visible)
+            {
+                txPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                txEmailRegistor.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                ImageLogin.Visibility = Visibility.Collapsed;
+                ImageRegister.Visibility = Visibility.Visible;
+                Login.Visibility = Visibility.Collapsed;
+                RegistorPage.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                txPasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                ImageLogin.Visibility = Visibility.Visible;
+                ImageRegister.Visibility = Visibility.Collapsed;
+                Login.Visibility = Visibility.Visible;
+                RegistorPage.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void txEmail_TextChanged(object sender, TextChangedEventArgs e)
@@ -52,11 +69,25 @@ namespace MindWord.Desktop.Windows
             }
         }
 
+        private void txEmailRegis_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            EmailAttribute emailAttribute = new EmailAttribute();
+            var result = emailAttribute.IsValid(txEmailRegistor.Text);
+            if (result.isSuccessful)
+            {
+                txEmailRegistor.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+            }
+            else
+            {
+                txEmailRegistor.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
+            }
+        }
+
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             IUserService service = new UserService();
-            var res = await service.LoginAsync(txEmail.Text,PasswordBox.Password);
+            var res = await service.LoginAsync(txEmail.Text,txPasswordBox.Password);
             if (res.isSuccessful == true)
             {
                 // go main menu
@@ -68,5 +99,32 @@ namespace MindWord.Desktop.Windows
             }
         }
 
+        private void txPasswordRegis_TextChanged(object sender, RoutedEventArgs e)
+        {
+            StrongPasswordAttribute passwordAttribute = new StrongPasswordAttribute();
+            var result = passwordAttribute.IsValid(txPasswordRegistorBox.Password);
+            if (result.isSuccessful)
+            {
+                txPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+            }
+            else
+            {
+                txPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
+            }
+        }
+
+        private void txPasswordLogin_TextChanged(object sender, RoutedEventArgs e)
+        {
+            StrongPasswordAttribute passwordAttribute = new StrongPasswordAttribute();
+            var result = passwordAttribute.IsValid(txPasswordBox.Password);
+            if (result.isSuccessful)
+            {
+                txPasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+            }
+            else
+            {
+                txPasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
+            }
+        }
     }
 }
