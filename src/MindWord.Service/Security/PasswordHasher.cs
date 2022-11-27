@@ -17,8 +17,8 @@ namespace MindWord.Service.Security
         public bool Verify(string password, string salt, string hash)
         {
             string strongpassword = _key + salt + password;
-            string newhash = BCrypt.Net.BCrypt.HashPassword(strongpassword);
-            return hash == newhash;
+            var newhash = BCrypt.Net.BCrypt.Verify(strongpassword,hash);
+            return newhash;
         }
 
         private string GenerateSalt()
