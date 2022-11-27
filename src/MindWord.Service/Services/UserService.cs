@@ -61,7 +61,7 @@ namespace MindWord.Service.Services
                     var createresult = await userRepository.CreateAsync(user);
                     if(createresult == true)
                     {
-                        return (true, " ");
+                        return (true, "Successfully");
                     }
                     else
                     {

@@ -1,6 +1,8 @@
 ﻿using MindWord.Service.Attributes;
 using MindWord.Service.Interfaces.Services;
 using MindWord.Service.Services;
+using MindWord.Service.Services.Common;
+using MindWord.Service.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,10 +50,10 @@ namespace MindWord.Desktop.Windows
             {
                 txPasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-                ImageLogin.Visibility = Visibility.Visible;
                 ImageRegister.Visibility = Visibility.Collapsed;
-                Login.Visibility = Visibility.Visible;
+                ImageLogin.Visibility = Visibility.Visible;
                 RegistorPage.Visibility = Visibility.Collapsed;
+                Login.Visibility = Visibility.Visible;
             }
         }
 
@@ -62,9 +64,13 @@ namespace MindWord.Desktop.Windows
             if (result.isSuccessful)
             {
                 txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+               
+                LbEmailIsCorrect.Content = "";
             }
             else
             {
+               
+                LbEmailIsCorrect.Content = result.Message;
                 txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
             }
         }
@@ -76,9 +82,11 @@ namespace MindWord.Desktop.Windows
             if (result.isSuccessful)
             {
                 txEmailRegistor.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+                RegistLbEmail.Content = "";
             }
             else
             {
+                RegistLbEmail.Content = result.Message; 
                 txEmailRegistor.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
             }
         }
@@ -91,6 +99,7 @@ namespace MindWord.Desktop.Windows
             if (res.isSuccessful == true)
             {
                 // go main menu
+                MessageBox.Show("Succes");
             }
             else
             {
@@ -106,9 +115,11 @@ namespace MindWord.Desktop.Windows
             if (result.isSuccessful)
             {
                 txPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+                RegistLbPassword.Content = "";
             }
             else
             {
+                RegistLbPassword.Content = result.Message;  
                 txPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
             }
         }
@@ -124,6 +135,30 @@ namespace MindWord.Desktop.Windows
             else
             {
                 txPasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
+            }
+        }
+
+        private async void BtnRegistr(object sender, RoutedEventArgs e)
+        {
+            ImageService imageService = new ImageService();
+            UserViewModel userViewModel = new UserViewModel()
+            {
+                FullName = txFullName.Text,
+                Email = txEmailRegistor.Text,
+                Password = txPasswordRegistorBox.Password,
+                AccountImagePath = imageService.DefaultImage()
+
+            };
+
+            UserService userService = new UserService();
+            var result = await userService.RegisterAsync(userViewModel);
+            if (result.isSuccessful == true)
+            {
+                MessageBox.Show(result.Message);
+                ImageRegister.Visibility = Visibility.Collapsed;
+                ImageLogin.Visibility = Visibility.Visible;
+                RegistorPage.Visibility = Visibility.Collapsed;
+                Login.Visibility = Visibility.Visible;
             }
         }
     }

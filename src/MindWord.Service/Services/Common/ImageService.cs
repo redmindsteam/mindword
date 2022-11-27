@@ -38,5 +38,11 @@ namespace MindWord.Service.Services.Common
             }
            await File.WriteAllBytesAsync(_imageFolderPath+"/"+ ImageHelper.MakeImageName(), bytes);
         }
+
+        public string DefaultImage()
+        {
+            return _imageFolderPath + "/" + "Default.jpg";
+        }
+
     }
 }
