@@ -140,25 +140,38 @@ namespace MindWord.Desktop.Windows
 
         private async void BtnRegistr(object sender, RoutedEventArgs e)
         {
-            ImageService imageService = new ImageService();
-            UserViewModel userViewModel = new UserViewModel()
-            {
-                FullName = txFullName.Text,
-                Email = txEmailRegistor.Text,
-                Password = txPasswordRegistorBox.Password,
-                AccountImagePath = imageService.DefaultImage()
 
-            };
+            EmailAttribute emailAttribute = new EmailAttribute();
+            StrongPasswordAttribute strongPasswordAttribute = new StrongPasswordAttribute();
 
-            UserService userService = new UserService();
-            var result = await userService.RegisterAsync(userViewModel);
-            if (result.isSuccessful == true)
+            if (emailAttribute.IsValid(txEmailRegistor.Text).isSuccessful)
             {
-                MessageBox.Show(result.Message);
-                ImageRegister.Visibility = Visibility.Collapsed;
-                ImageLogin.Visibility = Visibility.Visible;
-                RegistorPage.Visibility = Visibility.Collapsed;
-                Login.Visibility = Visibility.Visible;
+                if (strongPasswordAttribute.IsValid(txPasswordRegistorBox.Password).isSuccessful)
+                {
+
+
+                    ImageService imageService = new ImageService();
+                    UserViewModel userViewModel = new UserViewModel()
+                    {
+                        FullName = txFullName.Text,
+                        Email = txEmailRegistor.Text,
+                        Password = txPasswordRegistorBox.Password,
+                        AccountImagePath = imageService.DefaultImage()
+
+                    };
+
+                    UserService userService = new UserService();
+                    var result = await userService.RegisterAsync(userViewModel);
+                    if (result.isSuccessful == true)
+                    {
+                        MessageBox.Show(result.Message);
+                        ImageRegister.Visibility = Visibility.Collapsed;
+                        ImageLogin.Visibility = Visibility.Visible;
+                        RegistorPage.Visibility = Visibility.Collapsed;
+                        Login.Visibility = Visibility.Visible;
+                    }
+                }
+
             }
         }
     }
