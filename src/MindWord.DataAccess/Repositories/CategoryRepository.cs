@@ -72,13 +72,13 @@ namespace MindWord.DataAccess.Repositories
             finally { _con.Close(); }
         }
 
-        public async Task<IList<Category>> GetAllAsync(int skip, int take)
+        public async Task<IList<Category>> GetAllAsync()
         {
             try
             {
                 var categories = new List<Category>();
                 await _con.OpenAsync();
-                string query = $"SELECT * from categories LIMIT {take} OFFSET {skip}";
+                string query = $"SELECT * from categories";
                 var command = new SQLiteCommand(query, _con);
                 var reader = await command.ExecuteReaderAsync();
                 while (reader.Read())
