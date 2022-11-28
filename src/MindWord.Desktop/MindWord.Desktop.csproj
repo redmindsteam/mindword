@@ -8,12 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <None Remove="Images\signIn.jpg" />
     <None Remove="Images\SignUp.jpg" />
-=======
+
     <None Remove="Images\image_2022-11-23_22-07-40.png" />
->>>>>>> fb6f136 (Login Wpf)
+
   </ItemGroup>
 
   <ItemGroup>
@@ -44,7 +43,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\image_2022-11-23_22-07-40.png" />
+    <Resource Include="Images\signIn.jpg" />
+    <Resource Include="Images\SignUp.jpg" />
   </ItemGroup>
 
 </Project>

@@ -28,5 +28,10 @@ namespace MindWord.Desktop.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
