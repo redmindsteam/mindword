@@ -128,9 +128,37 @@ namespace MindWord.DataAccess.Repositories
 
                 return null!;
             }
-         
+            finally { _con.Close(); }
         }
 
+        public async Task<Category> GetByTitleAsync(string title)
+        {
+            try
+            {
+                await _con.OpenAsync();
+                string query = $"SELECT * from categories where id = {title}";
+                var command = new SQLiteCommand(query, _con);
+                var reader = await command.ExecuteReaderAsync();
+                if (await reader.ReadAsync())
+                {
+                    return new Category
+                    {
+                        Id = reader.GetInt32(0),
+                        Title = reader.GetString(1),
+                        Description = reader.GetString(2),
+                        UserId = reader.GetInt32(3),
+                    };
+                }
+                else
+                    return null!;
+            }
+            catch
+            {
+
+                return null!;
+            }
+            finally { _con.Close(); }
+        }
         public async Task<bool> UpdateAsync(int id, Category entity)
         {
             try

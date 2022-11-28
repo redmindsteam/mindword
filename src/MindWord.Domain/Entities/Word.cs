@@ -14,8 +14,8 @@ namespace MindWord.Domain.Entities
         public string Translate { get; set; } = string.Empty; 
         public int UserId { get; set; }
         public string AudioPath { get; set; } = string.Empty;
-        public int CorrectCoins { get; set; }
-        public int ErrorCoins { get; set; }
+        public int CorrectCoins { get; set; } = 0;
+        public int ErrorCoins { get; set; } = 0;
         public int CategoryId { get; set; }
     }
 }
