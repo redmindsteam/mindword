@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\Images\" />
-    <Folder Include="Assets\Icons\" />
     <Folder Include="Assets\Audios\" />
     <Folder Include="Components\" />
     <Folder Include="Pages\" />
