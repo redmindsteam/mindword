@@ -5,11 +5,19 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindWord.Desktop", "MindWord.Desktop\MindWord.Desktop.csproj", "{CF43F1D1-A855-41BD-ACED-EEFC7F69507F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindWord.Domain", "MindWord.Domain\MindWord.Domain.csproj", "{F6A25F0B-13D5-4ABD-AC98-D6D962A6B959}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindWord.Domain", "MindWord.Domain\MindWord.Domain.csproj", "{F6A25F0B-13D5-4ABD-AC98-D6D962A6B959}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindWord.DataAccess", "MindWord.DataAccess\MindWord.DataAccess.csproj", "{AEB53A76-F768-4754-864E-8362E67461E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindWord.DataAccess", "MindWord.DataAccess\MindWord.DataAccess.csproj", "{AEB53A76-F768-4754-864E-8362E67461E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindWord.Service", "MindWord.Service\MindWord.Service.csproj", "{9885D987-2D05-48FD-8717-3E5ABBFC0174}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindWord.Service", "MindWord.Service\MindWord.Service.csproj", "{9885D987-2D05-48FD-8717-3E5ABBFC0174}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AA35E8BE-6B32-4F94-B579-39CC65DA100E} = {AA35E8BE-6B32-4F94-B579-39CC65DA100E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integrated", "Integrated\Integrated.csproj", "{AA35E8BE-6B32-4F94-B579-39CC65DA100E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F6A25F0B-13D5-4ABD-AC98-D6D962A6B959} = {F6A25F0B-13D5-4ABD-AC98-D6D962A6B959}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,10 @@ Global
 		{9885D987-2D05-48FD-8717-3E5ABBFC0174}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9885D987-2D05-48FD-8717-3E5ABBFC0174}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9885D987-2D05-48FD-8717-3E5ABBFC0174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA35E8BE-6B32-4F94-B579-39CC65DA100E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA35E8BE-6B32-4F94-B579-39CC65DA100E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA35E8BE-6B32-4F94-B579-39CC65DA100E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA35E8BE-6B32-4F94-B579-39CC65DA100E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

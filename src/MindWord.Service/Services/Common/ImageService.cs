@@ -11,7 +11,7 @@ namespace MindWord.Service.Services.Common
 {
     public class ImageService : IImageCommon
     {
-        private readonly string _imageFolderPath = DbConstants.AccountImagePath;
+        private readonly string _imageFolderPath = DbConstants.ACCOUNT_IMAGE_PATH;
 
         public string ImageFolderName => throw new NotImplementedException();
 
