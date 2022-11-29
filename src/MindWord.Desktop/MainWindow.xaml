@@ -5,14 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000"
-        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="MainWindow" Height="580" Width="930"
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
         Background="Transparent"
-        Name="home" WindowState="Normal"
-        ResizeMode="NoResize" AllowsTransparency="True">
-    <Border CornerRadius="8" Background="{DynamicResource LightPrimaryBackgroundColor}">
-        <Grid>
-            
-        </Grid>
-    </Border>
+        x:Name="DashboardWindow" 
+        WindowState="Normal"
+        ResizeMode="NoResize" 
+        AllowsTransparency="True">
+    <!--Setting the DataContext (Binding Source)-->
+
+    <Grid>
+        <!--Background Border-->
+
+        <Border Background="#ECF0F1"
+                CornerRadius="10"/>
+
+       
+
+        
+    </Grid>
 </Window>
