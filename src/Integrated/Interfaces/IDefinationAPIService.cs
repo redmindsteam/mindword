@@ -10,8 +10,8 @@ namespace Integrated.Interfaces
 {
     public interface IDefinationAPIService
     {
-        public Task<(bool,byte[]?)> GetVoiceAsync(List<Phonetic> phonetics);
-        public Task<List<WordDetail>> GetWordDeteilAsync(string word);
-        public Task<Word> 
+        public Task<(bool successful, byte[]? voice)> GetVoiceAsync(List<Phonetic> phonetics);
+        public Task<WordDetail?> GetWordDeteilAsync(string word);
+        public Task<(bool successful, Word word)> GetWordAsync(string word);    
     }
 }
