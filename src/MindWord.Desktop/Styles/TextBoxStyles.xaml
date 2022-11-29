@@ -9,13 +9,12 @@
                             BorderThickness="1"
                             CornerRadius="5"
                             Background="#33A3A7"
-                            Height="35">
+                            Height="40">
                         <TextBox Style="{x:Null}"
                                  Margin="5 0 0 0"
                                  FontSize="16"
                                  BorderThickness="0"
                                  Background="Transparent"
-                                 MaxLength="30"
                                  Foreground="WhiteSmoke"
                                  Text="{Binding Path=Text, RelativeSource={RelativeSource AncestorType=AccessText}}">
                         </TextBox>
