@@ -181,22 +181,41 @@ namespace MindWord.Desktop.Windows
         private async void Register_Click(object sender, RoutedEventArgs e)
         {
             IUserService service = new UserService();
-            UserViewModel userView = new UserViewModel()
+            EmailAttribute emailAttribute = new EmailAttribute();
+            var res = emailAttribute.IsValid(txEmailRegistor.Text);
+            if(res.isSuccessful == true)
             {
-                FullName = txEmailRegistor.Text,
-                Email = txEmailRegistor.Text,
-                Password = txPasswordRegistorBox.Password,
-                AccountImagePath = DbConstants.AccountImagePath
-            };
-            var result = await service.RegisterAsync(userView);
-            if (result.isSuccessful == true)
-            {
-                RegisterPage.Visibility = Visibility.Collapsed;
-                Login.Visibility = Visibility.Visible;
+                StrongPasswordAttribute strongPassword = new StrongPasswordAttribute();
+                var result = strongPassword.IsValid(txPasswordBox.Password);
+                if(result.isSuccessful == true)
+                {
+                    UserViewModel userView = new UserViewModel()
+                    {
+                        FullName = txFullName.Text,
+                        Email = txEmailRegistor.Text,
+                        Password = txPasswordRegistorBox.Password,
+                        AccountImagePath = DbConstants.AccountImagePath
+                    };
+                    var resultRegister = await service.RegisterAsync(userView);
+                    if (resultRegister.isSuccessful == true)
+                    {
+                        RegisterPage.Visibility = Visibility.Collapsed;
+                        Login.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultRegister.Message);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show(result.Message);
+                }
             }
             else
             {
-                MessageBox.Show(result.Message);
+                MessageBox.Show(res.Message);
             }
         }
 
