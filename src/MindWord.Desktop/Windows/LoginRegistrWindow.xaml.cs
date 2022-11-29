@@ -194,7 +194,7 @@ namespace MindWord.Desktop.Windows
                         FullName = txFullName.Text,
                         Email = txEmailRegistor.Text,
                         Password = txPasswordRegistorBox.Password,
-                        AccountImagePath = DbConstants.AccountImagePath
+                        AccountImagePath = DbConstants.ACCOUNT_IMAGE_PATH
                     };
                     var resultRegister = await service.RegisterAsync(userView);
                     if (resultRegister.isSuccessful == true)
