@@ -12,60 +12,7 @@
         ResizeMode="NoResize" AllowsTransparency="True">
     <Border CornerRadius="8" Background="{DynamicResource LightPrimaryBackgroundColor}">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <!-- Start: GridColum Left-->
-            <Border CornerRadius="8 0 0 8" Background="{DynamicResource LightSecundaryBackgroundColor}">
-                <Grid x:Name="gridMenu" Width="60">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <!--Menu-->
-                    <StackPanel>
-                        <ToggleButton x:Name="btnMenu"  HorizontalAlignment="Right" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Style="{StaticResource MenuIconStyle}" Margin="0 0 15 0">
-                            <ToggleButton.Triggers>
-                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                    <BeginStoryboard>
-                                        <Storyboard x:Name="HideStackPanel">
-                                            <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="200" To="60" Duration="0:0:0.3">
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                    <BeginStoryboard>
-                                        <Storyboard x:Name="ShowStackPanel">
-                                            <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="60" To="200" Duration="0:0:0.3">
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                            </ToggleButton.Triggers>
-                        </ToggleButton>
-                    </StackPanel>
-
-                    <!--Logo-->
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top">
-                        <Path Data="{DynamicResource logo}" Margin="16 0 0 0" Stretch="Fill" Fill="{DynamicResource LightPrimaryBlueColor}" Width="25" Height="25" HorizontalAlignment="Left"/>
-                        <Label Content="Mind Word" Foreground="{DynamicResource LightPrimaryBlueColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="14 0 0 0"/>
-                    </StackPanel>
-                    
-                    <!--Icon buttons-->
-                    <StackPanel Grid.Row="3">
-                        <RadioButton x:Name="rdHome" IsChecked="True" Content="Home" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource home}" Click="rdHome_Click"/>
-                        <RadioButton x:Name="rdGame" IsChecked="True" Content="Game" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource game}" Click="rdGame_Click"/>
-                        <RadioButton x:Name="rdSettings" IsChecked="True" Content="Settings" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource settings}" Click="rdSettings_Click"/>
-                        <RadioButton x:Name="rdSignOut" IsChecked="True" Content="Sign Out" Style="{DynamicResource MenuIconStyle}" Tag="{DynamicResource signOut}" Click="rdSignOut_Click"/>
-                    </StackPanel>
-                </Grid>
-            </Border>
+            
         </Grid>
     </Border>
 </Window>
