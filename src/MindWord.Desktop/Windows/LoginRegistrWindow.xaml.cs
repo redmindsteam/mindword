@@ -1,4 +1,5 @@
-﻿using MindWord.Service.Attributes;
+﻿using MindWord.Domain.Constants;
+using MindWord.Service.Attributes;
 using MindWord.Service.Interfaces.Services;
 using MindWord.Service.Services;
 using MindWord.Service.Services.Common;
@@ -44,7 +45,7 @@ namespace MindWord.Desktop.Windows
                 ImageLogin.Visibility = Visibility.Collapsed;
                 ImageRegister.Visibility = Visibility.Visible;
                 Login.Visibility = Visibility.Collapsed;
-                RegistorPage.Visibility = Visibility.Visible;
+                RegisterPage.Visibility = Visibility.Visible;
             }
             else
             {
@@ -52,7 +53,7 @@ namespace MindWord.Desktop.Windows
                 txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 ImageRegister.Visibility = Visibility.Collapsed;
                 ImageLogin.Visibility = Visibility.Visible;
-                RegistorPage.Visibility = Visibility.Collapsed;
+                RegisterPage.Visibility = Visibility.Collapsed;
                 Login.Visibility = Visibility.Visible;
             }
         }
@@ -167,11 +168,70 @@ namespace MindWord.Desktop.Windows
                         MessageBox.Show(result.Message);
                         ImageRegister.Visibility = Visibility.Collapsed;
                         ImageLogin.Visibility = Visibility.Visible;
-                        RegistorPage.Visibility = Visibility.Collapsed;
+                        RegisterPage.Visibility = Visibility.Collapsed;
                         Login.Visibility = Visibility.Visible;
                     }
                 }
 
+            }
+        }
+
+        
+
+        private async void Register_Click(object sender, RoutedEventArgs e)
+        {
+            IUserService service = new UserService();
+            EmailAttribute emailAttribute = new EmailAttribute();
+            var res = emailAttribute.IsValid(txEmailRegistor.Text);
+            if(res.isSuccessful == true)
+            {
+                StrongPasswordAttribute strongPassword = new StrongPasswordAttribute();
+                var result = strongPassword.IsValid(txPasswordBox.Password);
+                if(result.isSuccessful == true)
+                {
+                    UserViewModel userView = new UserViewModel()
+                    {
+                        FullName = txFullName.Text,
+                        Email = txEmailRegistor.Text,
+                        Password = txPasswordRegistorBox.Password,
+                        AccountImagePath = DbConstants.AccountImagePath
+                    };
+                    var resultRegister = await service.RegisterAsync(userView);
+                    if (resultRegister.isSuccessful == true)
+                    {
+                        RegisterPage.Visibility = Visibility.Collapsed;
+                        Login.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultRegister.Message);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show(result.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show(res.Message);
+            }
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            IUserService service = new UserService();
+            var result = await service.LoginAsync(txEmail.Text, txPasswordBox.Password);
+            if (result.isSuccessful == true)
+            {
+                MainWindow mainWindow = new MainWindow();
+                this.Hide();
+                mainWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show(result.Message);
             }
         }
     }
