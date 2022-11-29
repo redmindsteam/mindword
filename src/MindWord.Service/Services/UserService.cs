@@ -70,7 +70,7 @@ namespace MindWord.Service.Services
                 }
                 else
                 {
-                   
+                    return (false, result.Message);
                 }
             }
             else
