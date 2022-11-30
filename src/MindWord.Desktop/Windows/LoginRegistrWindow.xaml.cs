@@ -186,7 +186,7 @@ namespace MindWord.Desktop.Windows
             if(res.isSuccessful == true)
             {
                 StrongPasswordAttribute strongPassword = new StrongPasswordAttribute();
-                var result = strongPassword.IsValid(txPasswordBox.Password);
+                var result = strongPassword.IsValid(txPasswordRegistorBox.Password);
                 if(result.isSuccessful == true)
                 {
                     UserViewModel userView = new UserViewModel()
