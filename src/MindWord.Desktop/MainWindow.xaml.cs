@@ -45,9 +45,9 @@ namespace MindWord.Desktop
         private void Themes_Click(object sender, RoutedEventArgs e)
         {
             if (Themes.IsChecked == true)
-                ThemesController.SetTheme(ThemesController.ThemeTypes.Dark);
-            else
                 ThemesController.SetTheme(ThemesController.ThemeTypes.Light);
+            else
+                ThemesController.SetTheme(ThemesController.ThemeTypes.Dark);
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
