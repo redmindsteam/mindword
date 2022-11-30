@@ -1,0 +1,50 @@
+﻿<Window x:Class="MindWord.Desktop.Windows.TitleCreate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MindWord.Desktop.Windows"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TitleCreate" Height="308" Width="500"
+        WindowStyle="None">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="-15,0,0,0">
+            <StackPanel Margin="33,30,10,40" RenderTransformOrigin="0.367,0.493" >
+                <Label Style="{DynamicResource MaterialDesignLabel}" 
+                       Margin="5, 40, 5, 0"
+                       FontSize="17"
+                       FontWeight="SemiBold" Width="110">
+                    Title
+                </Label>
+
+                <Label Style="{DynamicResource MaterialDesignLabel}" 
+                       Margin="5, 40, 5, 0"
+                       FontSize="17"
+                       FontWeight="SemiBold">
+                    Description
+                </Label>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <StackPanel Margin="15,30,0,10" HorizontalAlignment="Left" Width="318" >
+                <TextBox Style="{DynamicResource FormTextBox}" 
+                         Margin="15, 35 ,15 ,0" >
+
+                </TextBox>
+
+                <TextBox Style="{DynamicResource FormTextBox}" 
+                         Margin="15, 35 ,15 ,0">
+                </TextBox>
+
+                <Button Style="{DynamicResource PrimaryButton}" 
+                        Margin="200, 50, 15, 0">
+                    Add
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
