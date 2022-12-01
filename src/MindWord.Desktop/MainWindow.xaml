@@ -107,12 +107,7 @@
                     
                 </Border>
                 <!-- End: Frame Container -->
-                <Border Grid.Row="2" CornerRadius="0 0 5 0" Background="Transparent">
-                    <Button Style="{DynamicResource MaterialDesignFlatButton}" Tag="{DynamicResource plus}" Margin="0,9,52,9"
-                            Width="57" Height="57" HorizontalAlignment="Right">
-                        <Path Data="{DynamicResource plus}" Height="25" Width="25"  Fill="{DynamicResource PrimaryHueLightBrush}" VerticalAlignment="Center"/>
-                    </Button>
-                </Border>
+               
             </Grid>
         </Grid>
     </Border>

@@ -20,7 +20,6 @@
     <Folder Include="Assets\Images\" />
     <Folder Include="Assets\Audios\" />
     <Folder Include="Components\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
   <ItemGroup>
