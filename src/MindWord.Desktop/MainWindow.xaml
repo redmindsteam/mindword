@@ -44,9 +44,9 @@
                     <StackPanel Grid.Row="1">
                         <RadioButton x:Name="rdHome" Content="Home" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource home}" Margin="0 30 0 0" Click="rdHome_Click"/>
                         <RadioButton x:Name="rdGame" Content="Game" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource game}" Margin="0 1 0 1" Click="rdGame_Click"/>
-                        
+
                         <Separator Margin="20 20" Background="{DynamicResource TertiaryBackgroundColor}"/>
-                        
+
                         <RadioButton x:Name="rdSettings" Content="Settings" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource settings}" Click="rdSettings_Click"/>
 
                     </StackPanel>
@@ -80,6 +80,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition/>
+                    <RowDefinition Height="75"/>
                 </Grid.RowDefinitions>
                 <!-- Start: Button Close | Restore | Minimize -->
                 <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
@@ -106,7 +107,12 @@
                     
                 </Border>
                 <!-- End: Frame Container -->
-
+                <Border Grid.Row="2" CornerRadius="0 0 5 0" Background="Transparent">
+                    <Button Style="{DynamicResource MaterialDesignFlatButton}" Tag="{DynamicResource plus}" Margin="0,9,52,9"
+                            Width="57" Height="57" HorizontalAlignment="Right">
+                        <Path Data="{DynamicResource plus}" Height="25" Width="25"  Fill="{DynamicResource PrimaryHueLightBrush}" VerticalAlignment="Center"/>
+                    </Button>
+                </Border>
             </Grid>
         </Grid>
     </Border>
