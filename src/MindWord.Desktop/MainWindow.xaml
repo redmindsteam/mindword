@@ -36,7 +36,7 @@
 
                     <!-- Logo -->
                     <StackPanel Grid.Row="0" Orientation="Horizontal">
-                        <!--<Image Source="/Assets/Icons/Logo.png" Stretch="Fill" Height="36" Width="36" VerticalAlignment="Center" Margin="10 0 0 0"/>-->
+                        <Image Source="/Assets/Icons/mindWordLogo.png" Stretch="Fill" Height="36" Width="36" VerticalAlignment="Center" Margin="10 0 0 0"/>
                         <Label Content="Mind Word" Foreground="{DynamicResource SecundaryBlueColor}" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="5 0 0 0"/>
                     </StackPanel>
 
@@ -103,6 +103,7 @@
                 <!-- Start: Frame Container -->
                 <Border Grid.Row="1" CornerRadius="0 0 5 0" Background="Transparent">
                     <Frame x:Name="frameContent" NavigationUIVisibility="Hidden" Margin="10"/>
+                    
                 </Border>
                 <!-- End: Frame Container -->
 
