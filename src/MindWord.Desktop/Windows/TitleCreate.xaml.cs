@@ -23,5 +23,10 @@ namespace MindWord.Desktop.Windows
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

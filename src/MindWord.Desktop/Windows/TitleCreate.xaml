@@ -31,17 +31,17 @@
         </Grid>
         <Grid Grid.Column="1">
             <StackPanel Margin="15,30,0,10" HorizontalAlignment="Left" Width="318" >
-                <TextBox Style="{DynamicResource FormTextBox}" 
+                <TextBox x:Name="txTitle" Style="{DynamicResource FormTextBox}" 
                          Margin="15, 35 ,15 ,0" >
 
                 </TextBox>
 
-                <TextBox Style="{DynamicResource FormTextBox}" 
+                <TextBox x:Name="txDescriptionTitle" Style="{DynamicResource FormTextBox}" 
                          Margin="15, 35 ,15 ,0">
                 </TextBox>
 
                 <Button Style="{DynamicResource PrimaryButton}" 
-                        Margin="200, 50, 15, 0">
+                        Margin="200, 50, 15, 0" Click="Button_Click">
                     Add
                 </Button>
             </StackPanel>
