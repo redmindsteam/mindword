@@ -1,17 +1,9 @@
 ﻿using MindWord.DataAccess.Interfaces.Repositories;
-using MindWord.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.SQLite;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 using MindWord.Domain.Constants;
-using System.Data.Common;
-using System.Data.SqlClient;
+using MindWord.Domain.Entities;
+using System.Data;
+using System.Data.SQLite;
+using System.Text;
 
 namespace MindWord.DataAccess.Repositories
 {
@@ -22,7 +14,7 @@ namespace MindWord.DataAccess.Repositories
         {
             try
             {
-               await _con.OpenAsync();
+                await _con.OpenAsync();
                 string query = @"INSERT INTO Users(CreatedAt,FullName,Email,PasswordHash,Salt,account_image_path)" +
                      "VALUES($CreatedAt,$FullName,$Email,$PasswordHash,$Salt,$account_image_path);";
                 var command = new SQLiteCommand(query, _con)
@@ -37,11 +29,11 @@ namespace MindWord.DataAccess.Repositories
                         new SQLiteParameter("account_image_path", item.AccountImagePath)
                     }
                 };
-                
+
                 var result = await command.ExecuteNonQueryAsync();
                 return result > 0;
             }
-            catch 
+            catch
             {
                 return false;
             }
@@ -54,15 +46,15 @@ namespace MindWord.DataAccess.Repositories
             {
                 await _con.OpenAsync();
                 string query = $"DELETE FROM Users where id = {id}";
-                var command = new SQLiteCommand(query,_con);
+                var command = new SQLiteCommand(query, _con);
                 var result = await command.ExecuteNonQueryAsync();
-                if(result > 0)
+                if (result > 0)
                     return true;
                 else
                     return false;
 
             }
-            catch 
+            catch
             {
 
                 return false;
@@ -78,7 +70,7 @@ namespace MindWord.DataAccess.Repositories
                 var users = new List<User>();
                 await _con.OpenAsync();
                 string query = $"SELECT * FROM Users ;";
-                var command = new SQLiteCommand (query,_con);
+                var command = new SQLiteCommand(query, _con);
                 var reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
@@ -91,7 +83,7 @@ namespace MindWord.DataAccess.Repositories
                         PasswordHash = reader.GetString("PasswordHash"),
                         Salt = reader.GetString("Salt"),
                         AccountImagePath = reader.GetDataTypeName("account_image_path")
-                     
+
 
                     };
                     users.Add(user);
@@ -99,7 +91,7 @@ namespace MindWord.DataAccess.Repositories
 
                 return users;
             }
-            catch 
+            catch
             {
 
                 return new List<User>();
@@ -133,13 +125,13 @@ namespace MindWord.DataAccess.Repositories
                         Salt = reader.GetString("Salt"),
                         AccountImagePath = reader.GetString("account_image_path")
 
-                        
+
                     };
                 }
-                else 
+                else
                     return null!;
             }
-            catch 
+            catch
             {
 
                 return null!;
@@ -155,7 +147,7 @@ namespace MindWord.DataAccess.Repositories
                 string query = $"select * from Users where Id = {id}";
                 SQLiteCommand command = new SQLiteCommand(query, _con);
                 var reader = await command.ExecuteReaderAsync();
-                if(await reader.ReadAsync())
+                if (await reader.ReadAsync())
                 {
                     return new User()
                     {
@@ -170,7 +162,7 @@ namespace MindWord.DataAccess.Repositories
                 }
                 else return null!;
             }
-            catch 
+            catch
             {
 
                 return null!;
@@ -182,7 +174,7 @@ namespace MindWord.DataAccess.Repositories
         {
             try
             {
-               await  _con.OpenAsync();
+                await _con.OpenAsync();
                 string query = $"update Users set " +
                     "FullName = $FullName, Email = $Email," +
                     " PasswordHash = $PasswordHash, Salt = $Salt, account_image_path = $account_image_path " +
@@ -191,7 +183,7 @@ namespace MindWord.DataAccess.Repositories
                 {
                     Parameters =
                     {
-                       
+
                         new SQLiteParameter("FullName",entity.FullName),
                         new SQLiteParameter("Email", entity.Email),
                         new SQLiteParameter("PasswordHash",entity.PasswordHash),
@@ -200,12 +192,12 @@ namespace MindWord.DataAccess.Repositories
                     }
                 };
                 int result = await command.ExecuteNonQueryAsync();
-                if(result == 0)
+                if (result == 0)
                     return false;
                 else
                     return true;
             }
-            catch 
+            catch
             {
 
                 return false;

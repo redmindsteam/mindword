@@ -2,12 +2,7 @@
 using Integrated.Interfaces;
 using Integrated.TranslateAPIModels;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Integrated.Services
 {
@@ -39,7 +34,7 @@ namespace Integrated.Services
             var body = await response.Content.ReadAsStringAsync();
             var json = JsonConvert.DeserializeObject<List<Translater>>(body);
             var tranlatedWord = json[0].Translations[0].Text;
-            if(tranlatedWord != null) return (true, tranlatedWord);
+            if (tranlatedWord != null) return (true, tranlatedWord);
             else return (false, "");
         }
     }

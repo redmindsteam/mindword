@@ -1,13 +1,7 @@
 ﻿using MindWord.DataAccess.Interfaces.Repositories;
 using MindWord.Domain.Constants;
 using MindWord.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MindWord.DataAccess.Repositories
 {
@@ -33,7 +27,7 @@ namespace MindWord.DataAccess.Repositories
                 };
                 var result = await command.ExecuteNonQueryAsync();
 
-                if(result != 0)
+                if (result != 0)
                 {
                     return true;
                 }
@@ -41,7 +35,7 @@ namespace MindWord.DataAccess.Repositories
                     return false;
 
             }
-            catch 
+            catch
             {
 
                 return false;
@@ -57,14 +51,14 @@ namespace MindWord.DataAccess.Repositories
                 string query = $"delete from categories where id = {id}";
                 var command = new SQLiteCommand(query, _con);
                 var result = await command.ExecuteNonQueryAsync();
-                if(result != 0)
+                if (result != 0)
                 {
                     return true;
                 }
                 else
                     return false;
             }
-            catch 
+            catch
             {
 
                 return false;
@@ -94,7 +88,7 @@ namespace MindWord.DataAccess.Repositories
                 }
                 return categories;
             }
-            catch 
+            catch
             {
 
                 return new List<Category>();
@@ -123,7 +117,7 @@ namespace MindWord.DataAccess.Repositories
                 else
                     return null!;
             }
-            catch 
+            catch
             {
 
                 return null!;
@@ -174,14 +168,14 @@ namespace MindWord.DataAccess.Repositories
                     }
                 };
                 var result = await command.ExecuteNonQueryAsync();
-                if(result!= 0)
+                if (result != 0)
                 {
                     return true;
                 }
                 else
                     return false;
             }
-            catch 
+            catch
             {
 
                 return false;

@@ -6,11 +6,6 @@ using MindWord.Service.Interfaces.Security;
 using MindWord.Service.Interfaces.Services;
 using MindWord.Service.Security;
 using MindWord.Service.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MindWord.Service.Services
 {
@@ -20,11 +15,11 @@ namespace MindWord.Service.Services
         {
             IUserRepository userRepository = new UserRepository();
             var user = await userRepository.GetByEmail(email);
-            if(user != null) 
+            if (user != null)
             {
                 IPasswordHasher passwordHasher = new PasswordHasher();
                 var result = passwordHasher.Verify(password, user.Salt, user.PasswordHash);
-                if(result == true)
+                if (result == true)
                 {
                     return (true, " ");
                 }
@@ -44,11 +39,11 @@ namespace MindWord.Service.Services
             IUserRepository userRepository = new UserRepository();
             EmailAttribute emailcheck = new EmailAttribute();
             var result = emailcheck.IsValid(viewModel.Email);
-            if(result.isSuccessful == true)
+            if (result.isSuccessful == true)
             {
                 StrongPasswordAttribute strongPassword = new StrongPasswordAttribute();
                 var res = strongPassword.IsValid(viewModel.Password);
-                if(res.isSuccessful == true)
+                if (res.isSuccessful == true)
                 {
                     PasswordHasher hasher = new PasswordHasher();
                     User user = new User();
@@ -59,7 +54,7 @@ namespace MindWord.Service.Services
                     user.PasswordHash = HashSalt.passwordHash;
                     user.Salt = HashSalt.salt;
                     var createresult = await userRepository.CreateAsync(user);
-                    if(createresult == true)
+                    if (createresult == true)
                     {
                         return (true, "Successfully");
                     }
