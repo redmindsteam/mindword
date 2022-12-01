@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MindWord.Service.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,16 @@ namespace MindWord.Desktop.Windows
         public TitleCreate()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CategoryViewModel model = new CategoryViewModel()
+            {
+                Title = txTitle.Text,
+                Description = txDescriptionTitle.Text
+            };
+
         }
     }
 }
