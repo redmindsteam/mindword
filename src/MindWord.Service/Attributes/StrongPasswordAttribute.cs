@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MindWord.Service.Attributes
+﻿namespace MindWord.Service.Attributes
 {
     public class StrongPasswordAttribute
     {
@@ -16,12 +9,12 @@ namespace MindWord.Service.Attributes
             else
             {
                 if (password.Length < 8)
-                    return (false,"Password must be at least 8 characters!");
+                    return (false, "Password must be at least 8 characters!");
                 else if (password.Length > 50)
-                    return (false,"Password must be less than 50 characters!");
+                    return (false, "Password must be less than 50 characters!");
                 var result = IsStrong(password);
 
-                if (result.IsValid is false) return (false,result.Message);
+                if (result.IsValid is false) return (false, result.Message);
                 return (true, result.Message);
             }
         }

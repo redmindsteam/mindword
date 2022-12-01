@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MindWord.Service.Attributes
+﻿namespace MindWord.Service.Attributes
 {
     public class IdentitySingelton
     {
         public int UserId { get; set; }
 
         private static IdentitySingelton _instance;
-        
+
         private IdentitySingelton()
         {
 

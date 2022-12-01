@@ -4,19 +4,10 @@ using MindWord.Service.Interfaces.Services;
 using MindWord.Service.Services;
 using MindWord.Service.Services.Common;
 using MindWord.Service.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MindWord.Desktop.Windows
 {
@@ -25,7 +16,7 @@ namespace MindWord.Desktop.Windows
     /// </summary>
 
     public partial class LoginWindow : Window
-  {
+    {
         private string _password = "";
         public LoginWindow()
         {
@@ -65,12 +56,12 @@ namespace MindWord.Desktop.Windows
             if (result.isSuccessful)
             {
                 txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
-               
+
                 LbEmailIsCorrect.Content = "";
             }
             else
             {
-               
+
                 LbEmailIsCorrect.Content = result.Message;
                 txEmail.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
             }
@@ -87,7 +78,7 @@ namespace MindWord.Desktop.Windows
             }
             else
             {
-                RegistLbEmail.Content = result.Message; 
+                RegistLbEmail.Content = result.Message;
                 txEmailRegistor.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
             }
         }
@@ -96,7 +87,7 @@ namespace MindWord.Desktop.Windows
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             IUserService service = new UserService();
-            var res = await service.LoginAsync(txEmail.Text,txPasswordBox.Password);
+            var res = await service.LoginAsync(txEmail.Text, txPasswordBox.Password);
             if (res.isSuccessful == true)
             {
                 // go main menu
@@ -120,7 +111,7 @@ namespace MindWord.Desktop.Windows
             }
             else
             {
-                RegistLbPassword.Content = result.Message;  
+                RegistLbPassword.Content = result.Message;
                 txPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
             }
         }
@@ -176,18 +167,18 @@ namespace MindWord.Desktop.Windows
             }
         }
 
-        
+
 
         private async void Register_Click(object sender, RoutedEventArgs e)
         {
             IUserService service = new UserService();
             EmailAttribute emailAttribute = new EmailAttribute();
             var res = emailAttribute.IsValid(txEmailRegistor.Text);
-            if(res.isSuccessful == true)
+            if (res.isSuccessful == true)
             {
                 StrongPasswordAttribute strongPassword = new StrongPasswordAttribute();
                 var result = strongPassword.IsValid(txPasswordRegistorBox.Password);
-                if(result.isSuccessful == true)
+                if (result.isSuccessful == true)
                 {
                     UserViewModel userView = new UserViewModel()
                     {

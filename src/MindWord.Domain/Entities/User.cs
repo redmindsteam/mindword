@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MindWord.Domain.Entities
+﻿namespace MindWord.Domain.Entities
 {
     public class User : Auditable
     {
@@ -14,7 +8,7 @@ namespace MindWord.Domain.Entities
 
         public string Salt { get; set; } = string.Empty;
 
-        public string AccountImagePath { get; set; } = string.Empty;    
+        public string AccountImagePath { get; set; } = string.Empty;
 
     }
 }
