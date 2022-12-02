@@ -96,9 +96,9 @@
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center">
                             <!-- Optional -->
-                            <!--<Border.Effect>
+                            <Border.Effect>
                                 <DropShadowEffect ShadowDepth="0.5" Opacity=".2"/>
-                            </Border.Effect>-->
+                            </Border.Effect>
                         </Border>
                         <Ellipse x:Name="Ellipse"
                                      Height="20"
@@ -109,9 +109,9 @@
                                      Stroke="{TemplateBinding BorderBrush}"
                                      StrokeThickness="3">
                             <!-- Optional -->
-                            <!--<Ellipse.Effect>
+                            <Ellipse.Effect>
                                 <DropShadowEffect ShadowDepth="0.5" Opacity=".2"/>
-                            </Ellipse.Effect>-->
+                            </Ellipse.Effect>
                         </Ellipse>
                     </Grid>
                     <ControlTemplate.Triggers>

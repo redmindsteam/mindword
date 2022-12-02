@@ -1,0 +1,224 @@
+﻿<Page x:Class="MindWord.Desktop.Pages.WordPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MindWord.Desktop.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="WordPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Choose pagenation count-->
+            <ComboBox IsReadOnly="True"
+                      Foreground="{DynamicResource SecundaryTextColor}"
+                      Grid.Column="0"
+                      Width="80"
+                      Background="{DynamicResource SecundaryBackgroundColor}"
+                      FontFamily="Jetbrains Mono"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Top"
+                      SelectedIndex="0">
+                <ComboBoxItem Tag="10">10</ComboBoxItem>
+                <ComboBoxItem Tag="20">20</ComboBoxItem>
+                <ComboBoxItem Tag="30">30</ComboBoxItem>
+            </ComboBox>
+            
+            <!--Search TextBox-->
+            <TextBox x:Name="tbSearchBox" 
+                     Grid.Column="1"
+                     VerticalAlignment="Top"
+                     Margin="15 0"
+                     Style="{DynamicResource SearchBox}"/>
+            
+            <!--Create Button-->
+            <Button x:Name="btnCreate"
+                Grid.Column="2"
+                Background="{DynamicResource SecundaryBlueColor}"
+                Width="100"
+                FontFamily="Jetbrains Mono"
+                FontSize="16"
+                Foreground="{DynamicResource TertiaryTextColor}"
+                BorderThickness="0"
+                VerticalAlignment="Top"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Right"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                ToolTip="MaterialDesignFlatMidButton"
+                Click="btnCreate_Click">
+                Create
+            </Button>
+        </Grid>
+
+        <DataGrid Grid.Row="1"
+                  Name="dgData"
+                  FontSize="15"
+                  FontFamily="Jetbrains Mono"
+                  AutoGenerateColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  IsReadOnly="True"
+                  Background="{DynamicResource SecundaryBackgroundColor}"
+                  TextElement.Foreground="{DynamicResource SecundaryTextColor}"
+                  Loaded="DataGrid_Loaded">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                    Width="70"
+                                    Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Word"
+                                    Width="3*"
+                                    Binding="{Binding Word}"/>
+                <DataGridTextColumn Header="Translate"
+                                    Width="5*"
+                                    Binding="{Binding Translate}"/>
+                <DataGridTemplateColumn Header="Status"
+                                        Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="10" 
+                                    Height="20"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Padding="10 5">
+                                <TextBlock Foreground="White" 
+                                           Text="{Binding Status}"
+                                           FontSize="12"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           FontWeight="SemiBold"/>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="Found">
+                                                <Setter Property="Background" Value="#50C878" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Not found">
+                                                <Setter Property="Background" Value="#ED624D" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--View-->
+                <DataGridTemplateColumn Header="View"
+                                    Width="95">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button
+                                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                                    ToolTip="View description">
+                                    View
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--Action-->
+                <DataGridTemplateColumn Header="Action"
+                                    Width="105">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button
+                                    Width="35"
+                                    Background="#318CE7"
+                                    BorderThickness="0"
+                                    Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                                    ToolTip="Info update">
+                                    <materialDesign:PackIcon Foreground="White"
+                                                             Margin="-6"
+                                                             Kind="Pencil"/>
+                                </Button>
+                                <Button
+                                    Margin="2 0 0 0"
+                                    Width="35"
+                                    BorderThickness="0"
+                                    Background="#DE665D"
+                                    Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                                    ToolTip="Info delete">
+                                    <materialDesign:PackIcon Foreground="White"
+                                                             Margin="-6"
+                                                             Kind="Delete"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1"
+                Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button x:Name="btnLeft"
+                        Grid.Column="1"
+                        Content=""
+                        FontSize="18"
+                        FontFamily="Jetbrains Mono"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Top"
+                        Width="60"
+                        Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
+                        Background="{DynamicResource SecundaryBlueColor}">
+                </Button>
+
+                <Label x:Name="lbPage"
+                       Margin="5 0 5 0"
+                       Grid.Column="1"
+                       Content="0/10"
+                       Width="100"
+                       
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       FontWeight="SemiBold"
+                       FontSize="16"
+                       Foreground="{DynamicResource SecundaryTextColor}"
+                       FontFamily="Jetbrains Mono">
+                </Label>
+
+                <Button x:Name="btnRight"
+                        Grid.Column="1"
+                        Content=">"
+                        Tag="{DynamicResource right}"
+                        FontSize="18"
+                        FontFamily="Jetbrains Mono"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Top"
+                        Width="60"
+                        Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
+                        Background="{DynamicResource SecundaryBlueColor}">
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        
+    </Grid>
+</Page>

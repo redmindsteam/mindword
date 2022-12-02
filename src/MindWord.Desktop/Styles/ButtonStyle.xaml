@@ -6,6 +6,7 @@
         <Setter Property="Background" Value="{DynamicResource TertiaryWhiteColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBlackColor}"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontFamily" Value="Jetbrains Mono"/>
         <Setter Property="Padding" Value="12 6"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="40"/>
@@ -45,6 +46,11 @@
         </Setter>
     </Style>
     <!-- End: ProButtonStyle -->
+
+    <Style x:Key="ForIconButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        
+    </Style>
 
     <!-- Start: Button | Minimize | Maximize | Close -->
     <Style x:Key="IconButtonsStyle" TargetType="{x:Type Button}">
