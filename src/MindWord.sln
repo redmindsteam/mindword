@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindWord.Desktop", "MindWord.Desktop\MindWord.Desktop.csproj", "{CF43F1D1-A855-41BD-ACED-EEFC7F69507F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4AF3DE25-305F-4A72-B193-728C79F1493D} = {4AF3DE25-305F-4A72-B193-728C79F1493D}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindWord.Domain", "MindWord.Domain\MindWord.Domain.csproj", "{F6A25F0B-13D5-4ABD-AC98-D6D962A6B959}"
 EndProject
@@ -11,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindWord.DataAccess", "Mind
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindWord.Service", "MindWord.Service\MindWord.Service.csproj", "{9885D987-2D05-48FD-8717-3E5ABBFC0174}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integrated", "Integrated\Integrated.csproj", "{4AF3DE25-305F-4A72-B193-728C79F1493D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integrated", "Integrated\Integrated.csproj", "{4AF3DE25-305F-4A72-B193-728C79F1493D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F6A25F0B-13D5-4ABD-AC98-D6D962A6B959} = {F6A25F0B-13D5-4ABD-AC98-D6D962A6B959}
 	EndProjectSection
