@@ -2,7 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MindWord.Desktop"
+<<<<<<< HEAD
              StartupUri="Windows/WordUpdate.xaml">
+=======
+             StartupUri="MainWindow.xaml">
+>>>>>>> c9b3273 (User settings create)
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

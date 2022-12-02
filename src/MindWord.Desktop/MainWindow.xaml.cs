@@ -20,7 +20,7 @@ namespace MindWord.Desktop
 
         private void rdSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            frameContent.Navigate(new System.Uri("Pages/SettingsPage.xaml", System.UriKind.RelativeOrAbsolute));
         }
 
         private void Themes_Click(object sender, RoutedEventArgs e)
