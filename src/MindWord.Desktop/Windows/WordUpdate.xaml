@@ -1,0 +1,76 @@
+﻿<Window x:Class="MindWord.Desktop.Windows.WordUpdate"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MindWord.Desktop.Windows"
+        mc:Ignorable="d" WindowStyle="None" 
+        Title="WordPage" Height="450" Width="520"
+        MouseDown="MainWindow_OnMouseDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="420"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Height="420" Width="350" HorizontalAlignment="Right">
+            <Label Content="Word"
+                    FontFamily="Jetbrains Mono"
+                    Foreground="#DB872F"
+                    FontSize="20"
+                    FontWeight="SemiBold" 
+                    HorizontalAlignment="Left"
+                    Margin="0 20 0 0"/>
+            <TextBox x:Name="txWord"
+                    Style="{DynamicResource FormTextBox}" 
+                     TextChanged="txWord_TextChanged_1" />
+
+
+            <TextBlock x:Name="TxbDescription"
+                    Height="30"
+                    MaxWidth="350"
+                    MaxHeight="30"
+                    FontFamily="Jetbrains Mono"
+                    Foreground="#E13E4E"
+                    FontSize="13"
+                    FontWeight="Medium" 
+                    HorizontalAlignment="Left"
+                    TextWrapping="Wrap"
+                    Margin="0 5 0 0"/>
+
+
+
+
+
+            <Label Content="Translation"
+                    FontFamily="Jetbrains Mono"
+                    Foreground="#DB872F"
+                    FontSize="20"
+                    FontWeight="SemiBold" 
+                    HorizontalAlignment="Left"
+                    Margin="0 30 0 0"/>
+
+            <TextBox x:Name="txTranslation"
+                    Style="{DynamicResource FormTextBox}"/>
+
+
+
+            <ComboBox x:Name="ComboBoxCategory" Width="200" Height="30" Margin="40, 35, 0, 20" >
+                <TextBlock>Salom</TextBlock>
+                <TextBlock>Hayer</TextBlock>
+                <TextBlock>limon</TextBlock>
+                <TextBlock>Asal</TextBlock>
+            </ComboBox>
+            <Button x:Name="BtnUpdateWord" Margin="40, 35, 0, 0" Content="Update" Width="150"
+                    Style="{DynamicResource PrimaryButton}" />
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Button x:Name="BtnVoice" Width="45" Height="35" Margin="5, 0, 0, 282" HorizontalAlignment="Left"
+                    Click="BtnLoad_Click">
+                <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center" />
+
+            </Button>
+
+        </Grid>
+    </Grid>
+</Window>
