@@ -20,6 +20,7 @@
 
                 <!--Styles-->
                 <ResourceDictionary Source="/Styles/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="Styles/RadioButtonStyle.xaml"/>
                 <ResourceDictionary Source="Styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="Styles/TextBoxStyles.xaml"/>
