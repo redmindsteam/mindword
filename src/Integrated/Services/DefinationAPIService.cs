@@ -54,14 +54,14 @@ namespace Integrated.Services
                     {
                         Directory.CreateDirectory(_wordAudioPath);
                     }
-                    if (!File.Exists("audios" + "/" + word + ".mp3"))
+                    if (!File.Exists(_wordAudioPath + "/" + word + ".mp3"))
                     {
-                        await File.WriteAllBytesAsync(("audios" + "/" + word + ".mp3"), voice.voice);
-                        newWord.AudioPath = "audios" + "/" + word + ".mp3";
+                        await File.WriteAllBytesAsync((_wordAudioPath + "/" + word + ".mp3"), voice.voice);
+                        newWord.AudioPath = _wordAudioPath + "/" + word + ".mp3";
                     }
                     else
                     {
-                        newWord.AudioPath = "audios" + "/" + word + ".mp3";
+                        newWord.AudioPath = _wordAudioPath + "/" + word + ".mp3";
                     }
                 }
                 else
