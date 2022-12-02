@@ -55,17 +55,17 @@
 
            
 
-            <ComboBox x:Name="ComboBoxCategory" Width="200" Height="30" Margin="40, 35, 0, 20">
+            <ComboBox x:Name="ComboBoxCategory" Width="200" Height="30" Margin="40, 35, 0, 20" >
                 <TextBlock>Salom</TextBlock>
                 <TextBlock>Hayer</TextBlock>
                 <TextBlock>limon</TextBlock>
                 <TextBlock>Asal</TextBlock>
             </ComboBox>
-            <Button Margin="40, 35, 0, 0" Content="Add" Width="150"
-                    Style="{DynamicResource PrimaryButton}"/>
+            <Button x:Name="BtnAddWord" Margin="40, 35, 0, 0" Content="Add" Width="150"
+                    Style="{DynamicResource PrimaryButton}" Click="Button_Click"/>
         </StackPanel>
         <Grid Grid.Column="1">
-            <Button Width="45" Height="35" Margin="5, 0, 0, 282" HorizontalAlignment="Left"
+            <Button x:Name="BtnVoice" Width="45" Height="35" Margin="5, 0, 0, 282" HorizontalAlignment="Left"
                     Click="BtnLoad_Click">
                 <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center" />
                 
