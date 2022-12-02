@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace MindWord.Service.Attributes
 {
-    public  class EmailAttribute
+    public class EmailAttribute
     {
         public (bool isSuccessful, string Message) IsValid(string email)
         {

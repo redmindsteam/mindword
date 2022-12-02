@@ -3,11 +3,6 @@ using Integrated.Models.DefinationAPIModels;
 using MindWord.Domain.Constants;
 using MindWord.Domain.Entities;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Integrated.Services
 {

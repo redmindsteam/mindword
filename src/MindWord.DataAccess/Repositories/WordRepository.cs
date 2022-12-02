@@ -1,14 +1,7 @@
 ﻿using MindWord.DataAccess.Interfaces.Repositories;
 using MindWord.Domain.Constants;
 using MindWord.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MindWord.DataAccess.Repositories
 {
@@ -40,7 +33,7 @@ namespace MindWord.DataAccess.Repositories
                 };
                 var result = await command.ExecuteNonQueryAsync();
 
-                if(result != 0)
+                if (result != 0)
                 {
                     return true;
                 }
@@ -48,7 +41,7 @@ namespace MindWord.DataAccess.Repositories
                 { return false; }
 
             }
-            catch 
+            catch
             {
 
                 return false;
@@ -64,10 +57,10 @@ namespace MindWord.DataAccess.Repositories
                 string query = $"delete from words WHERE id = {id};";
                 var command = new SQLiteCommand(query, _con);
                 var result = await command.ExecuteNonQueryAsync();
-                if(result != 0 ) { return true; }
+                if (result != 0) { return true; }
                 else { return false; }
             }
-            catch 
+            catch
             {
 
                 return false;
@@ -81,10 +74,10 @@ namespace MindWord.DataAccess.Repositories
             {
                 var words = new List<Word>();
                 await _con.OpenAsync();
-                    string query = $"select * from Words ";
+                string query = $"select * from Words ";
                 var command = new SQLiteCommand(query, _con);
                 var reader = await command.ExecuteReaderAsync();
-                while(await reader.ReadAsync()) 
+                while (await reader.ReadAsync())
                 {
                     var word = new Word()
                     {
@@ -93,7 +86,7 @@ namespace MindWord.DataAccess.Repositories
                         Description = reader.GetString(2),
                         Translate = reader.GetString(3),
                         AudioPath = reader.GetString(4),
-                        CorrectCoins= reader.GetInt32(5),
+                        CorrectCoins = reader.GetInt32(5),
                         ErrorCoins = reader.GetInt32(6),
                         CategoryId = reader.GetInt32(7),
                         UserId = reader.GetInt32(8)
@@ -104,7 +97,7 @@ namespace MindWord.DataAccess.Repositories
                 }
                 return words;
             }
-            catch 
+            catch
             {
                 return new List<Word>();
             }
@@ -127,7 +120,7 @@ namespace MindWord.DataAccess.Repositories
                     Description = reader.GetString(2),
                     Translate = reader.GetString(3),
                     AudioPath = reader.GetString(4),
-                    CorrectCoins= reader.GetInt32(5),
+                    CorrectCoins = reader.GetInt32(5),
                     ErrorCoins = reader.GetInt32(6),
                     CategoryId = reader.GetInt32(7),
                     UserId = reader.GetInt32(8),
@@ -135,13 +128,13 @@ namespace MindWord.DataAccess.Repositories
                 };
 
             }
-            catch 
+            catch
             {
 
                 return null!;
             }
             finally { _con.Close(); }
-            
+
         }
 
         public async Task<bool> UpdateAsync(int id, Word item)
@@ -164,7 +157,7 @@ namespace MindWord.DataAccess.Repositories
                         new SQLiteParameter("error_coins",item.ErrorCoins)
                     }
                 };
-                var result = await  command.ExecuteNonQueryAsync();
+                var result = await command.ExecuteNonQueryAsync();
 
                 if (result != 0)
                 {
@@ -172,9 +165,9 @@ namespace MindWord.DataAccess.Repositories
                 }
                 else
                     return false;
-                
+
             }
-            catch 
+            catch
             {
 
                 return false;
