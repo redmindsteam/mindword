@@ -15,14 +15,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
-            
+
             <!--Choose pagenation count-->
             <ComboBox IsReadOnly="True"
                       Foreground="{DynamicResource SecundaryTextColor}"
@@ -37,14 +37,14 @@
                 <ComboBoxItem Tag="20">20</ComboBoxItem>
                 <ComboBoxItem Tag="30">30</ComboBoxItem>
             </ComboBox>
-            
+
             <!--Search TextBox-->
             <TextBox x:Name="tbSearchBox" 
                      Grid.Column="1"
                      VerticalAlignment="Top"
                      Margin="15 0"
                      Style="{DynamicResource SearchBox}"/>
-            
+
             <!--Create Button-->
             <Button x:Name="btnCreate"
                 Grid.Column="2"
@@ -180,7 +180,8 @@
                         HorizontalAlignment="Center">
                 <Button x:Name="btnLeft"
                         Grid.Column="1"
-                        Content=""
+                        Tag="{DynamicResource right}"
+                        Content="&lt;"
                         FontSize="18"
                         FontFamily="Jetbrains Mono"
                         HorizontalContentAlignment="Center"
@@ -215,10 +216,19 @@
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
                         Background="{DynamicResource SecundaryBlueColor}">
+                    
                 </Button>
+
+
             </StackPanel>
 
+            <Border Grid.Column="3" Margin="15,5,10,0" CornerRadius="0 0 5 0" Background="Transparent">
+                <Button  Style="{DynamicResource MaterialDesignFlatButton}" Tag="{DynamicResource game}" Margin="0,5,0,8"
+                            Width="75" HorizontalAlignment="Center" >
+                    <Path Data="{DynamicResource game}" Height="25" Width="38"  Fill="{DynamicResource PrimaryBlueColor}" VerticalAlignment="Center" Stretch="Fill"/>
+                </Button>
+            </Border>
         </Grid>
-        
+
     </Grid>
 </Page>
