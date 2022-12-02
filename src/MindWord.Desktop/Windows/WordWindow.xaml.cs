@@ -1,10 +1,16 @@
 ﻿using Integrated.Interfaces;
 using Integrated.Services;
 using MindWord.DataAccess.Interfaces.Repositories;
+using MindWord.DataAccess.Repositories;
+using MindWord.Service.Interfaces.Services;
+using MindWord.Service.Services.Common;
 using System;
 using System.IO;
+using System.Linq;
 using System.Security.Policy;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -21,7 +27,7 @@ namespace MindWord.Desktop.Windows
         {
             InitializeComponent();
             
-            
+         
         }
 
         private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -37,12 +43,13 @@ namespace MindWord.Desktop.Windows
 
         private async void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
+            BtnVoice.Visibility = Visibility.Collapsed;
             IDefinationAPIService definationAPI = new DefinationAPIService();
 
-
+            
             if (txWord.Text != "" || txTranslation.Text != "")
             {
-
+              
                  var Word =  await definationAPI.GetWordAsync(txWord.Text);
 
                 if (Word.successful)
