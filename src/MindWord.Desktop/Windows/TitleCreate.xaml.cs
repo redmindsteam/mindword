@@ -1,4 +1,6 @@
-﻿using MindWord.Service.ViewModel;
+﻿using MindWord.Service.Interfaces.Services;
+using MindWord.Service.Services;
+using MindWord.Service.ViewModel;
 using System.Windows;
 
 namespace MindWord.Desktop.Windows
@@ -13,14 +15,24 @@ namespace MindWord.Desktop.Windows
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            CategoryViewModel model = new CategoryViewModel()
+            if (txTitle.Text != "")
             {
-                Title = txTitle.Text,
-                Description = txDescriptionTitle.Text
-            };
+                CategoryViewModel model = new CategoryViewModel()
+                {
+                    Title = txTitle.Text,
+                    Description = txDescriptionTitle.Text
+                };
+                ICategoryService categoryService = new CategoryService();
 
+                var res =  await categoryService.CreateAsync(model);
+                MessageBox.Show(res.Message);
+            }
+            else
+            {
+
+            }
             
         }
     }
