@@ -13,14 +13,9 @@ namespace MindWord.Desktop
         {
             InitializeComponent();
         }
-
-        private void rdGame_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void rdHome_Click(object sender, RoutedEventArgs e)
         {
-            frameContent.Navigate(new Category());
+            
         }
 
         private void rdSettings_Click(object sender, RoutedEventArgs e)
@@ -52,6 +47,16 @@ namespace MindWord.Desktop
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+        }
+
+        private void rdWords_Click(object sender, RoutedEventArgs e)
+        {
+            frameContent.Navigate(new System.Uri("Pages/WordPage.xaml", System.UriKind.RelativeOrAbsolute));
+        }
+
+        private void rdGame_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

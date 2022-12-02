@@ -17,7 +17,7 @@ namespace Integrated.Services
             foreach (var phonetic in phonetics)
             {
                 var voiceApiUrl = phonetic.audio;
-                if (voiceApiUrl != null)
+                if (voiceApiUrl != "")
                 {
                     var client = new HttpClient();
                     var request = new HttpRequestMessage
@@ -54,8 +54,15 @@ namespace Integrated.Services
                     {
                         Directory.CreateDirectory(_wordAudioPath);
                     }
-                    await File.WriteAllBytesAsync((_wordAudioPath + "/" + word + ".mp3"), voice.voice);
-                    newWord.AudioPath = _wordAudioPath + "/" + word + ".mp3";
+                    if (!File.Exists(_wordAudioPath + "/" + word + ".mp3"))
+                    {
+                        await File.WriteAllBytesAsync((_wordAudioPath + "/" + word + ".mp3"), voice.voice);
+                        newWord.AudioPath = _wordAudioPath + "/" + word + ".mp3";
+                    }
+                    else
+                    {
+                        newWord.AudioPath = _wordAudioPath + "/" + word + ".mp3";
+                    }
                 }
                 else
                     newWord.AudioPath = null;

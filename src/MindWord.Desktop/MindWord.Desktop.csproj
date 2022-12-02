@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Integrated\Integrated.csproj" />
     <ProjectReference Include="..\MindWord.Service\MindWord.Service.csproj" />
   </ItemGroup>
 
