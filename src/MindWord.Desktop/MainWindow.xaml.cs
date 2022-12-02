@@ -51,7 +51,12 @@ namespace MindWord.Desktop
 
         private void rdWords_Click(object sender, RoutedEventArgs e)
         {
-            
+            frameContent.Navigate(new System.Uri("Pages/WordPage.xaml", System.UriKind.RelativeOrAbsolute));
+        }
+
+        private void rdGame_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

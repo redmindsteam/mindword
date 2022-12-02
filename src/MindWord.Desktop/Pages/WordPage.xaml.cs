@@ -34,5 +34,10 @@ namespace MindWord.Desktop.Pages
         {
 
         }
+
+        private void rdWordGame_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,7 @@
                       Foreground="{DynamicResource SecundaryTextColor}"
                       Grid.Column="0"
                       Width="80"
+                      Background="{DynamicResource SecundaryBackgroundColor}"
                       FontFamily="Jetbrains Mono"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Top"
@@ -175,9 +176,9 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="1"
-                Orientation="Horizontal">
+                Orientation="Horizontal"
+                        HorizontalAlignment="Center">
                 <Button x:Name="btnLeft"
-                        Margin="200 0 0 0"
                         Grid.Column="1"
                         Content=""
                         FontSize="18"
@@ -194,6 +195,7 @@
                        Grid.Column="1"
                        Content="0/10"
                        Width="100"
+                       
                        HorizontalContentAlignment="Center"
                        VerticalContentAlignment="Center"
                        FontWeight="SemiBold"
@@ -205,6 +207,7 @@
                 <Button x:Name="btnRight"
                         Grid.Column="1"
                         Content=">"
+                        Tag="{DynamicResource right}"
                         FontSize="18"
                         FontFamily="Jetbrains Mono"
                         HorizontalContentAlignment="Center"
@@ -214,15 +217,6 @@
                         Background="{DynamicResource SecundaryBlueColor}">
                 </Button>
             </StackPanel>
-
-            <RadioButton Grid.Column="2"
-                         x:Name="rdGame" 
-                         Style="{DynamicResource MenuRadioButtonStyle}" 
-                         Tag="{DynamicResource game}" 
-                         HorizontalAlignment="Right" VerticalAlignment="Center" 
-                         Click="rdWordGame_Click">
-       
-            </RadioButton>
 
         </Grid>
         

@@ -15,9 +15,9 @@ namespace MindWord.Desktop.Windows
     /// </summary>
 
 
-    public partial class WordPage : Window
+    public partial class WordWindow : Window
     {
-        public WordPage()
+        public WordWindow()
         {
             InitializeComponent();
             
