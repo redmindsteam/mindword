@@ -44,9 +44,17 @@ namespace MindWord.Desktop.Pages
             
         }
 
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        private async void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             WordWindow wordWindow = new WordWindow();
+            wordWindow.ComboBoxCategory.Items.Clear();
+            ICategoryService categoryService = new CategoryService();   
+            var categories = await categoryService.GetStringsAsync();
+
+            foreach (var item in categories)
+            {
+                wordWindow.ComboBoxCategory.Items.Add(item);
+            }
             wordWindow.ShowDialog();
         }
         private void rdWordGame_Click(object sender, RoutedEventArgs e)

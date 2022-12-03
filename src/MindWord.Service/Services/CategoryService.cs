@@ -31,6 +31,17 @@ namespace MindWord.Service.Services
 
         }
 
+        public async Task<List<string>> GetStringsAsync()
+        {
+          
+            ICategoryRepository repository = new CategoryRepository();
+            var result = await repository.GetAllAsync();
+            var res = result.Where(x => x.UserId == IdentitySingelton.currentId().UserId).Select(x => x.Title.ToString()).ToList();
+            return res;
+        }
+
+
+
         public async Task<IPagedList<CategoryViewModel>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5)
         {
             List<CategoryViewModel> list = new List<CategoryViewModel>();
