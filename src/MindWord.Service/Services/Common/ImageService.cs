@@ -8,7 +8,7 @@ namespace MindWord.Service.Services.Common
     {
         private readonly string _imageFolderPath = DbConstants.ACCOUNT_IMAGE_PATH;
 
-        public string ImageFolderName => throw new NotImplementedException();
+       
 
 
         public bool DeleteImageAsync(string relativeFilePath)
@@ -25,18 +25,20 @@ namespace MindWord.Service.Services.Common
 
         }
 
-        public async Task SaveImageAsync(byte[] bytes)
+        public async Task<string> SaveImageAsync(byte[] bytes)
         {
             if (!Directory.Exists(_imageFolderPath))
             {
                 Directory.CreateDirectory(_imageFolderPath);
             }
-            await File.WriteAllBytesAsync(_imageFolderPath + "/" + ImageHelper.MakeImageName(), bytes);
+            string path = _imageFolderPath + "/" + ImageHelper.MakeImageName();
+            await File.WriteAllBytesAsync(path, bytes);
+            return path;
         }
 
         public string DefaultImage()
         {
-            return _imageFolderPath + "/" + "Default.jpg";
+            return (_imageFolderPath + "/" + "Default.jpg");
         }
 
     }

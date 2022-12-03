@@ -32,25 +32,33 @@
                            FontFamily="Jetbrains Mono"
                            HorizontalAlignment="Center"
                            FontSize="20"
-                           Foreground="{DynamicResource SecundaryTextColor}">
+                           Foreground="{DynamicResource SecundaryTextColor}" Margin="0,0,0,257">
 
                     </Label>
+                    <StackPanel VerticalAlignment="Center">
 
+                        <Image x:Name="imagePicture" Stretch="Uniform"
+                           Width="200"
+                           Height="200"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center">
+
+
+                        </Image>
+                    </StackPanel>
+                    
                     <Button Height="200" Width="200"
                             Margin="0 40"
                             FontFamily="Jetbrains Mono"
-                            Content="200 x 200"
+                           
                             BorderThickness="0"
                             Foreground="{DynamicResource SecundaryTextColor}"
-                            Background="{DynamicResource TertiaryBackgroundColor}"
+                            Background="Transparent"
                             Click="btnImage_Click">
 
                     </Button>
 
-                    <Image x:Name="imagePicture">
-
-
-                    </Image>
+                   
 
                 </Grid>
 
@@ -68,22 +76,42 @@
                     </TextBox>
 
                     <TextBox x:Name="txEmailUpdate"
-                             Margin="0 30"
+                             Margin="0 35 0 0"
                              FontFamily="Jetbrains Mono"
                              materialDesign:HintAssist.Hint="Email"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              Foreground="{DynamicResource SecundaryTextColor}"
-                             Background="{DynamicResource TertiaryBackgroundColor}">
+                             Background="{DynamicResource TertiaryBackgroundColor}" TextChanged="txEmailUpdate_TextChanged"
+                             >
                     </TextBox>
 
-                    <PasswordBox x:Name="pbPasswordUpdate"
+                    <Label   x:Name="LbEmailUpdate" Content="sdfsdfsdf"
+                             FontFamily="Jetbrains Mono"
+                             Foreground="#E13E4E"
+                             FontSize="10"
+                             FontWeight="Medium" 
+                             HorizontalAlignment="Left"
+                             Margin="0 10"
+                            />
+
+                    <PasswordBox x:Name="txPasswordUpdate"
                                  FontFamily="Jetbrains Mono"
                                  materialDesign:HintAssist.Hint="Password"
                                  Foreground="{DynamicResource SecundaryTextColor}"
                                  Background="{DynamicResource TertiaryBackgroundColor}"
-                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}">
+                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                 PasswordChanged="PasswordTextchanged">
 
                     </PasswordBox>
+                    
+                    <Label   x:Name="LbPasswordUpdate" Content="sdfsdfsdf"
+                             FontFamily="Jetbrains Mono"
+                             Foreground="#E13E4E"
+                             FontSize="10"
+                             FontWeight="Medium" 
+                             HorizontalAlignment="Left"
+                             Margin="0 10"
+                            />
                 </StackPanel>
             </Grid>
         </Border>
@@ -99,8 +127,9 @@
                     FontSize="18"
                     FontFamily="Jetbrains Mono"
                     Background="{DynamicResource SecundaryBlueColor}"
-                    Style="{StaticResource MaterialDesignFlatDarkBgButton}">
-                
+                    Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                    Click="BtnUpdate_click">
+                    
             </Button>
         </StackPanel>
     </Grid>
