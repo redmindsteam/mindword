@@ -15,7 +15,7 @@ namespace MindWord.Desktop
         }
         private void rdHome_Click(object sender, RoutedEventArgs e)
         {
-            
+            frameContent.Navigate(new System.Uri("Pages/HomePage.xaml", System.UriKind.RelativeOrAbsolute));
         }
 
         private void rdSettings_Click(object sender, RoutedEventArgs e)
@@ -56,7 +56,7 @@ namespace MindWord.Desktop
 
         private void rdGame_Click(object sender, RoutedEventArgs e)
         {
-
+            frameContent.Navigate(new System.Uri("Pages/GamePage.xaml", System.UriKind.RelativeOrAbsolute));
         }
 
         private void rdTitle_Click(object sender, RoutedEventArgs e)
