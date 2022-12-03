@@ -58,5 +58,10 @@ namespace MindWord.Desktop
         {
 
         }
+
+        private void rdTitle_Click(object sender, RoutedEventArgs e)
+        {
+            frameContent.Navigate(new System.Uri("Pages/TitlePage.xaml", System.UriKind.RelativeOrAbsolute));
+        }
     }
 }

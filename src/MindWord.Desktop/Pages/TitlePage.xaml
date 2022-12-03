@@ -71,6 +71,7 @@
                   FontSize="15"
                   FontFamily="Jetbrains Mono"
                   AutoGenerateColumns="False"
+                  CanUserReorderColumns="False"
                   CanUserResizeColumns="False"
                   CanUserResizeRows="False"
                   IsReadOnly="True"

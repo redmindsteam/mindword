@@ -74,6 +74,7 @@
                   CanUserResizeColumns="False"
                   CanUserResizeRows="False"
                   IsReadOnly="True"
+                  CanUserReorderColumns="False"
                   Background="{DynamicResource SecundaryBackgroundColor}"
                   TextElement.Foreground="{DynamicResource SecundaryTextColor}"
                   Loaded="DataGrid_Loaded">
