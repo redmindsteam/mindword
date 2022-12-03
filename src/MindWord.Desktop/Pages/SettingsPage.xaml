@@ -85,7 +85,7 @@
                              >
                     </TextBox>
 
-                    <Label   x:Name="LbEmailUpdate" Content="sdfsdfsdf"
+                    <Label   x:Name="LbEmailUpdate" Content=""
                              FontFamily="Jetbrains Mono"
                              Foreground="#E13E4E"
                              FontSize="10"
@@ -104,7 +104,7 @@
 
                     </PasswordBox>
                     
-                    <Label   x:Name="LbPasswordUpdate" Content="sdfsdfsdf"
+                    <Label   x:Name="LbPasswordUpdate" Content=""
                              FontFamily="Jetbrains Mono"
                              Foreground="#E13E4E"
                              FontSize="10"
