@@ -21,6 +21,7 @@ namespace MindWord.Service.Services
                 var result = passwordHasher.Verify(password, user.Salt, user.PasswordHash);
                 if (result == true)
                 {
+                    IdentitySingelton.SaveId(user.Id);  
                     return (true, " ");
                 }
                 else
