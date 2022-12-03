@@ -31,6 +31,7 @@ namespace MindWord.Service.Services
 
         }
 
+
         public async Task<List<string>> GetStringsAsync()
         {
           
@@ -42,7 +43,9 @@ namespace MindWord.Service.Services
 
 
 
-        public async Task<IPagedList<CategoryViewModel>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5)
+   
+        public async Task<IPagedList<CategoryViewModel>> GetPagedListAsync(int pageNumber, int pageSize)
+
         {
             List<CategoryViewModel> list = new List<CategoryViewModel>();
             ICategoryRepository repository = new CategoryRepository();
