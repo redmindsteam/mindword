@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
 
             <!--Choose pagenation count-->
-            <ComboBox x:Name="pageSize" 
+            <ComboBox x:Name="pageSize"
                       IsReadOnly="True"
                       Foreground="{DynamicResource SecundaryTextColor}"
                       Grid.Column="0"
@@ -122,15 +122,14 @@
                 </DataGridTemplateColumn>
 
                 <!--View-->
-                <DataGridTemplateColumn  Header="Info"
+                <DataGridTemplateColumn Header="Info"
                                     Width="95">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="btinfo"
+                                <Button
                                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                                    ToolTip="View description"
-                                        Click="BtnInfo_click">
+                                    ToolTip="View description">
                                     Description
                                 </Button>
                             </StackPanel>

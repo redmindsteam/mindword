@@ -78,7 +78,7 @@
                   IsReadOnly="True"
                   Background="{DynamicResource SecundaryBackgroundColor}"
                   TextElement.Foreground="{DynamicResource SecundaryTextColor}"
-                  Loaded="DataGrid_Loaded" SelectionChanged="dgDataTitle_SelectionChanged">
+                  Loaded="DataGrid_Loaded">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id"
                                     Width="70"
@@ -94,11 +94,8 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Button
-                                    x:Name="btInfoTitle"
                                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                                    ToolTip="View description"
-                                    Click="btnInfoTitle">
-                                    
+                                    ToolTip="View description">
                                     Description
                                 </Button>
                             </StackPanel>
@@ -112,25 +109,23 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="btnUpdate"
+                                <Button
                                     Width="35"
                                     Background="#318CE7"
                                     BorderThickness="0"
                                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-                                    ToolTip="Title update"
-                                     Click="btnUpdate">
+                                    ToolTip="Title update">
                                     <materialDesign:PackIcon Foreground="White"
                                                              Margin="-6"
                                                              Kind="Pencil"/>
                                 </Button>
-                                <Button x:Name="btnDelete"
+                                <Button
                                     Margin="2 0 0 0"
                                     Width="35"
                                     BorderThickness="0"
                                     Background="#DE665D"
                                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-                                    ToolTip="Title delete"
-                                    Click="btndelete">
+                                    ToolTip="Title delete">
                                     <materialDesign:PackIcon Foreground="White"
                                                              Margin="-6"
                                                              Kind="Delete"/>

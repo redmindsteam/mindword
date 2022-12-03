@@ -50,7 +50,7 @@ namespace MindWord.Service.Services
             List<CategoryViewModel> list = new List<CategoryViewModel>();
             ICategoryRepository repository = new CategoryRepository();
             var result = await repository.GetAllAsync();
-            var res = result.Where(x => x.UserId == 1).ToList();
+            var res = result.Where(x => x.UserId == IdentitySingelton.currentId().UserId).ToList();
             foreach (var item in res)
             {
                 CategoryViewModel model = new CategoryViewModel()
