@@ -87,7 +87,33 @@ namespace MindWord.Desktop.Windows
                 var Word = await definationAPI.GetWordAsync(txWord.Text);
                 Word.word.Translate = txTranslation.Text;
                 ICategoryRepository categoryRepository = new CategoryRepository();
-                Word.word.CategoryId = (await categoryRepository.GetByTitleAsync(ComboBoxCategory.SelectedItem.ToString())).Id;
+                Word.word.CategoryId = 1;
+                Word.word.UserId = 1;
+                if (Word.successful)
+                {
+                    IWordRepository wordRepository = new WordRepository();
+
+                    var res = await wordRepository.CreateAsync(Word.word);
+                    if (res)
+                        MessageBox.Show("Added Word");
+
+                }
+            }
+        }
+
+        private async void BtnAddWord_Click(object sender, RoutedEventArgs e)
+        {
+            IDefinationAPIService definationAPI = new DefinationAPIService();
+
+
+            if (txWord.Text != "" && txTranslation.Text != "")
+            {
+
+                var Word = await definationAPI.GetWordAsync(txWord.Text);
+                Word.word.Translate = txTranslation.Text;
+                ICategoryRepository categoryRepository = new CategoryRepository();
+                Word.word.CategoryId = 1;
+                Word.word.UserId = 1;
                 if (Word.successful)
                 {
                     IWordRepository wordRepository = new WordRepository();

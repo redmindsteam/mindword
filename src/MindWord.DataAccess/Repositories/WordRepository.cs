@@ -46,7 +46,7 @@ namespace MindWord.DataAccess.Repositories
 
                 return false;
             }
-            finally { _con.Close(); }
+            finally { await _con.CloseAsync(); }
         }
 
         public async Task<bool> DeleteAsync(int id)
