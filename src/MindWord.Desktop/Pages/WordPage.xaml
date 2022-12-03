@@ -75,7 +75,7 @@
                   IsReadOnly="True"
                   Background="{DynamicResource SecundaryBackgroundColor}"
                   TextElement.Foreground="{DynamicResource SecundaryTextColor}"
-                  Loaded="DataGrid_Loaded">
+                  Loaded="DataGrid_Loaded" SelectionChanged="dgData_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id"
                                     Width="70"
@@ -188,7 +188,7 @@
                         VerticalContentAlignment="Top"
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
-                        Background="{DynamicResource SecundaryBlueColor}">
+                        Background="{DynamicResource SecundaryBlueColor}" Click="btnLeft_Click">
                 </Button>
 
                 <Label x:Name="lbPage"
@@ -215,7 +215,7 @@
                         VerticalContentAlignment="Top"
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
-                        Background="{DynamicResource SecundaryBlueColor}">
+                        Background="{DynamicResource SecundaryBlueColor}" Click="btnRight_Click">
                     
                 </Button>
 
