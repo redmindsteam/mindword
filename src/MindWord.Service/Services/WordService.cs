@@ -15,7 +15,8 @@ namespace MindWord.Service.Services
             List<WordCreateViewModel> list = new List<WordCreateViewModel>();
             IWordRepository repository = new WordRepository();
             var result = await repository.GetAllAsync();
-            foreach (var item in result)
+            var res = result.Where(x => x.UserId == IdentitySingelton.currentId().UserId).ToList();
+            foreach (var item in res)
             {
                 WordCreateViewModel model = new WordCreateViewModel()
                 {

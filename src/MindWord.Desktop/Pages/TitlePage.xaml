@@ -88,7 +88,7 @@
     
                 <!--View-->
                 <DataGridTemplateColumn Header="Info"
-                                    Width="95">
+                                    Width="155">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -156,7 +156,7 @@
                         VerticalContentAlignment="Top"
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
-                        Background="{DynamicResource SecundaryBlueColor}">
+                        Background="{DynamicResource SecundaryBlueColor}" Click="btnLeft_Click">
                 </Button>
 
                 <Label x:Name="lbPage"
@@ -183,7 +183,7 @@
                         VerticalContentAlignment="Top"
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
-                        Background="{DynamicResource SecundaryBlueColor}">
+                        Background="{DynamicResource SecundaryBlueColor}" Click="btnRight_Click">
 
                 </Button>
 

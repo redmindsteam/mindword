@@ -1,4 +1,9 @@
 ﻿using MindWord.Desktop.Windows;
+using MindWord.Domain.Entities;
+using MindWord.Service.Interfaces.Services;
+using MindWord.Service.Services;
+using MindWord.Service.ViewModel;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +26,9 @@ namespace MindWord.Desktop.Pages
     /// </summary>
     public partial class TitlePage : Page
     {
+        int PageNumber = 1;
+        IPagedList<CategoryViewModel> categories;
+        ICategoryService service = new CategoryService();
         public TitlePage()
         {
             InitializeComponent();
@@ -32,9 +40,31 @@ namespace MindWord.Desktop.Pages
             titleCreate.ShowDialog();
         }
 
-        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        private async void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
+            categories = await service.GetPagedListAsync();
+            btnLeft.IsEnabled = categories.HasPreviousPage;
+            btnRight.IsEnabled = categories.HasNextPage;
+            dgDataTitle.ItemsSource = categories;
+            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
+        }
 
+        private async void btnRight_Click(object sender, RoutedEventArgs e)
+        {
+            categories = await service.GetPagedListAsync(++PageNumber);
+            btnRight.IsEnabled = categories.HasNextPage;
+            btnLeft.IsEnabled = categories.HasPreviousPage;
+            dgDataTitle.ItemsSource = categories;
+            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
+        }
+
+        private async void btnLeft_Click(object sender, RoutedEventArgs e)
+        {
+            categories = await service.GetPagedListAsync(--PageNumber);
+            btnLeft.IsEnabled = categories.HasPreviousPage;
+            btnRight.IsEnabled = categories.HasNextPage;
+            dgDataTitle.ItemsSource = categories;
+            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
         }
     }
 }

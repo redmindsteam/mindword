@@ -1,3 +1,8 @@
+using MindWord.Desktop.Windows;
+using MindWord.Service.Interfaces.Services;
+using MindWord.Service.Services;
+using MindWord.Service.ViewModel;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +67,12 @@ namespace MindWord.Desktop.Pages
 
         private async void btnRight_Click(object sender, RoutedEventArgs e)
         {
-
+            words = await service.GetPagedListAsync(++PageNumber);
+            btnRight.IsEnabled = words.HasNextPage;
+            btnLeft.IsEnabled = words.HasPreviousPage;
+            dgData.ItemsSource = words;
+            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
+        }
         private void dgData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int id = (dgData.SelectedIndex + 1)+((PageNumber-1)*5);
