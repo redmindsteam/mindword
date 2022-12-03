@@ -43,7 +43,7 @@
                     <!--Main-->
                     <StackPanel Grid.Row="1">
                         <RadioButton x:Name="rdHome" Content="Home" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource home}" Margin="0 30 0 0" Click="rdHome_Click"/>
-                        <RadioButton x:Name="rdTitle" Content="Title" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource title}" Margin="0 1 0 1" Click="rdTitle_Click"/>
+                        <RadioButton x:Name="rdTitle" Content="Title" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource title}" Margin="0 1 0 1" Click="rdTitle_Click" />
                         <RadioButton x:Name="rdWord" Content="Word" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource word}" Margin="0 1 0 1" Click="rdWords_Click"/>
                         <RadioButton x:Name="rdGame" Content="Game" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource game}" Margin="0 1 0 1" Click="rdGame_Click"/>
 

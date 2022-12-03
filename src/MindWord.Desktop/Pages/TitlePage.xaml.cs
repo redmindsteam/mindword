@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MindWord.Desktop.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,8 @@ namespace MindWord.Desktop.Pages
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-
+            TitleCreate titleCreate = new TitleCreate();
+            titleCreate.ShowDialog();
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
