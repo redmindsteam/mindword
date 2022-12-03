@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MindWord.Desktop.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,12 +33,9 @@ namespace MindWord.Desktop.Pages
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-
+            WordWindow wordWindow = new WordWindow();
+            wordWindow.ShowDialog();
         }
 
-        private void rdWordGame_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
