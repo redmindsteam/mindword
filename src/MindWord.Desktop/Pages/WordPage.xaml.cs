@@ -5,6 +5,7 @@ using MindWord.Service.ViewModel;
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure.Interception;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,10 +84,28 @@ namespace MindWord.Desktop.Pages
         }
         private void dgData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int id = (dgData.SelectedIndex + 1)+((PageNumber-1)*5);
+            
+                      
+         }
+
+        private void BtnInfo_click(object sender, RoutedEventArgs e)
+        {
+            int id = (dgData.SelectedIndex + 1) + ((PageNumber - 1) * 5);
             var res = words.First(x => x.Id == id);
             var desc = res.Title;
-            MessageBox.Show(desc);            
-         }
+            MessageBox.Show(desc);
+        }
+
+        private void btnUpdate(object sender, RoutedEventArgs e)
+        {
+            int UpdateId = (dgData.SelectedIndex + 1) + (PageNumber - 1) * 5;
+            WordUpdate update = new WordUpdate();
+            update.ShowDialog();
+        }
+
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+            int DeleteId = (dgData.SelectedIndex + 1) + (PageNumber - 1) * 5;
+        }
     }
 }

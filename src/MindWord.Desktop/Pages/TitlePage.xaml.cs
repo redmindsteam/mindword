@@ -66,5 +66,29 @@ namespace MindWord.Desktop.Pages
             dgDataTitle.ItemsSource = categories;
             lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
         }
+
+        private void dgDataTitle_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void btnInfoTitle(object sender, RoutedEventArgs e)
+        {
+            int id = (dgDataTitle.SelectedIndex + 1) + ((PageNumber - 1) * 5);
+            var res = categories.First(x => x.Id == id);
+            var desc = res.Description;
+            MessageBox.Show(desc);
+        }
+
+        private void btnUpdate(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btndelete(object sender, RoutedEventArgs e)
+        {
+            int Deleteid =((dgDataTitle.SelectedIndex + 1)+((PageNumber - 1) * 5));
+
+        }
     }
 }
