@@ -2,6 +2,8 @@
 using Integrated.Services;
 using MindWord.DataAccess.Interfaces.Repositories;
 using MindWord.DataAccess.Repositories;
+using MindWord.Domain.Entities;
+using MindWord.Service.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -52,6 +54,29 @@ namespace MindWord.Desktop.Windows
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private async void BtnUpdateWord_Click(object sender, RoutedEventArgs e)
+        {
+            IWordRepository wordRepository = new WordRepository();
+            ICategoryRepository categoryRepository = new CategoryRepository();
+            Word word = new Word()
+            {
+                Name = txWord.Text,
+                Translate = txTranslation.Text,
+                Description = TxbDescription.Text,
+                CategoryId = (await categoryRepository.GetByTitleAsync(ComboBoxCategory.Text)).Id
+            };
+            var res = await wordRepository.UpdateAsync(IdentitySingelton.UpdateId().DUI_Id,word);
+            if(res == true)
+            {
+                MessageBox.Show("Updated");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Not updated");
+            }
         }
     }
 }

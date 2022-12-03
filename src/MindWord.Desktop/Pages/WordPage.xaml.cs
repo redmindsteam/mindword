@@ -1,4 +1,7 @@
+using MindWord.DataAccess.Interfaces.Repositories;
+using MindWord.DataAccess.Repositories;
 using MindWord.Desktop.Windows;
+using MindWord.Service.Attributes;
 using MindWord.Service.Interfaces.Services;
 using MindWord.Service.Services;
 using MindWord.Service.ViewModel;
@@ -18,6 +21,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace MindWord.Desktop.Pages
 {
@@ -99,13 +103,24 @@ namespace MindWord.Desktop.Pages
         private void btnUpdate(object sender, RoutedEventArgs e)
         {
             int UpdateId = (dgData.SelectedIndex + 1) + (PageNumber - 1) * 5;
+            IdentitySingelton.SaveUpdateId(UpdateId);
             WordUpdate update = new WordUpdate();
             update.ShowDialog();
         }
 
-        private void btnDelete(object sender, RoutedEventArgs e)
+        private async void btnDelete(object sender, RoutedEventArgs e)
         {
+            IWordRepository wordRepository = new WordRepository();
             int DeleteId = (dgData.SelectedIndex + 1) + (PageNumber - 1) * 5;
+            var res = await wordRepository.DeleteAsync(DeleteId);
+            if(res == true)
+            {
+                MessageBox.Show("Deleted");
+            }
+            else
+            {
+                MessageBox.Show("Failed to delete");
+            }
         }
     }
 }
