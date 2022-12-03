@@ -1,4 +1,5 @@
 ﻿<Page x:Class="MindWord.Desktop.Pages.SettingsPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +9,98 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SettingsPage">
 
-    <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="10">
+
+            <Grid Grid.Row="0"
+                Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+
+                    <Label Content="Image download"
+                           FontFamily="Jetbrains Mono"
+                           HorizontalAlignment="Center"
+                           FontSize="20"
+                           Foreground="{DynamicResource SecundaryTextColor}">
+
+                    </Label>
+
+                    <Button Height="200" Width="200"
+                            Margin="0 40"
+                            FontFamily="Jetbrains Mono"
+                            Content="200 x 200"
+                            BorderThickness="0"
+                            Foreground="{DynamicResource SecundaryTextColor}"
+                            Background="{DynamicResource TertiaryBackgroundColor}"
+                            Click="btnImage_Click">
+
+                    </Button>
+
+                    <Image x:Name="imagePicture">
+
+                    </Image>
+
+                </Grid>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center" 
+                            Width="300">
+                    <TextBox x:Name="txFullNameUpdate"
+                             FontFamily="Jetbrains Mono"
+                         
+                             materialDesign:HintAssist.Hint="Full Name"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             Foreground="{DynamicResource SecundaryTextColor}"
+                             Background="{DynamicResource TertiaryBackgroundColor}">
+                    </TextBox>
+
+                    <TextBox x:Name="txEmailUpdate"
+                             Margin="0 30"
+                             FontFamily="Jetbrains Mono"
+                             materialDesign:HintAssist.Hint="Email"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             Foreground="{DynamicResource SecundaryTextColor}"
+                             Background="{DynamicResource TertiaryBackgroundColor}">
+                    </TextBox>
+
+                    <PasswordBox x:Name="pbPasswordUpdate"
+                                 FontFamily="Jetbrains Mono"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 Foreground="{DynamicResource SecundaryTextColor}"
+                                 Background="{DynamicResource TertiaryBackgroundColor}"
+                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}">
+
+                    </PasswordBox>
+                </StackPanel>
+            </Grid>
+        </Border>
         
-    </Border>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button x:Name="btnUserUpdate"
+                    Width="300"
+                    Height="40"
+                    Content="UPDATE"
+                    FontSize="18"
+                    FontFamily="Jetbrains Mono"
+                    Background="{DynamicResource SecundaryBlueColor}"
+                    Style="{StaticResource MaterialDesignFlatDarkBgButton}">
+                
+            </Button>
+        </StackPanel>
+    </Grid>
 </Page>

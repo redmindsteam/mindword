@@ -17,25 +17,24 @@ using System.Windows.Shapes;
 namespace MindWord.Desktop.Pages
 {
     /// <summary>
-    /// Interaction logic for WordPage.xaml
+    /// Interaction logic for TitlePage.xaml
     /// </summary>
-    public partial class WordPage : Page
+    public partial class TitlePage : Page
     {
-        public WordPage()
+        public TitlePage()
         {
             InitializeComponent();
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            TitleCreate titleCreate = new TitleCreate();
+            titleCreate.ShowDialog();
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
-        {
-            WordWindow wordWindow = new WordWindow();
-            wordWindow.ShowDialog();
-        }
-
     }
 }
