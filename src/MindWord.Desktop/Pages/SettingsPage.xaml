@@ -15,59 +15,78 @@
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0"
-            Background="{DynamicResource SecundaryBackgroundColor}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        <Border CornerRadius="10">
 
-            <Button Height="200" Width="200"
-                    FontFamily="Jetbrains Mono"
-                    Content="Image download"
-                    BorderThickness="0"
-                    Foreground="{DynamicResource SecundaryTextColor}"
-                    Background="{DynamicResource TertiaryBackgroundColor}"
-                    Click="btnImage_Click">
-                    
-            </Button>
+            <Grid Grid.Row="0"
+                Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-            <Image x:Name="imagePicture">
-                
-            </Image>
+                <Grid Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
 
-            <StackPanel Grid.Column="1"
-                        Orientation="Vertical"
-                        VerticalAlignment="Center" 
-                        Width="300">
-                <TextBox x:Name="txFullNameUpdate"
-                         FontFamily="Jetbrains Mono"
-                         
-                         materialDesign:HintAssist.Hint="Full Name"
-                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Foreground="{DynamicResource SecundaryTextColor}"
-                         Background="{DynamicResource TertiaryBackgroundColor}">
-                </TextBox>
+                    <Label Content="Image download"
+                           FontFamily="Jetbrains Mono"
+                           HorizontalAlignment="Center"
+                           FontSize="20"
+                           Foreground="{DynamicResource SecundaryTextColor}">
 
-                <TextBox x:Name="txEmailUpdate"
-                         Margin="0 30"
-                         FontFamily="Jetbrains Mono"
-                         materialDesign:HintAssist.Hint="Email"
-                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Foreground="{DynamicResource SecundaryTextColor}"
-                         Background="{DynamicResource TertiaryBackgroundColor}">
-                </TextBox>
+                    </Label>
 
-                <PasswordBox x:Name="pbPasswordUpdate"
+                    <Button Height="200" Width="200"
+                            Margin="0 40"
+                            FontFamily="Jetbrains Mono"
+                            Content="200 x 200"
+                            BorderThickness="0"
+                            Foreground="{DynamicResource SecundaryTextColor}"
+                            Background="{DynamicResource TertiaryBackgroundColor}"
+                            Click="btnImage_Click">
+
+                    </Button>
+
+                    <Image x:Name="imagePicture">
+
+                    </Image>
+
+                </Grid>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center" 
+                            Width="300">
+                    <TextBox x:Name="txFullNameUpdate"
                              FontFamily="Jetbrains Mono"
-                             materialDesign:HintAssist.Hint="Password"
+                         
+                             materialDesign:HintAssist.Hint="Full Name"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              Foreground="{DynamicResource SecundaryTextColor}"
-                             Background="{DynamicResource TertiaryBackgroundColor}"
-                             Style="{StaticResource MaterialDesignOutlinedPasswordBox}">
-                    
-                </PasswordBox>
-            </StackPanel>
-        </Grid>
+                             Background="{DynamicResource TertiaryBackgroundColor}">
+                    </TextBox>
+
+                    <TextBox x:Name="txEmailUpdate"
+                             Margin="0 30"
+                             FontFamily="Jetbrains Mono"
+                             materialDesign:HintAssist.Hint="Email"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             Foreground="{DynamicResource SecundaryTextColor}"
+                             Background="{DynamicResource TertiaryBackgroundColor}">
+                    </TextBox>
+
+                    <PasswordBox x:Name="pbPasswordUpdate"
+                                 FontFamily="Jetbrains Mono"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 Foreground="{DynamicResource SecundaryTextColor}"
+                                 Background="{DynamicResource TertiaryBackgroundColor}"
+                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}">
+
+                    </PasswordBox>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
 
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"

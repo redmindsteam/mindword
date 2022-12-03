@@ -1,13 +1,13 @@
-﻿<Page x:Class="MindWord.Desktop.Pages.WordPage"
+﻿<Page x:Class="MindWord.Desktop.Pages.TitlePage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MindWord.Desktop.Pages"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="WordPage">
+      Title="TitlePage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="130"/>
             </Grid.ColumnDefinitions>
 
             <!--Choose pagenation count-->
@@ -49,7 +49,7 @@
             <Button x:Name="btnCreate"
                 Grid.Column="2"
                 Background="{DynamicResource SecundaryBlueColor}"
-                Width="120"
+                Width="130"
                 FontFamily="Jetbrains Mono"
                 FontSize="16"
                 FontWeight="SemiBold"
@@ -62,19 +62,19 @@
                 Style="{StaticResource MaterialDesignFlatMidBgButton}"
                 ToolTip="MaterialDesignFlatMidButton"
                 Click="btnCreate_Click">
-                +Word add
+                +Title add
             </Button>
         </Grid>
 
         <DataGrid Grid.Row="1"
-                  Name="dgData"
+                  Name="dgDataTitle"
                   FontSize="15"
                   FontFamily="Jetbrains Mono"
                   AutoGenerateColumns="False"
+                  CanUserReorderColumns="False"
                   CanUserResizeColumns="False"
                   CanUserResizeRows="False"
                   IsReadOnly="True"
-                  CanUserReorderColumns="False"
                   Background="{DynamicResource SecundaryBackgroundColor}"
                   TextElement.Foreground="{DynamicResource SecundaryTextColor}"
                   Loaded="DataGrid_Loaded">
@@ -82,44 +82,10 @@
                 <DataGridTextColumn Header="Id"
                                     Width="70"
                                     Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Word"
+                <DataGridTextColumn Header="Title"
                                     Width="3*"
-                                    Binding="{Binding Word}"/>
-                <DataGridTextColumn Header="Translate"
-                                    Width="5*"
-                                    Binding="{Binding Translate}"/>
-                <DataGridTemplateColumn Header="Status"
-                                        Width="110">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Border CornerRadius="10" 
-                                    Height="20"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center"
-                                    Padding="10 5">
-                                <TextBlock Foreground="White" 
-                                           Text="{Binding Status}"
-                                           FontSize="12"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"
-                                           FontWeight="SemiBold"/>
-                                <Border.Style>
-                                    <Style TargetType="Border">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Status}" Value="Found">
-                                                <Setter Property="Background" Value="#50C878" />
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Status}" Value="Not found">
-                                                <Setter Property="Background" Value="#ED624D" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
-                            </Border>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
+                                    Binding="{Binding Title}"/>
+    
                 <!--View-->
                 <DataGridTemplateColumn Header="Info"
                                     Width="95">
@@ -138,7 +104,7 @@
 
                 <!--Action-->
                 <DataGridTemplateColumn Header="Action"
-                                    Width="105">
+                                        Width="105">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -147,7 +113,7 @@
                                     Background="#318CE7"
                                     BorderThickness="0"
                                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-                                    ToolTip="Word update">
+                                    ToolTip="Title update">
                                     <materialDesign:PackIcon Foreground="White"
                                                              Margin="-6"
                                                              Kind="Pencil"/>
@@ -158,7 +124,7 @@
                                     BorderThickness="0"
                                     Background="#DE665D"
                                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-                                    ToolTip="Word delete">
+                                    ToolTip="Title delete">
                                     <materialDesign:PackIcon Foreground="White"
                                                              Margin="-6"
                                                              Kind="Delete"/>
@@ -218,18 +184,10 @@
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
                         Background="{DynamicResource SecundaryBlueColor}">
-                    
-                </Button>
 
+                </Button>
 
             </StackPanel>
-
-            <Border Grid.Column="3" Margin="15,5,10,0" CornerRadius="0 0 5 0" Background="Transparent">
-                <Button  Style="{DynamicResource MaterialDesignFlatButton}" Tag="{DynamicResource game}" Margin="0,5,0,8"
-                            Width="75" HorizontalAlignment="Center" >
-                    <Path Data="{DynamicResource game}" Height="25" Width="38"  Fill="{DynamicResource PrimaryBlueColor}" VerticalAlignment="Center" Stretch="Fill"/>
-                </Button>
-            </Border>
         </Grid>
 
     </Grid>
