@@ -6,7 +6,7 @@ namespace MindWord.Service.Interfaces.Services
 {
     public interface IWordService
     {
-        public Task<IPagedList<WordCreateViewModel>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5);
+        public Task<IPagedList<WordCreateViewModel>> GetPagedListAsync(int pageNumber, int pageSize);
 
     }
 }

@@ -10,7 +10,7 @@ namespace MindWord.Service.Services
 {
     public class WordService : IWordService
     {
-        public async Task<IPagedList<WordCreateViewModel>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5)
+        public async Task<IPagedList<WordCreateViewModel>> GetPagedListAsync(int pageNumber, int pageSize)
         {
             List<WordCreateViewModel> list = new List<WordCreateViewModel>();
             IWordRepository repository = new WordRepository();
@@ -20,7 +20,7 @@ namespace MindWord.Service.Services
             {
                 WordCreateViewModel model = new WordCreateViewModel()
                 {
-                    Id= item.Id,
+                    Id = item.Id,
                     Title = item.Description,
                     Word = item.Name,
                     Translate = item.Translate
