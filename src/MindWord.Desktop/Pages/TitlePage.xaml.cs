@@ -42,7 +42,7 @@ namespace MindWord.Desktop.Pages
 
         private async void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            categories = await service.GetPagedListAsync();
+            categories = await service.GetPagedListAsync(PageNumber,int.Parse(pageSize.Text));
             btnLeft.IsEnabled = categories.HasPreviousPage;
             btnRight.IsEnabled = categories.HasNextPage;
             dgDataTitle.ItemsSource = categories;
@@ -51,7 +51,7 @@ namespace MindWord.Desktop.Pages
 
         private async void btnRight_Click(object sender, RoutedEventArgs e)
         {
-            categories = await service.GetPagedListAsync(++PageNumber);
+            categories = await service.GetPagedListAsync(++PageNumber, PageNumber);
             btnRight.IsEnabled = categories.HasNextPage;
             btnLeft.IsEnabled = categories.HasPreviousPage;
             dgDataTitle.ItemsSource = categories;
@@ -60,7 +60,7 @@ namespace MindWord.Desktop.Pages
 
         private async void btnLeft_Click(object sender, RoutedEventArgs e)
         {
-            categories = await service.GetPagedListAsync(--PageNumber);
+            categories = await service.GetPagedListAsync(--PageNumber, PageNumber);
             btnLeft.IsEnabled = categories.HasPreviousPage;
             btnRight.IsEnabled = categories.HasNextPage;
             dgDataTitle.ItemsSource = categories;
