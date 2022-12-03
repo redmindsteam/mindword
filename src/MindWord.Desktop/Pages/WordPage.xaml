@@ -144,23 +144,25 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button
+                                <Button  x:Name="btnUpdate"
                                     Width="35"
                                     Background="#318CE7"
                                     BorderThickness="0"
                                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-                                    ToolTip="Word update">
+                                    ToolTip="Word update"
+                                         Click="btnUpdate">
                                     <materialDesign:PackIcon Foreground="White"
                                                              Margin="-6"
                                                              Kind="Pencil"/>
                                 </Button>
-                                <Button
+                                <Button x:Name="btnDelete"
                                     Margin="2 0 0 0"
                                     Width="35"
                                     BorderThickness="0"
                                     Background="#DE665D"
                                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-                                    ToolTip="Word delete">
+                                    ToolTip="Word delete"
+                                        Click="btnDelete">
                                     <materialDesign:PackIcon Foreground="White"
                                                              Margin="-6"
                                                              Kind="Delete"/>
