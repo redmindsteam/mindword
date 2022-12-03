@@ -207,9 +207,9 @@
 
                 <Button x:Name="btnRight"
                         Grid.Column="1"
-                        Content=">"
                         Tag="{DynamicResource right}"
                         FontSize="18"
+                        Content=">"
                         FontFamily="Jetbrains Mono"
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Top"
