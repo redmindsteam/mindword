@@ -225,5 +225,10 @@ namespace MindWord.Desktop.Windows
                 MessageBox.Show(result.Message);
             }
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d" WindowStyle="None" 
         Title="WordPage" Height="450" Width="520"
+        ResizeMode="NoResize"
         MouseDown="MainWindow_OnMouseDown">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,8 +26,8 @@
                     Style="{DynamicResource FormTextBox}" 
                      TextChanged="txWord_TextChanged_1" />
 
-            
-                <TextBlock x:Name="TxbDescription"
+
+            <TextBlock x:Name="TxbDescription"
                     Height="30"
                     MaxWidth="350"
                     MaxHeight="30"
@@ -37,10 +38,10 @@
                     HorizontalAlignment="Left"
                     TextWrapping="Wrap"
                     Margin="0 5 0 0"/>
-                
-               
-                
-            
+
+
+
+
 
             <Label Content="Translation"
                     FontFamily="Jetbrains Mono"
@@ -53,7 +54,7 @@
             <TextBox x:Name="txTranslation"
                     Style="{DynamicResource FormTextBox}"/>
 
-           
+
 
             <ComboBox x:Name="ComboBoxCategory" Width="200" Height="30" Margin="40, 35, 0, 20" >
                 <TextBlock>Salom</TextBlock>
@@ -65,12 +66,13 @@
                     Style="{DynamicResource PrimaryButton}" Click="BtnAddWord_Click" />
         </StackPanel>
         <Grid Grid.Column="1">
+            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="55,0,0,410" Foreground="Black"/>
             <Button x:Name="BtnVoice" Width="45" Height="35" Margin="5, 0, 0, 282" HorizontalAlignment="Left"
                     Click="BtnLoad_Click">
                 <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center" />
-                
+
             </Button>
-            
+
         </Grid>
     </Grid>
 </Window>
