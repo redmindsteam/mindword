@@ -38,10 +38,17 @@ namespace MindWord.Desktop.Pages
             InitializeComponent();
         }
 
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        private async void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             TitleCreate titleCreate = new TitleCreate();
             titleCreate.ShowDialog();
+
+            categories = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
+            btnLeft.IsEnabled = categories.HasPreviousPage;
+            btnRight.IsEnabled = categories.HasNextPage;
+            dgDataTitle.ItemsSource = categories;
+            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
+
         }
 
         private async void DataGrid_Loaded(object sender, RoutedEventArgs e)
@@ -84,17 +91,36 @@ namespace MindWord.Desktop.Pages
             MessageBox.Show(desc);
         }
 
-        private void btnUpdate(object sender, RoutedEventArgs e)
+        private async void btnUpdate(object sender, RoutedEventArgs e)
         {
-            int UpdateId = (dgDataTitle.SelectedIndex + 1) + (PageNumber - 1) * 5;
+            var res = (CategoryViewModel) dgDataTitle.SelectedItem;
+            int UpdateId = res.Id;
+            
             IdentitySingelton.SaveUpdateId(UpdateId);
+            TitleUpdate titleUpdate = new TitleUpdate();
+            titleUpdate.ShowDialog();
+
+            categories = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
+            btnLeft.IsEnabled = categories.HasPreviousPage;
+            btnRight.IsEnabled = categories.HasNextPage;
+            dgDataTitle.ItemsSource = categories;
+            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
         }
 
         private async void btndelete(object sender, RoutedEventArgs e)
         {
-            int Deleteid =((dgDataTitle.SelectedIndex + 1)+((PageNumber - 1) * 5));
+            var res = (CategoryViewModel)dgDataTitle.SelectedItem;
+            int DeletedId = res.Id;
             ICategoryRepository categoryRepository = new CategoryRepository();
-            var res = await categoryRepository.DeleteAsync(Deleteid);
+            var result = await categoryRepository.DeleteAsync(DeletedId);
+            if(result == true) 
+            {
+                categories = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
+                btnLeft.IsEnabled = categories.HasPreviousPage;
+                btnRight.IsEnabled = categories.HasNextPage;
+                dgDataTitle.ItemsSource = categories;
+                lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
+            }
         }
     }
 }

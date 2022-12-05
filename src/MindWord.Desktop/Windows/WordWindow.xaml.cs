@@ -77,33 +77,6 @@ namespace MindWord.Desktop.Windows
 
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            IDefinationAPIService definationAPI = new DefinationAPIService();
-
-
-            if (txWord.Text != "" && txTranslation.Text != "")
-            {
-
-                var Word = await definationAPI.GetWordAsync(txWord.Text);
-                Word.word.Translate = txTranslation.Text;
-                ICategoryRepository categoryRepository = new CategoryRepository();
-               
-
-                Word.word.CategoryId = (await categoryRepository.GetByTitleAsync(ComboBoxCategory.SelectedItem.ToString())).Id;
-                Word.word.UserId = IdentitySingelton.currentId().UserId;
-                if (Word.successful)
-                {
-                    IWordRepository wordRepository = new WordRepository();
-
-                    var res = await wordRepository.CreateAsync(Word.word);
-                    if (res)
-                        MessageBox.Show("Added Word");
-
-                }
-            }
-        }
-
         private async void BtnAddWord_Click(object sender, RoutedEventArgs e)
         {
             IDefinationAPIService definationAPI = new DefinationAPIService();
@@ -125,7 +98,15 @@ namespace MindWord.Desktop.Windows
                     var res = await wordRepository.CreateAsync(Word.word);
                     if (res)
                         MessageBox.Show("Added Word");
+                    else
+                    {
+                        MessageBox.Show("No Added");
+                    }
 
+                }
+                else
+                {
+                    MessageBox.Show("No Word!");
                 }
             }
         }

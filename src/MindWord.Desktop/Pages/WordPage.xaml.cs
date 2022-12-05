@@ -61,6 +61,12 @@ namespace MindWord.Desktop.Pages
                 wordWindow.ComboBoxCategory.Items.Add(item);
             }
             wordWindow.ShowDialog();
+
+            words = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
+            btnLeft.IsEnabled = words.HasPreviousPage;
+            btnRight.IsEnabled = words.HasNextPage;
+            dgData.ItemsSource = words;
+            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
         }
         private void rdWordGame_Click(object sender, RoutedEventArgs e)
         {
@@ -94,28 +100,42 @@ namespace MindWord.Desktop.Pages
 
         private void BtnInfo_click(object sender, RoutedEventArgs e)
         {
-            int id = (dgData.SelectedIndex + 1) + ((PageNumber - 1) * 5);
+            int id = ((dgData.SelectedIndex + 1) + (PageNumber - 1) * int.Parse(pageSize.Text)) + 2;
             var res = words.First(x => x.Id == id);
             var desc = res.Title;
             MessageBox.Show(desc);
         }
 
-        private void btnUpdate(object sender, RoutedEventArgs e)
+        private async void btnUpdate(object sender, RoutedEventArgs e)
         {
-            int UpdateId = (dgData.SelectedIndex + 1) + (PageNumber - 1) * 5;
+            var res = (WordCreateViewModel)dgData.SelectedItem;
+            int UpdateId = res.Id;
             IdentitySingelton.SaveUpdateId(UpdateId);
             WordUpdate update = new WordUpdate();
             update.ShowDialog();
+
+            words = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
+            btnLeft.IsEnabled = words.HasPreviousPage;
+            btnRight.IsEnabled = words.HasNextPage;
+            dgData.ItemsSource = words;
+            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
         }
 
         private async void btnDelete(object sender, RoutedEventArgs e)
         {
             IWordRepository wordRepository = new WordRepository();
-            int DeleteId = (dgData.SelectedIndex + 1) + (PageNumber - 1) * 5;
-            var res = await wordRepository.DeleteAsync(DeleteId);
-            if(res == true)
+            var res = (WordCreateViewModel)dgData.SelectedItem;
+            int DeletedId = res.Id;
+            var result = await wordRepository.DeleteAsync(DeletedId);
+            if(result == true)
             {
                 MessageBox.Show("Deleted");
+
+                words = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
+                btnLeft.IsEnabled = words.HasPreviousPage;
+                btnRight.IsEnabled = words.HasNextPage;
+                dgData.ItemsSource = words;
+                lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
             }
             else
             {
