@@ -32,7 +32,7 @@ namespace MindWord.Desktop.Windows
             }
             else
             {
-
+                MessageBox.Show("Failed!");
             }
             
         }

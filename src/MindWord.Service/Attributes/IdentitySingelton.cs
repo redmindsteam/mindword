@@ -3,7 +3,7 @@
     public class IdentitySingelton
     {
         public int UserId { get; set; }
-        public int DUI_Id { get; set; }
+        public int updateId { get; set; }
 
         private static IdentitySingelton _instance;
         private static IdentitySingelton _updateid;
@@ -26,7 +26,7 @@
         public static void SaveUpdateId(int id)
         {
             _updateid = new IdentitySingelton();
-            _updateid.DUI_Id = id;
+            _updateid.updateId = id;
         }
         public static IdentitySingelton UpdateId()
         {

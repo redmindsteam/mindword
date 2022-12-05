@@ -1,4 +1,9 @@
-﻿using System;
+﻿using MindWord.DataAccess.Interfaces.Repositories;
+using MindWord.DataAccess.Repositories;
+using MindWord.Domain.Entities;
+using MindWord.Service.Attributes;
+using MindWord.Service.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +22,8 @@ namespace MindWord.Desktop.Windows
     /// <summary>
     /// Логика взаимодействия для TitleUpdate.xaml
     /// </summary>
+   
+
     public partial class TitleUpdate : Window
     {
         public TitleUpdate()
@@ -34,9 +41,26 @@ namespace MindWord.Desktop.Windows
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            ICategoryRepository categoryRepository = new CategoryRepository();
+            Category category = new Category()
+            {
+                UserId = IdentitySingelton.currentId().UserId,
+                Title = txTitle.Text,
+                Description = txDescriptionTitle.Text,
+                Id = IdentitySingelton.UpdateId().updateId
+            };
+            var res = await categoryRepository.UpdateAsync(IdentitySingelton.UpdateId().updateId, category);
+            if(res == true)
+            {
+                MessageBox.Show("Updated");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Failed!");
+            }
         }
     }
 }

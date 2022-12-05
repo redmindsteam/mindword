@@ -66,7 +66,7 @@ namespace MindWord.Desktop.Windows
                 Description = TxbDescription.Text,
                 CategoryId = (await categoryRepository.GetByTitleAsync(ComboBoxCategory.Text)).Id
             };
-            var res = await wordRepository.UpdateAsync(IdentitySingelton.UpdateId().DUI_Id,word);
+            var res = await wordRepository.UpdateAsync(IdentitySingelton.UpdateId().updateId,word);
             if(res == true)
             {
                 MessageBox.Show("Updated");

@@ -158,7 +158,7 @@ namespace MindWord.DataAccess.Repositories
             try
             {
                 await _con.OpenAsync();
-                string query = $"UPDATE categories SET title = $title, description = $description;";
+                string query = $"UPDATE categories SET title = $title, description = $description WHERE id={id};";
                 var command = new SQLiteCommand(query, _con)
                 {
                     Parameters =
