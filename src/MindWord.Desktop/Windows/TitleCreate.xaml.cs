@@ -2,6 +2,7 @@
 using MindWord.Service.Services;
 using MindWord.Service.ViewModel;
 using System.Windows;
+using System.Windows.Input;
 
 namespace MindWord.Desktop.Windows
 {
@@ -34,6 +35,16 @@ namespace MindWord.Desktop.Windows
 
             }
             
+        }
+
+        private void MainWindow_OnMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

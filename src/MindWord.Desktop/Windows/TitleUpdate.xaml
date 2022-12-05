@@ -1,14 +1,15 @@
-﻿<Window x:Class="MindWord.Desktop.Windows.TitleCreate"
+﻿<Window x:Class="MindWord.Desktop.Windows.TitleUpdate"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="TitleCreate" Height="308" Width="500"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="TitleUpdate" Height="308" Width="500"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="MainWindow_OnMouseDown">
-    <Grid >
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
             <ColumnDefinition/>
@@ -49,7 +50,7 @@
 
                     <Button Style="{DynamicResource PrimaryButton}" 
                         Margin="200, 50, 15, 0" Click="Button_Click">
-                        Add
+                        Update
                     </Button>
                 </StackPanel>
             </Grid>

@@ -129,5 +129,10 @@ namespace MindWord.Desktop.Windows
                 }
             }
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

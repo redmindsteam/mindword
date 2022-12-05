@@ -32,7 +32,7 @@ namespace MindWord.Desktop.Windows
         }
         private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-           
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
 
         private void txWord_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -55,7 +55,6 @@ namespace MindWord.Desktop.Windows
         {
             
         }
-
         private async void BtnUpdateWord_Click(object sender, RoutedEventArgs e)
         {
             IWordRepository wordRepository = new WordRepository();
@@ -77,6 +76,10 @@ namespace MindWord.Desktop.Windows
             {
                 MessageBox.Show("Not updated");
             }
+        }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
