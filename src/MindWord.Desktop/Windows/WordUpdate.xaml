@@ -63,7 +63,7 @@
                 <TextBlock>Asal</TextBlock>
             </ComboBox>
             <Button x:Name="BtnUpdateWord" Margin="40, 35, 0, 0" Content="Update" Width="150"
-                    Style="{DynamicResource PrimaryButton}" />
+                    Style="{DynamicResource PrimaryButton}" Click="BtnUpdateWord_Click" />
         </StackPanel>
         <Grid Grid.Column="1">
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="55,0,0,410" Foreground="Black"/>

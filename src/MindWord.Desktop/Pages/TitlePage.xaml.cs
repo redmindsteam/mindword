@@ -1,5 +1,8 @@
-﻿using MindWord.Desktop.Windows;
+﻿using MindWord.DataAccess.Interfaces.Repositories;
+using MindWord.DataAccess.Repositories;
+using MindWord.Desktop.Windows;
 using MindWord.Domain.Entities;
+using MindWord.Service.Attributes;
 using MindWord.Service.Interfaces.Services;
 using MindWord.Service.Services;
 using MindWord.Service.ViewModel;
@@ -18,6 +21,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace MindWord.Desktop.Pages
 {
@@ -82,13 +86,15 @@ namespace MindWord.Desktop.Pages
 
         private void btnUpdate(object sender, RoutedEventArgs e)
         {
-            
+            int UpdateId = (dgDataTitle.SelectedIndex + 1) + (PageNumber - 1) * 5;
+            IdentitySingelton.SaveUpdateId(UpdateId);
         }
 
-        private void btndelete(object sender, RoutedEventArgs e)
+        private async void btndelete(object sender, RoutedEventArgs e)
         {
             int Deleteid =((dgDataTitle.SelectedIndex + 1)+((PageNumber - 1) * 5));
-
+            ICategoryRepository categoryRepository = new CategoryRepository();
+            var res = await categoryRepository.DeleteAsync(Deleteid);
         }
     }
 }
