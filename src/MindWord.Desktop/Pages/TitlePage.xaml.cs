@@ -85,10 +85,18 @@ namespace MindWord.Desktop.Pages
 
         private void btnInfoTitle(object sender, RoutedEventArgs e)
         {
-            int id = (dgDataTitle.SelectedIndex + 1) + ((PageNumber - 1) * 5);
-            var res = categories.First(x => x.Id == id);
-            var desc = res.Description;
-            MessageBox.Show(desc);
+            try
+            {
+                var res = (CategoryViewModel) dgDataTitle.SelectedItem;
+                int id = res.Id;
+                var result = categories.First(x => x.Id == id);
+                var desc = result.Description;
+                MessageBox.Show(desc);
+            }
+            catch
+            {
+                MessageBox.Show("Sorry, Description is not found!");
+            }
         }
 
         private async void btnUpdate(object sender, RoutedEventArgs e)
