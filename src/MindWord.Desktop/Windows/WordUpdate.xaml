@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d" WindowStyle="None" 
         Title="WordPage" Height="450" Width="520"
+        ResizeMode="NoResize"
         MouseDown="MainWindow_OnMouseDown">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -65,6 +66,7 @@
                     Style="{DynamicResource PrimaryButton}" />
         </StackPanel>
         <Grid Grid.Column="1">
+            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="55,0,0,410" Foreground="Black"/>
             <Button x:Name="BtnVoice" Width="45" Height="35" Margin="5, 0, 0, 282" HorizontalAlignment="Left"
                     Click="BtnLoad_Click">
                 <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center" />

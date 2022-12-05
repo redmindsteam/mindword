@@ -24,6 +24,7 @@
         </Grid>
 
         <Grid Grid.Column="1" Background="White">
+            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="370, 0, 0, 420"/>
             <StackPanel x:Name="Login" Width="350" Height="400" Visibility="Visible">
                 <Label Content="Login"
                     FontFamily="Jetbrains Mono"
@@ -41,7 +42,7 @@
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}" 
                     Width="346" Height="50" TextChanged="txEmail_TextChanged"/>
-                
+
                 <Label x:Name="LbEmailIsCorrect" Content=""
                     FontFamily="Jetbrains Mono"
                     Foreground="#E13E4E"
@@ -65,7 +66,7 @@
 
                 <Button Content="LOGIN" Style="{StaticResource PrimaryButton}"
                     Margin="0 40" Click="Button_Click_1">
-                    
+
                 </Button>
 
                 <TextBlock Grid.Column="1"
@@ -108,7 +109,7 @@
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}" 
                     Width="346" Height="50" TextChanged="txEmailRegis_TextChanged" Text=""/>
-                
+
                 <Label x:Name="RegistLbEmail" Content=""
                     FontFamily="Jetbrains Mono"
                     Foreground="#E13E4E"
@@ -116,7 +117,7 @@
                     FontWeight="Medium" 
                     HorizontalAlignment="Left"
                     Margin="0 5 0 0"/>
-                
+
                 <PasswordBox
                     FontFamily="Jetbrains Mono"
                     x:Name="txPasswordRegistorBox"

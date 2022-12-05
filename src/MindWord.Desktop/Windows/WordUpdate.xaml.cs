@@ -30,7 +30,7 @@ namespace MindWord.Desktop.Windows
         }
         private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-           
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
 
         private void txWord_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -52,6 +52,11 @@ namespace MindWord.Desktop.Windows
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
