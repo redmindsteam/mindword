@@ -180,12 +180,13 @@ namespace MindWord.Desktop.Windows
                 var result = strongPassword.IsValid(txPasswordRegistorBox.Password);
                 if (result.isSuccessful == true)
                 {
+                    ImageService imageService = new ImageService();
                     UserViewModel userView = new UserViewModel()
                     {
                         FullName = txFullName.Text,
                         Email = txEmailRegistor.Text,
                         Password = txPasswordRegistorBox.Password,
-                        AccountImagePath = DbConstants.ACCOUNT_IMAGE_PATH
+                        AccountImagePath = imageService.DefaultImage()
                     };
                     var resultRegister = await service.RegisterAsync(userView);
                     if (resultRegister.isSuccessful == true)
