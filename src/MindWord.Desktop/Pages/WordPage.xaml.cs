@@ -100,10 +100,18 @@ namespace MindWord.Desktop.Pages
 
         private void BtnInfo_click(object sender, RoutedEventArgs e)
         {
-            int id = ((dgData.SelectedIndex + 1) + (PageNumber - 1) * int.Parse(pageSize.Text)) + 2;
-            var res = words.First(x => x.Id == id);
-            var desc = res.Title;
-            MessageBox.Show(desc);
+            try
+            {
+                var res = (WordCreateViewModel)dgData.SelectedItem;
+                int id = res.Id;
+                var result = words.First(x => x.Id == id);
+                var desc = result.Title;
+                MessageBox.Show(desc);
+            }
+            catch
+            {
+                MessageBox.Show("Sorry, Description is not found!");
+            }
         }
 
         private async void btnUpdate(object sender, RoutedEventArgs e)
