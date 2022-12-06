@@ -27,14 +27,13 @@
                                      materialDesign:HintAssist.Hint="Search ..."/>
 
                             <materialDesign:PackIcon
-                                Foreground="{DynamicResource PrimaryTextColor}"
-                                Grid.Column="1"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Width="25"
-                                Height="25"
-                                Kind="Magnify"/>
-
+                                    Foreground="{DynamicResource PrimaryTextColor}"
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Width="25"
+                                    Height="25"
+                                    Kind="Magnify"/>
                         </Grid>
                     </Border>
                 </ControlTemplate>
@@ -54,12 +53,12 @@
                             Background="#A0CDD3"
                             Height="40">
                         <TextBox 
-                                 Margin="5 0 0 0"
-                                 FontSize="16"
-                                 BorderThickness="0"
-                                 Background="Transparent"
-                                 Foreground="WhiteSmoke"
-                                 Text="{Binding Path=Text, RelativeSource = {RelativeSource AncestorType={x:Type TextBox}}}">
+                            Margin="5 0 0 0"
+                            FontSize="16"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            Foreground="WhiteSmoke"
+                            Text="{Binding Path=Text, RelativeSource = {RelativeSource AncestorType={x:Type TextBox}}}">
                         </TextBox>
                     </Border>
                 </ControlTemplate>
