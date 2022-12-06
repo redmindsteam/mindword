@@ -17,16 +17,16 @@ namespace MindWord.Service.Services
 
             for(int i=0; i < words.Count; i++)
             {
-                List<string> list = new List<string>();
-                list[0] = words[i].Name;
+                List<string> list = new List<string>() { "","","","","",""};
+                list[0] =words[i].Name;
                 list[random.Next(1, 4)] = words[i].Translate;
                 list[5] = words[i].Translate;
-                while (list[1] == string.Empty || list[2] == string.Empty || list[3] == string.Empty || list[4] == string.Empty)
+                while (list[1] == "" || list[2] == "" || list[3] == "" || list[4] == "")
                 {
                     var res =  words[random.Next(0, words.Count)].Translate;
                     for (int l = 1; l < 5; l++)
                     {
-                        if (list[l] == string.Empty && !list.Contains(res))
+                        if (list[l] == "" && !list.Contains(res))
                             list[l] = res;
                     }
                 }

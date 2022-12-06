@@ -11,24 +11,25 @@ namespace MindWord.DataAccess.Repositories
 
         public async Task<bool> CreateAsync(Word item)
         {
+            using (var con = _con) { }
             try
             {
                 await _con.OpenAsync();
                 string query = "INSERT INTO Words(name,description,translate,voice,correct_coins," +
-                            "error_coins,category_id,user_id)" +
+                            " error_coins,category_id,user_id)" +
                             " VALUES($name,$description,$translate,$voice,$correct_coins,$error_coins,$category_id,$user_id)";
                 var command = new SQLiteCommand(query, _con)
                 {
                     Parameters =
                     {
-                        new SQLiteParameter("name", item.Name),
-                        new SQLiteParameter("description", item.Description),
-                        new SQLiteParameter("translate",item.Translate),
-                        new SQLiteParameter("voice",item.AudioPath),
-                        new SQLiteParameter("correct_coins",item.CorrectCoins),
-                        new SQLiteParameter("error_coins",item.ErrorCoins),
-                        new SQLiteParameter("category_id",item.CategoryId),
-                        new SQLiteParameter("user_id",item.UserId)
+                        new SQLiteParameter("$name", item.Name),
+                        new SQLiteParameter("$description", item.Description),
+                        new SQLiteParameter("$translate",item.Translate),
+                        new SQLiteParameter("$voice",item.AudioPath),
+                        new SQLiteParameter("$correct_coins",item.CorrectCoins),
+                        new SQLiteParameter("$error_coins",item.ErrorCoins),
+                        new SQLiteParameter("$category_id",item.CategoryId),
+                        new SQLiteParameter("$user_id",item.UserId)
                     }
                 };
                 var result = await command.ExecuteNonQueryAsync();
@@ -43,7 +44,7 @@ namespace MindWord.DataAccess.Repositories
             }
             catch
             {
-                
+                await _con.CloseAsync();
                 return false;
             }
             finally { await _con.CloseAsync(); }
