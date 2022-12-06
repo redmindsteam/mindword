@@ -231,5 +231,15 @@ namespace MindWord.Desktop.Windows
         {
             this.Close();
         }
+
+        private void btncheckbxShowPas(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btncheckbxShowPas2(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
