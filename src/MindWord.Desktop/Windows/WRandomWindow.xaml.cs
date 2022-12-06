@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MindWord.Service.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,9 @@ namespace MindWord.Desktop.Windows
     /// </summary>
     public partial class WRandomWindow : Window
     {
+        static int index = 0;
+        static int correctPoints = 0;
+        private List<List<string>> res { get; set; }
         public WRandomWindow()
         {
             InitializeComponent();
@@ -35,6 +39,94 @@ namespace MindWord.Desktop.Windows
                 WindowState = WindowState.Maximized;
             else
                 WindowState = WindowState.Normal;
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            GameService gameService = new GameService();
+            res = await gameService.RandomTestAsync();
+            lbRandomWord.Content = res[index][0];
+            aBtn.Content = res[index][1];
+            bBtn.Content = res[index][2];
+            cBtn.Content = res[index][3];
+            dBtn.Content = res[index][4];
+        }
+
+        private void aBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if(aBtn.Content == res[index][5])
+            {
+                correctPoints++;
+            }
+            index++;
+            lbRandomWord.Content = res[index][0];
+            aBtn.Content = res[index][1];
+            bBtn.Content = res[index][2];
+            cBtn.Content = res[index][3];
+            dBtn.Content = res[index][4];
+            if (index == res.Count + 1)
+            {
+                MessageBox.Show($"Your score is {correctPoints}!");
+                this.Close();
+            }
+        }
+
+        private void cBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (cBtn.Content == res[index][5])
+            {
+                correctPoints++;
+            }
+            index++;
+            lbRandomWord.Content = res[index][0];
+            aBtn.Content = res[index][1];
+            bBtn.Content = res[index][2];
+            cBtn.Content = res[index][3];
+            dBtn.Content = res[index][4];
+            if (index == res.Count + 1)
+            {
+                MessageBox.Show($"Your score is {correctPoints}!");
+                this.Close();
+            }
+        }
+
+        private void bBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (bBtn.Content == res[index][5])
+            {
+                correctPoints++;
+            }
+            index++;
+            lbRandomWord.Content = res[index][0];
+            aBtn.Content = res[index][1];
+            bBtn.Content = res[index][2];
+            cBtn.Content = res[index][3];
+            dBtn.Content = res[index][4];
+            if (index == res.Count + 1)
+            {
+                MessageBox.Show($"Your score is {correctPoints}!");
+                this.Close();
+            }
+        }
+
+        private void dBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (dBtn.Content == res[index][5])
+            {
+                correctPoints++;
+            }
+            index++;
+            lbRandomWord.Content = res[index][0];
+            aBtn.Content = res[index][1];
+            bBtn.Content = res[index][2];
+            cBtn.Content = res[index][3];
+            dBtn.Content = res[index][4];
+            if (index == res.Count + 1)
+            {
+                MessageBox.Show($"Your score is {correctPoints}!");
+                this.Close();
+            }
         }
     }
 }
