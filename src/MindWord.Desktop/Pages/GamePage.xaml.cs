@@ -16,6 +16,7 @@ namespace MindWord.Desktop.Pages
         private void btnWRandom_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             WRandomWindow wRandomWindow = new WRandomWindow();
+
             wRandomWindow.Show();
         }
 
