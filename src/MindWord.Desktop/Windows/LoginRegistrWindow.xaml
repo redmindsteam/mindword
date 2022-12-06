@@ -37,7 +37,7 @@
                     Margin="0 30 0 0"/>
 
                 <TextBox x:Name="txEmail"
-                    FontFamily="Jetbrains Mono"
+                    FontFamily="JetBrains Mono"
                     HorizontalAlignment="Center"
                     Margin="0, 30, 0, 0"
                     materialDesign:HintAssist.Hint="Email"
@@ -68,11 +68,13 @@
 
                 <CheckBox x:Name="btnCheckbox"
                     Content="Show Password"
-                    Foreground="#E13E4E"
+                    Foreground="{DynamicResource SecundaryBlueColor}"
                     FontSize="15"
+                    FontFamily="JetBrains Mono"
                     FontWeight="Medium" 
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Left"
-                    Margin="215 15 0 0"
+                    Margin="210 15 0 0"
                     Click="btncheckbxShowPas"/>
 
                 <Button Content="LOGIN" Style="{StaticResource PrimaryButton}"
@@ -153,11 +155,13 @@
 
                 <CheckBox x:Name="btnCheckbox2"
                     Content="Show Password"
-                    Foreground="#E13E4E"
+                    VerticalAlignment="Center"
+                    Foreground="{DynamicResource SecundaryBlueColor}"
                     FontSize="15"
-                    FontWeight="Medium" 
+                    FontFamily="JetBrains Mono"
+                    FontWeight="SemiBold" 
                     HorizontalAlignment="Left"
-                    Margin="215 0 0 0"
+                    Margin="210 0 0 0"
                     Click="btncheckbxShowPas2"/>
 
                 <Button Content="REGISTER" Style="{StaticResource PrimaryButton}"
@@ -174,9 +178,7 @@
                         Login
                     </Hyperlink>
                 </TextBlock>
-
             </StackPanel>
-
         </Grid>
     </Grid>
 </Window>

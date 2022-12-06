@@ -10,6 +10,6 @@
       Title="HomePage">
 
     <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
-
+        
     </Border>
 </Page>
