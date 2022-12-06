@@ -1,12 +1,87 @@
 ﻿<Window x:Class="MindWord.Desktop.Windows.WTranslateWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
-        Title="WTranslateWindow" Height="580" Width="930">
+        Title="WTranslateWindow" 
+        WindowStartupLocation="CenterScreen" Height="308" Width="400"
+        WindowStyle="None" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Background="#1B1E27">
+            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Margin="0, 5, 5, 0"
+                    Content="{DynamicResource close}" Tag="IsCloseButton" HorizontalAlignment="Right" 
+                    VerticalAlignment="Center" Foreground="Black" Click="btnClose_Click"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Background="#252427">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Foreground="White" 
+                           HorizontalAlignment="Center"
+                           Margin="0 8 0 0" >
+                    Englash
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <Button Height="35" Background="#252427">
+                    <materialDesign:PackIcon Kind="SwapHorizontal" Foreground="White"/>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Foreground="White" 
+                           HorizontalAlignment="Center"
+                           Margin="0 8 0 0" >
+                    Uzbek
+                </TextBlock>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="2" Background="#252427">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBox/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBox/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+                <TextBox Visibility="Collapsed"/>
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>
