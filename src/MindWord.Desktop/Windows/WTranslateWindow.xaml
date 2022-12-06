@@ -10,7 +10,8 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="Transparent"
-        Height="580" Width="930">
+        Height="580" Width="930"
+        Loaded="Window_Loaded">
     <Border CornerRadius="8"
             Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
@@ -69,26 +70,26 @@
                     <StackPanel Grid.Column="0" VerticalAlignment="Top">
                         <Button Width="300"
                                 x:Name="aBtn"
-                                Style="{DynamicResource BtnGameTest}">
+                                Style="{DynamicResource BtnGameTest}" Click="aBtn_Click">
                         </Button>
 
                         <Button Width="300"
                                 Margin="0 30 0 0"
                                 x:Name="bBtn"
-                                Style="{DynamicResource BtnGameTest}">
+                                Style="{DynamicResource BtnGameTest}" Click="bBtn_Click">
                         </Button>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" VerticalAlignment="top">
                         <Button Width="300"
                                 x:Name="cBtn"
-                                Style="{DynamicResource BtnGameTest}">
+                                Style="{DynamicResource BtnGameTest}" Click="cBtn_Click">
                         </Button>
 
                         <Button Width="300"
                                 Margin="0 30 0 0"
                                 x:Name="dBtn"
-                                Style="{DynamicResource BtnGameTest}">
+                                Style="{DynamicResource BtnGameTest}" Click="dBtn_Click">
                         </Button>
                     </StackPanel>
                 </Grid>
