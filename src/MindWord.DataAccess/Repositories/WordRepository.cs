@@ -43,7 +43,7 @@ namespace MindWord.DataAccess.Repositories
             }
             catch
             {
-
+                
                 return false;
             }
             finally { await _con.CloseAsync(); }

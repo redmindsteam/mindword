@@ -44,7 +44,7 @@
                      Grid.Column="1"
                      VerticalAlignment="Top"
                      Margin="15 0"
-                     Style="{DynamicResource SearchBox}"/>
+                     Style="{DynamicResource SearchBox}" TextChanged="tbSearchBox_TextChanged"/>
 
             <!--Create Button-->
             <Button x:Name="btnCreate"

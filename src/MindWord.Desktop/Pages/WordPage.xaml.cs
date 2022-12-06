@@ -40,20 +40,20 @@ namespace MindWord.Desktop.Pages
 
         private async void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            words =  await service.GetPagedListAsync(PageNumber,int.Parse(pageSize.Text));
+            words = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
             btnLeft.IsEnabled = words.HasPreviousPage;
             btnRight.IsEnabled = words.HasNextPage;
             dgData.ItemsSource = words;
             lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
 
-            
+
         }
 
         private async void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             WordWindow wordWindow = new WordWindow();
             wordWindow.ComboBoxCategory.Items.Clear();
-            ICategoryService categoryService = new CategoryService();   
+            ICategoryService categoryService = new CategoryService();
             var categories = await categoryService.GetStringsAsync();
 
             foreach (var item in categories)
@@ -75,7 +75,7 @@ namespace MindWord.Desktop.Pages
 
         private async void btnLeft_Click(object sender, RoutedEventArgs e)
         {
-            words = await service.GetPagedListAsync(--PageNumber,int.Parse(pageSize.Text));
+            words = await service.GetPagedListAsync(--PageNumber, int.Parse(pageSize.Text));
             btnLeft.IsEnabled = words.HasPreviousPage;
             btnRight.IsEnabled = words.HasNextPage;
             dgData.ItemsSource = words;
@@ -86,7 +86,7 @@ namespace MindWord.Desktop.Pages
 
         private async void btnRight_Click(object sender, RoutedEventArgs e)
         {
-            words = await service.GetPagedListAsync(++PageNumber,int.Parse(pageSize.Text));
+            words = await service.GetPagedListAsync(++PageNumber, int.Parse(pageSize.Text));
             btnRight.IsEnabled = words.HasNextPage;
             btnLeft.IsEnabled = words.HasPreviousPage;
             dgData.ItemsSource = words;
@@ -94,9 +94,9 @@ namespace MindWord.Desktop.Pages
         }
         private void dgData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-                      
-         }
+
+
+        }
 
         private void BtnInfo_click(object sender, RoutedEventArgs e)
         {
@@ -135,7 +135,7 @@ namespace MindWord.Desktop.Pages
             var res = (WordCreateViewModel)dgData.SelectedItem;
             int DeletedId = res.Id;
             var result = await wordRepository.DeleteAsync(DeletedId);
-            if(result == true)
+            if (result == true)
             {
                 MessageBox.Show("Deleted");
 
@@ -148,6 +148,25 @@ namespace MindWord.Desktop.Pages
             else
             {
                 MessageBox.Show("Failed to delete");
+            }
+        }
+
+        private async void tbSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            var txt = tbSearchBox.Text;
+            IWordRepository repository = new WordRepository();
+            var words = await repository.GetAllAsync();
+            var temp = words.Where(x => x.UserId == IdentitySingelton.currentId().UserId);
+            if (txt != "")
+            {
+                var searchedlist = temp.Where(x => x.Name.ToLower().StartsWith(txt.ToLower())).ToList();
+                dgData.ItemsSource = null;
+                dgData.ItemsSource = searchedlist; 
+            }
+            else
+            {
+                dgData.ItemsSource = temp;
             }
         }
     }
