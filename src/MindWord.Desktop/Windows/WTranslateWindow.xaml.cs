@@ -34,5 +34,12 @@ namespace MindWord.Desktop.Windows
             this.Close();
         }
 
+        private void btnRestore_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+                WindowState = WindowState.Maximized;
+            else
+                WindowState = WindowState.Normal;
+        }
     }
 }

@@ -46,6 +46,7 @@
                         <RadioButton x:Name="rdTitle" Content="Title" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource title}" Margin="0 1 0 1" Click="rdTitle_Click" />
                         <RadioButton x:Name="rdWord" Content="Word" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource word}" Margin="0 1 0 1" Click="rdWords_Click"/>
                         <RadioButton x:Name="rdGame" Content="Game" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource game}" Margin="0 1 0 1" Click="rdGame_Click"/>
+                        <RadioButton x:Name="rdTranslate" Content="Translate" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource translate}" Margin="0 1 0 1" Click="rdTranslate_Click"/>
 
                         <Separator Margin="20 20" Background="{DynamicResource TertiaryBackgroundColor}"/>
 

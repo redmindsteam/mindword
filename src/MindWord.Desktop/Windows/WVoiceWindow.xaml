@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
         Title="WVoiceWindow" Height="580" Width="930">
     <Grid>
         

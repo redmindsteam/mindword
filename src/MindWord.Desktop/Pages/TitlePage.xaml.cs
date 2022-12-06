@@ -142,7 +142,6 @@ namespace MindWord.Desktop.Pages
                 var searchedlist = temp.Where(x => x.Title.ToLower().StartsWith(txt.ToLower())).ToList();
                 dgDataTitle.ItemsSource = null;
                 dgDataTitle.ItemsSource = searchedlist;
-
             }
             else
             {

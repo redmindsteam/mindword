@@ -218,7 +218,7 @@ namespace MindWord.Desktop.Windows
             if (result.isSuccessful == true)
             {
                 MainWindow mainWindow = new MainWindow();
-                this.Hide();
+                this.Close();
                 mainWindow.Show();
             }
             else
