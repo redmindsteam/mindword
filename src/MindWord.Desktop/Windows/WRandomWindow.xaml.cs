@@ -136,5 +136,10 @@ namespace MindWord.Desktop.Windows
             cBtn.Content = res[index][3];
             dBtn.Content = res[index][4];
         }
+
+        private void aBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

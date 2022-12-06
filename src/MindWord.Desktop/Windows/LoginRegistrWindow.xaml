@@ -27,7 +27,7 @@
         <Grid Grid.Column="1" Background="White">
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="370, 0, 0, 420"/>
             <StackPanel x:Name="Login" Width="350" Height="400" 
-                Visibility="Visible">
+                Visibility="Collapsed">
                 <Label Content="Login"
                     FontFamily="Jetbrains Mono"
                     Foreground="#DB872F"
@@ -37,7 +37,7 @@
                     Margin="0 30 0 0"/>
 
                 <TextBox x:Name="txEmail"
-                    FontFamily="Jetbrains Mono"
+                    FontFamily="JetBrains Mono"
                     HorizontalAlignment="Center"
                     Margin="0, 30, 0, 0"
                     materialDesign:HintAssist.Hint="Email"
@@ -68,11 +68,13 @@
 
                 <CheckBox x:Name="btnCheckbox"
                     Content="Show Password"
-                    Foreground="#E13E4E"
+                    Foreground="{DynamicResource SecundaryBlueColor}"
                     FontSize="15"
+                    FontFamily="JetBrains Mono"
                     FontWeight="Medium" 
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Left"
-                    Margin="215 15 0 0"
+                    Margin="210 15 0 0"
                     Click="btncheckbxShowPas"/>
 
                 <Button Content="LOGIN" Style="{StaticResource PrimaryButton}"
@@ -93,7 +95,7 @@
             </StackPanel>
 
             <StackPanel x:Name="RegisterPage" Width="350" Height="420" 
-                      Visibility="Collapsed">
+                      Visibility="Visible">
 
                 <Label Content="Registration"
                     FontFamily="Jetbrains Mono"
@@ -153,11 +155,13 @@
 
                 <CheckBox x:Name="btnCheckbox2"
                     Content="Show Password"
-                    Foreground="#E13E4E"
+                    VerticalAlignment="Center"
+                    Foreground="{DynamicResource SecundaryBlueColor}"
                     FontSize="15"
-                    FontWeight="Medium" 
+                    FontFamily="JetBrains Mono"
+                    FontWeight="SemiBold" 
                     HorizontalAlignment="Left"
-                    Margin="215 0 0 0"
+                    Margin="210 0 0 0"
                     Click="btncheckbxShowPas2"/>
 
                 <Button Content="REGISTER" Style="{StaticResource PrimaryButton}"
@@ -174,9 +178,7 @@
                         Login
                     </Hyperlink>
                 </TextBlock>
-
             </StackPanel>
-
         </Grid>
     </Grid>
 </Window>

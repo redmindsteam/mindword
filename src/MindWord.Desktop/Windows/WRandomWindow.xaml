@@ -69,7 +69,7 @@
                     <StackPanel Grid.Column="0" VerticalAlignment="Top">
                         <Button Width="300"
                             x:Name="aBtn"
-                            Style="{DynamicResource BtnGameTest}">
+                            Style="{DynamicResource BtnGameTest}" Click="aBtn_Click_1">
                         </Button>
 
                         <Button Width="300"
