@@ -160,7 +160,7 @@ namespace MindWord.Desktop.Pages
             var temp = words.Where(x => x.UserId == IdentitySingelton.currentId().UserId);
             if (txt != "")
             {
-                var searchedlist = temp.Where(x => x.Name.ToLower().StartsWith(txt.ToLower())).ToList();
+                var searchedlist = temp.Where(p => p.Name.ToLower().Contains(txt)).ToList();
                 dgData.ItemsSource = null;
                 dgData.ItemsSource = searchedlist; 
             }
