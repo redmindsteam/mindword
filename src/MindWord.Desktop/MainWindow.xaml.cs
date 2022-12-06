@@ -63,5 +63,10 @@ namespace MindWord.Desktop
         {
             frameContent.Navigate(new System.Uri("Pages/TitlePage.xaml", System.UriKind.RelativeOrAbsolute));
         }
+
+        private void rdTranslate_Click(object sender, RoutedEventArgs e)
+        {
+            frameContent.Navigate(new System.Uri("Pages/TranslatePage.xaml", System.UriKind.RelativeOrAbsolute));
+        }
     }
 }

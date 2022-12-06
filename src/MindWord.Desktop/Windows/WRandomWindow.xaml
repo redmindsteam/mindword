@@ -5,88 +5,104 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
         WindowStyle="None"
-        Background="{DynamicResource PrimaryBackgroundColor}"
+        Background="Transparent"
         Title="WRandomWindow" Height="580" Width="930">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
+    <Border CornerRadius="8"
+            Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="150"/>
-            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition/>
+                <RowDefinition Height="80"/>
 
-            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
-                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
-                <Button x:Name="btnRestore" Margin="5 0" Click="btnRestore_Click">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
-                            <Setter Property="Content" Value="{DynamicResource maximize}"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
-                                    <Setter Property="Content" Value="{DynamicResource restore}"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </StackPanel>
-        </Grid>
-            
-  
-        <StackPanel Grid.Row="1" 
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-            <Label
-               x:Name="lbRandomWord"
-               Content="Hello guys"
-               Foreground="{DynamicResource SecundaryTextColor}"
-               FontSize="25">
+            </Grid.RowDefinitions>
 
-            </Label>
-        </StackPanel>
-        
-        <Grid Grid.Row="2">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0" VerticalAlignment="Top">
-                    <Button Width="300"
-                            x:Name="aBtn"
-                            Style="{DynamicResource BtnGameTest}" Click="aBtn_Click">
-                    </Button>
-
-                    <Button Width="300"
-                            Margin="0 30 0 0"
-                            x:Name="bBtn"
-                            Style="{DynamicResource BtnGameTest}" Click="bBtn_Click">
-                    </Button>
-                </StackPanel>
-
-                <StackPanel Grid.Column="1" VerticalAlignment="top">
-                    <Button Width="300"
-                            x:Name="cBtn"
-                            Style="{DynamicResource BtnGameTest}" Click="cBtn_Click">
-                    </Button>
-
-                    <Button Width="300"
-                            Margin="0 30 0 0"
-                            x:Name="dBtn"
-                            Style="{DynamicResource BtnGameTest}" Click="dBtn_Click">
+                <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
+                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                    <Button x:Name="btnRestore" Margin="5 0" Click="btnRestore_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
+                                <Setter Property="Content" Value="{DynamicResource maximize}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
+                                        <Setter Property="Content" Value="{DynamicResource restore}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
                     </Button>
                 </StackPanel>
             </Grid>
+
+
+            <StackPanel Grid.Row="1" 
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <Label
+               x:Name="lbRandomWord"
+               Content="Random bo'yicha"
+               Foreground="{DynamicResource SecundaryTextColor}"
+               FontSize="25">
+
+                </Label>
+            </StackPanel>
+
+            <Grid Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" VerticalAlignment="Top">
+                        <Button Width="300"
+                            x:Name="aBtn"
+                            Style="{DynamicResource BtnGameTest}">
+                        </Button>
+
+                        <Button Width="300"
+                            Margin="0 30 0 0"
+                            x:Name="bBtn"
+                            Style="{DynamicResource BtnGameTest}">
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="top">
+                        <Button Width="300"
+                            x:Name="cBtn"
+                            Style="{DynamicResource BtnGameTest}">
+                        </Button>
+
+                        <Button Width="300"
+                            Margin="0 30 0 0"
+                            x:Name="dBtn"
+                            Style="{DynamicResource BtnGameTest}">
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Label FontFamily="JetBrains Mono"
+                   FontSize="16"
+                   Content="1/10"
+                   Foreground="{DynamicResource SecundaryTextColor}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+                </Label>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>

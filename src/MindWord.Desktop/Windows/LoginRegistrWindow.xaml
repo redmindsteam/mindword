@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
         Height="450" Width="750"
         Title="LoginPage"  Background="Transparent"
         WindowStyle="None"
@@ -26,7 +27,7 @@
         <Grid Grid.Column="1" Background="White">
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="370, 0, 0, 420"/>
             <StackPanel x:Name="Login" Width="350" Height="400" 
-                Visibility="Collapsed">
+                Visibility="Visible">
                 <Label Content="Login"
                     FontFamily="Jetbrains Mono"
                     Foreground="#DB872F"
@@ -92,20 +93,20 @@
             </StackPanel>
 
             <StackPanel x:Name="RegisterPage" Width="350" Height="420" 
-                      Visibility="Visible">
+                      Visibility="Collapsed">
 
                 <Label Content="Registration"
                     FontFamily="Jetbrains Mono"
                     Foreground="#DB872F"
                     FontSize="20"
-                    Margin="0 10 0 0"
+                    Margin="0 0 0 0"
                     FontWeight="SemiBold" 
                     HorizontalAlignment="Left"/>
 
                 <TextBox x:Name="txFullName"
                     FontFamily="Jetbrains Mono"
                     HorizontalAlignment="Center"
-                    Margin="0, 30, 0, 0"
+                    Margin="0, 20, 0, 0"
                     materialDesign:HintAssist.Hint="Full Name"
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}" 
@@ -115,7 +116,7 @@
                 <TextBox x:Name="txEmailRegistor"
                     FontFamily="Jetbrains Mono"
                     HorizontalAlignment="Center"
-                    Margin="0, 35, 0, 0"
+                    Margin="0, 30, 0, 0"
                     materialDesign:HintAssist.Hint="Email"
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}" 
@@ -141,17 +142,7 @@
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                     PasswordChanged="txPasswordRegis_TextChanged"/>
-                
-                <CheckBox x:Name="btnCheckbox2"
-                    Content="Show Password"
-                    Foreground="#E13E4E"
-                    FontSize="15"
-                    FontWeight="Medium" 
-                    HorizontalAlignment="Left"
-                    Margin="215 15 0 0"
-                    Click="btncheckbxShowPas2"/>
-                
-                
+
                 <Label x:Name="RegistLbPassword" Content=""
                     FontFamily="Jetbrains Mono"
                     Foreground="#E13E4E"
@@ -160,8 +151,17 @@
                     HorizontalAlignment="Left"
                     Margin="0 5 0 0"/>
 
+                <CheckBox x:Name="btnCheckbox2"
+                    Content="Show Password"
+                    Foreground="#E13E4E"
+                    FontSize="15"
+                    FontWeight="Medium" 
+                    HorizontalAlignment="Left"
+                    Margin="215 0 0 0"
+                    Click="btncheckbxShowPas2"/>
+
                 <Button Content="REGISTER" Style="{StaticResource PrimaryButton}"
-                        Margin="0 0 0 0" Click="Register_Click">
+                        Margin="0 15 0 0" Click="Register_Click">
                 </Button>
 
                 <TextBlock Grid.Column="1"
