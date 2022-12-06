@@ -130,5 +130,24 @@ namespace MindWord.Desktop.Pages
                 lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
             }
         }
+
+        private async void tbSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var txt = tbSearchBox.Text;
+            ICategoryRepository repository = new CategoryRepository();
+            var categories = await repository.GetAllAsync();
+            var temp = categories.Where(x => x.UserId == IdentitySingelton.currentId().UserId).ToList();
+            if(txt != "")
+            {
+                var searchedlist = temp.Where(x => x.Title.ToLower().StartsWith(txt.ToLower())).ToList();
+                dgDataTitle.ItemsSource = null;
+                dgDataTitle.ItemsSource = searchedlist;
+
+            }
+            else
+            {
+                dgDataTitle.ItemsSource = temp;
+            }
+        }
     }
 }
