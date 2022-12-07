@@ -58,8 +58,8 @@ namespace MindWord.Desktop.Windows
             if(aBtn.Content == res[index][5])
             {
                 correctPoints++;
-                index++;
             }
+            index++;
             if (index == res.Count)
             {
                 MessageBox.Show($"Your score is {correctPoints}!");
@@ -79,8 +79,8 @@ namespace MindWord.Desktop.Windows
             if (cBtn.Content == res[index][5])
             {
                 correctPoints++;
-                index++;
             }
+            index++;
             if (index == res.Count)
             {
                 MessageBox.Show($"Your score is {correctPoints}!");
@@ -100,8 +100,8 @@ namespace MindWord.Desktop.Windows
             if (bBtn.Content == res[index][5])
             {
                 correctPoints++;
-                index++;
             }
+            index++;
             if (index == res.Count )
             {
                 MessageBox.Show($"Your score is {correctPoints}!");
@@ -121,8 +121,8 @@ namespace MindWord.Desktop.Windows
             if (dBtn.Content == res[index][5])
             {
                 correctPoints++;
-                index++;
             }
+            index++;
             if (index == res.Count )
             {
                 MessageBox.Show($"Your score is {correctPoints}!");
@@ -135,11 +135,6 @@ namespace MindWord.Desktop.Windows
             bBtn.Content = res[index][2];
             cBtn.Content = res[index][3];
             dBtn.Content = res[index][4];
-        }
-
-        private void aBtn_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
