@@ -32,6 +32,10 @@ namespace MindWord.Desktop.Pages
             var lang = tbFirst.Text;
             tbFirst.Text = tbSecond.Text;
             tbSecond.Text = lang;
+
+            var text = txFirst.Text;
+            txFirst.Text = txSecond.Text; 
+            txSecond.Text = text;
         }
 
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -39,7 +43,7 @@ namespace MindWord.Desktop.Pages
             ITranslateAPIService translateAPI = new TranslateAPIService();
             if(tbFirst.Text == "Uzbek")
             {
-                var res = await translateAPI.GetTranslatedWordAsync("uz","en",txFirst.Text);
+                var res = await translateAPI.GetTranslatedWordAsync("uz","en",txFirst.Text.ToLower());
                 if(res.isSuccessful == true)
                 {
                     txSecond.Text = res.TranslatedWord;
@@ -49,9 +53,9 @@ namespace MindWord.Desktop.Pages
                     txSecond.Text = res.TranslatedWord;
                 }
             }
-            if(txFirst.Text == "English")
+            if(tbFirst.Text == "English")
             {
-                var res = await translateAPI.GetTranslatedWordAsync("en", "uz", txFirst.Text);
+                var res = await translateAPI.GetTranslatedWordAsync("en", "uz", txFirst.Text.ToLower());
                 if(res.isSuccessful == true)
                 {
                     txSecond.Text = res.TranslatedWord;

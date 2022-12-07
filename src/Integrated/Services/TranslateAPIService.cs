@@ -8,7 +8,7 @@ namespace Integrated.Services
 {
     public class TranslateAPIService : ITranslateAPIService
     {
-        public async Task<(bool isSuccessful, string TranslatedWord)> GetTranslatedWordAsync(string to, string from, string word)
+        public async Task<(bool isSuccessful, string TranslatedWord)> GetTranslatedWordAsync(string from, string to, string word)
         {
             try
             {
