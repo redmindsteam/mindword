@@ -2,6 +2,7 @@
 using Integrated.Services;
 using MindWord.DataAccess.Interfaces.Repositories;
 using MindWord.DataAccess.Repositories;
+using MindWord.Domain.Entities;
 using MindWord.Service.Attributes;
 using MindWord.Service.Interfaces.Services;
 using MindWord.Service.Services.Common;
@@ -87,8 +88,11 @@ namespace MindWord.Desktop.Windows
 
                 var Word = await definationAPI.GetWordAsync(txWord.Text);
                 Word.word.Translate = txTranslation.Text;
-                ICategoryRepository categoryRepository = new CategoryRepository();
-                var category = await categoryRepository.GetByTitleAsync(ComboBoxCategory.SelectedItem.ToString());
+                Category category;
+                { 
+                    ICategoryRepository categoryRepository = new CategoryRepository();
+                    category = await categoryRepository.GetByTitleAsync(ComboBoxCategory.SelectedItem.ToString()); 
+                }
                 Word.word.CategoryId = (category).Id;
                 Word.word.UserId = IdentitySingelton.currentId().UserId;
                 if (Word.successful)
