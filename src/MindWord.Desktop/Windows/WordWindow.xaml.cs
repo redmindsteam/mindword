@@ -82,8 +82,6 @@ namespace MindWord.Desktop.Windows
             {
                 MessageBox.Show("Please, choose any category if don't have please create!");
                 this.Close();
-
-
             }
             else
             {
@@ -109,7 +107,12 @@ namespace MindWord.Desktop.Windows
 
                         var res = await wordRepository.CreateAsync(Word.word);
                         if (res)
+                        {
                             MessageBox.Show("Added Word");
+                            txWord.Text = "";
+                            txTranslation.Text = "";
+                        }
+
                         else
                         {
                             MessageBox.Show("No Added");

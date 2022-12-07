@@ -51,10 +51,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border BorderBrush="WhiteSmoke"
+                    <Border BorderBrush="{DynamicResource SecundaryBlueColor}"
                             BorderThickness="1"
                             CornerRadius="5"
-                            Background="#A0CDD3"
+                            Background="{DynamicResource TertiaryBlueColor}"
                             Height="40">
                         <TextBox 
                             Margin="5 0 0 0"

@@ -79,8 +79,6 @@ namespace MindWord.Desktop.Pages
             btnRight.IsEnabled = words.HasNextPage;
             dgData.ItemsSource = words;
             lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
-
-
         }
 
         private async void btnRight_Click(object sender, RoutedEventArgs e)

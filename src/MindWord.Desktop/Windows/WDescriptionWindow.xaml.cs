@@ -40,20 +40,20 @@ namespace MindWord.Desktop.Windows
         {
             if (index == words.Count())
             {
-                MessageBox.Show($"your result is {correctPoints}");
+                MessageBox.Show($"Your result is {correctPoints}");
                 correctPoints = 0;
                 index = 0;
                 this.Close();
             }
             int cor = 0;
             int err = 0;
-            if (txDesc.Text is null || words[index].Name != txDesc.Text)
+            if (txDesc.Text is null || words[index].Name.ToLower() != txDesc.Text.ToLower())
             {
-                cor= 1;
+                err= 1;
             }
             else
             {
-                err= 1;
+                cor= 1;
                 correctPoints++;
             }
             IWordRepository repository = new WordRepository();
@@ -72,7 +72,7 @@ namespace MindWord.Desktop.Windows
             index++;
             if (index == words.Count())
             {
-                MessageBox.Show($"your result is {correctPoints}");
+                MessageBox.Show($"Your result is {correctPoints}");
                 correctPoints = 0;
                 index = 0;
                 this.Close();
