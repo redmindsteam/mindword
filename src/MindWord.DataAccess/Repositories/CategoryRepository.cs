@@ -137,7 +137,7 @@ namespace MindWord.DataAccess.Repositories
                 if (result)
                 {
                     
-                    return new Category
+                   var returns = new Category
                     {
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),
@@ -146,6 +146,8 @@ namespace MindWord.DataAccess.Repositories
                         
                         
                     };
+                    reader.Close();
+                    return returns;
                 }
                 else
                     return null!;

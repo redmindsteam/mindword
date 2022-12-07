@@ -88,7 +88,7 @@ namespace MindWord.DataAccess.Repositories
                     };
                     users.Add(user);
                 }
-
+                reader.Close();
                 return users;
             }
             catch
@@ -115,7 +115,7 @@ namespace MindWord.DataAccess.Repositories
                 var reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
                 {
-                    return new User()
+                    var returns = new User()
                     {
                         Id = reader.GetInt32("Id"),
                         CreatedAt = DateTime.Parse(reader.GetString("CreatedAt")),
@@ -127,6 +127,8 @@ namespace MindWord.DataAccess.Repositories
 
 
                     };
+                    reader.Close();
+                    return returns;
                 }
                 else
                     return null!;
@@ -149,7 +151,7 @@ namespace MindWord.DataAccess.Repositories
                 var reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
                 {
-                    return new User()
+                    var returns = new User()
                     {
                         Id = reader.GetInt32("Id"),
                         CreatedAt = DateTime.Parse(reader.GetString("CreatedAt")),
@@ -159,6 +161,8 @@ namespace MindWord.DataAccess.Repositories
                         Salt = reader.GetString("Salt"),
                         AccountImagePath = reader.GetString("account_image_path")
                     };
+                    reader.Close();
+                    return returns;
                 }
                 else return null!;
             }

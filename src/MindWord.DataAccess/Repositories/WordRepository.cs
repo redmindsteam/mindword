@@ -103,6 +103,7 @@ namespace MindWord.DataAccess.Repositories
 
                     words.Add(word);
                 }
+                reader.Close();
                 return words;
             }
             catch
@@ -121,7 +122,7 @@ namespace MindWord.DataAccess.Repositories
                 string query = $"select * from words where id = {id}";
                 var command = new SQLiteCommand(query, _con);
                 var reader = await command.ExecuteReaderAsync();
-                return new Word()
+                var returns = new Word()
                 {
                     Id = reader.GetInt32(0),
                     Name = reader.GetString(1),
@@ -134,6 +135,8 @@ namespace MindWord.DataAccess.Repositories
                     UserId = reader.GetInt32(8),
 
                 };
+                reader.Close();
+                return returns;
 
             }
             catch
