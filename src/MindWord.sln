@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integrated", "Integrated\In
 		{F6A25F0B-13D5-4ABD-AC98-D6D962A6B959} = {F6A25F0B-13D5-4ABD-AC98-D6D962A6B959}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindWord.UnitTest", "MindWord.UnitTest\MindWord.UnitTest.csproj", "{719182EE-5B7D-4E44-A800-57B84DF4D225}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{4AF3DE25-305F-4A72-B193-728C79F1493D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF3DE25-305F-4A72-B193-728C79F1493D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF3DE25-305F-4A72-B193-728C79F1493D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719182EE-5B7D-4E44-A800-57B84DF4D225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719182EE-5B7D-4E44-A800-57B84DF4D225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719182EE-5B7D-4E44-A800-57B84DF4D225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719182EE-5B7D-4E44-A800-57B84DF4D225}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

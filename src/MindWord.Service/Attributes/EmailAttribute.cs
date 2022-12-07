@@ -4,7 +4,7 @@ namespace MindWord.Service.Attributes
 {
     public class EmailAttribute
     {
-        public (bool isSuccessful, string Message) IsValid(string email)
+        public  (bool isSuccessful, string Message) IsValid(string email)
         {
             if (email is null) return (false, "Email can not be null!");
 
