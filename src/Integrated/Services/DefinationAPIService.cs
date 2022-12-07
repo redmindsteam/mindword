@@ -31,7 +31,6 @@ namespace Integrated.Services
                     body = await response.Content.ReadAsByteArrayAsync();
 
                     return (successful: true, voice: body);
-
                 }
 
             }

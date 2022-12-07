@@ -28,8 +28,6 @@ namespace MindWord.Desktop.Windows
         public WordWindow()
         {
             InitializeComponent();
-            
-         
         }
 
         private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
