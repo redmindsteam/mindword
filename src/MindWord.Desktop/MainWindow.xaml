@@ -55,8 +55,10 @@
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Orientation="Horizontal" Width="200" Margin="0 0 0 20">
-                        <Ellipse Width="40" Height="40" Margin="10 0 0 0">
-                            
+                        <Ellipse Width="42" Height="40" Margin="10 0 0 0">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="Assets/Images/Avatars/Default.jpg"/>
+                            </Ellipse.Fill>
                         </Ellipse>
                     </StackPanel>
                     

@@ -147,5 +147,10 @@ namespace MindWord.Desktop.Pages
                 dgDataTitle.ItemsSource = temp;
             }
         }
+
+        private void SearchBox_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

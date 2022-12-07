@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MindWord.Desktop.Pages"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:basicComponents ="clr-namespace:MindWord.Desktop.Components.Basic"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="WordPage">
@@ -43,12 +44,12 @@
             </ComboBox>
 
             <!--Search TextBox-->
-            <TextBox x:Name="tbSearchBox" 
-                     Grid.Column="1"
-                     VerticalAlignment="Top"
-                     Margin="15 0"
-                     Style="{StaticResource SearchBox}" 
-                     TextChanged="tbSearchBox_TextChanged"/>
+            <basicComponents:SearchBox 
+                Grid.Column="1"
+                Margin="0 0 15 0"
+                Height="35"
+                VerticalAlignment="Top"
+                TextParentChangedEvent="tbSearchBox_TextChanged" Loaded="SearchBox_Loaded"/>
 
             <!--Create Button-->
             <Button x:Name="btnCreate"
@@ -88,46 +89,15 @@
                                     Width="70"
                                     Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Word"
-                                    Width="3*"
+                                    Width="4*"
                                     Binding="{Binding Word}"/>
                 <DataGridTextColumn Header="Translate"
                                     Width="5*"
                                     Binding="{Binding Translate}"/>
-                <DataGridTemplateColumn Header="Status"
-                                        Width="110">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Border CornerRadius="10" 
-                                    Height="20"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center"
-                                    Padding="10 5">
-                                <TextBlock Foreground="White" 
-                                           Text="{Binding Status}"
-                                           FontSize="12"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"
-                                           FontWeight="SemiBold"/>
-                                <Border.Style>
-                                    <Style TargetType="Border">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Status}" Value="Found">
-                                                <Setter Property="Background" Value="#50C878" />
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Status}" Value="Not found">
-                                                <Setter Property="Background" Value="#ED624D" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
-                            </Border>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
+                
                 <!--View-->
                 <DataGridTemplateColumn  Header="Info"
-                                    Width="95">
+                                    Width="160">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -233,11 +203,10 @@
             </StackPanel>
 
             <Border Grid.Column="3" Margin="15,5,10,0" CornerRadius="0 0 5 0" Background="Transparent">
-                <Button  Style="{DynamicResource MaterialDesignFlatButton}" Tag="{DynamicResource game}" Margin="0,5,0,0" Click="Button_Click" Height="32" VerticalAlignment="Top">
+                <Button  Style="{DynamicResource MaterialDesignFlatButton}" Tag="{DynamicResource game}" Margin="0,5,0,8" Click="Button_Click">
                     <Path Data="{DynamicResource game}" Height="25" Width="38"  Fill="{DynamicResource PrimaryBlueColor}" VerticalAlignment="Center" Stretch="Fill"/>
                 </Button>
             </Border>
         </Grid>
-
     </Grid>
 </Page>

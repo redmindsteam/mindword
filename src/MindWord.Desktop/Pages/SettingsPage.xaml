@@ -49,8 +49,7 @@
                     
                     <Button Height="200" Width="200"
                             Margin="0 40"
-                            FontFamily="Jetbrains Mono"
-                           
+                            FontFamily="Jetbrains Mono" 
                             BorderThickness="0"
                             Foreground="{DynamicResource SecundaryTextColor}"
                             Background="Transparent"
