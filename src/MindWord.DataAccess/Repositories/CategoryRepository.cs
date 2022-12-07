@@ -106,13 +106,15 @@ namespace MindWord.DataAccess.Repositories
                 var reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
                 {
-                    return new Category
+                    var returns = new Category
                     {
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),
                         Description = reader.GetString(2),
                         UserId = reader.GetInt32(3),
                     };
+                    reader.Close();
+                    return returns;
                 }
                 else
                     return null!;

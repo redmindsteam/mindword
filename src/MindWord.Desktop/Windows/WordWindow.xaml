@@ -58,7 +58,7 @@
 
 
 
-            <ComboBox x:Name="ComboBoxCategory" Width="200" Height="30" Margin="40, 35, 0, 20" >
+            <ComboBox x:Name="ComboBoxCategory" Width="200" Height="30" Margin="40, 35, 0, 20" SelectionChanged="ComboBoxCategory_SelectionChanged" >
                 <TextBlock>Salom</TextBlock>
                 <TextBlock>Hayer</TextBlock>
                 <TextBlock>limon</TextBlock>
