@@ -133,6 +133,8 @@ namespace MindWord.Desktop.Pages
 
         private async void tbSearchBox_TextChanged(string txt)
         {
+
+
             ICategoryRepository repository = new CategoryRepository();
             var categories = await repository.GetAllAsync();
             var temp = categories.Where(x => x.UserId == IdentitySingelton.currentId().UserId).ToList();
