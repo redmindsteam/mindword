@@ -10,6 +10,7 @@
         Height="400" Width="600"
         WindowStyle="None"
         ResizeMode="NoResize"
+        Loaded="Window_Loaded"
         Background="Transparent">
     
     <Border CornerRadius="8" 
@@ -52,7 +53,7 @@
                              x:Name="txDesc"
                              FontSize="16"
                              VerticalContentAlignment="Center"
-                             Foreground="{DynamicResource SecundaryTextColor}">
+                             Foreground="{DynamicResource SecundaryTextColor}" TextChanged="txDesc_TextChanged">
                     </TextBox>
                 </Border>
 

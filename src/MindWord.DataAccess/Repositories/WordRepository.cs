@@ -134,7 +134,7 @@ namespace MindWord.DataAccess.Repositories
 
                 return null!;
             }
-            finally { _con.Close(); }
+            finally { await _con.CloseAsync(); }
 
         }
 
@@ -144,7 +144,7 @@ namespace MindWord.DataAccess.Repositories
             {
                 await _con.OpenAsync();
                 string query = "UPDATE words set name = $name, description = $description,translate = $translate," +
-                                "voice = $voice, correct_coins = $correct_coins, error_coins = $error_coins";
+                                $"voice = $voice, correct_coins = $correct_coins, error_coins = $error_coins where id = {id}";
                 var command = new SQLiteCommand(query, _con)
                 {
                     Parameters =
