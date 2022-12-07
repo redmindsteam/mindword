@@ -93,7 +93,8 @@
                     HorizontalAlignment="Left"
                     Margin="210 15 0 0"
                     Checked="CheckBox_Changed" 
-                    Unchecked="CheckBox_Changed"/>
+                    Unchecked="CheckBox_Changed"
+                     Style="{DynamicResource MaterialDesignUserForegroundCheckBox}"/>
 
                 <Button Content="LOGIN" Style="{StaticResource PrimaryButton}"
                     Margin="0 30" Click="Button_Click_1">
@@ -197,7 +198,9 @@
                     HorizontalAlignment="Left"
                     Margin="210 0 0 0"
                     Checked="CheckBox_Changed2" 
-                    Unchecked="CheckBox_Changed2"/>
+                    Unchecked="CheckBox_Changed2"
+                    Style="{DynamicResource MaterialDesignUserForegroundCheckBox}">
+                </CheckBox>
 
                 <Button Content="REGISTER" Style="{StaticResource PrimaryButton}"
                         Margin="0 15 0 0" Click="Register_Click">
