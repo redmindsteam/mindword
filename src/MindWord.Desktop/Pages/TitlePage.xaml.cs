@@ -131,9 +131,8 @@ namespace MindWord.Desktop.Pages
             }
         }
 
-        private async void tbSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void tbSearchBox_TextChanged(string txt)
         {
-            var txt = tbSearchBox.Text;
             ICategoryRepository repository = new CategoryRepository();
             var categories = await repository.GetAllAsync();
             var temp = categories.Where(x => x.UserId == IdentitySingelton.currentId().UserId).ToList();

@@ -5,6 +5,8 @@
     <Style TargetType="{x:Type TextBox}" 
            x:Key="SearchBox">
         <Setter Property="Height" Value="35"/>
+        <Setter Property="OverridesDefaultStyle"
+            Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
@@ -20,11 +22,13 @@
                                      BorderThickness="0"
                                      VerticalAlignment="Center"
                                      FontSize="14"
+                                     Background="Transparent"
                                      Margin="5 0"
                                      FontFamily="JetBrains Mono"
                                      Foreground="{DynamicResource SecundaryTextColor}"
                                      materialDesign:HintAssist.Hint="Search ..."
-                                     Text="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type TextBox},AncestorLevel=1},Path=Text}"/>
+                                     Text="{TemplateBinding Text}"
+                                     />
 
                             <materialDesign:PackIcon
                                     Foreground="{DynamicResource PrimaryTextColor}"

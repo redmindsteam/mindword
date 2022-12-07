@@ -29,6 +29,9 @@
                       Foreground="{DynamicResource SecundaryTextColor}"
                       Grid.Column="0"
                       Width="80"
+                      Height="35"
+                      VerticalContentAlignment="Center"
+                      HorizontalContentAlignment="Center"
                       Background="{DynamicResource SecundaryBackgroundColor}"
                       FontFamily="Jetbrains Mono"
                       HorizontalAlignment="Center"
@@ -44,7 +47,8 @@
                      Grid.Column="1"
                      VerticalAlignment="Top"
                      Margin="15 0"
-                     Style="{DynamicResource SearchBox}" TextChanged="tbSearchBox_TextChanged"/>
+                     Style="{StaticResource SearchBox}" 
+                     TextChanged="tbSearchBox_TextChanged"/>
 
             <!--Create Button-->
             <Button x:Name="btnCreate"
