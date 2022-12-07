@@ -88,9 +88,18 @@ namespace MindWord.Desktop.Windows
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GameService gameService = new GameService();
-            words = await gameService.RandomTestDescriptionAsync();
-            lbDesc.Content= words[index].Description;
+            try
+            {
+                GameService gameService = new GameService();
+                words = await gameService.RandomTestDescriptionAsync();
+                lbDesc.Content= words[index].Description;
+
+            }
+            catch
+            {
+                MessageBox.Show("No word");
+                this.Close();
+            }
             
         }
     }

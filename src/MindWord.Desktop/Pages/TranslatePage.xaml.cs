@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Integrated.Interfaces;
+using Integrated.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,46 @@ namespace MindWord.Desktop.Pages
         public TranslatePage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var lang = tbFirst.Text;
+            tbFirst.Text = tbSecond.Text;
+            tbSecond.Text = lang;
+
+            var text = txFirst.Text;
+            txFirst.Text = txSecond.Text; 
+            txSecond.Text = text;
+        }
+
+        private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ITranslateAPIService translateAPI = new TranslateAPIService();
+            if(tbFirst.Text == "Uzbek")
+            {
+                var res = await translateAPI.GetTranslatedWordAsync("uz","en",txFirst.Text.ToLower());
+                if(res.isSuccessful == true)
+                {
+                    txSecond.Text = res.TranslatedWord;
+                }
+                else
+                {
+                    txSecond.Text = res.TranslatedWord;
+                }
+            }
+            if(tbFirst.Text == "English")
+            {
+                var res = await translateAPI.GetTranslatedWordAsync("en", "uz", txFirst.Text.ToLower());
+                if(res.isSuccessful == true)
+                {
+                    txSecond.Text = res.TranslatedWord;
+                }
+                else
+                {
+                    txSecond.Text = res.TranslatedWord;
+                }
+            }
         }
     }
 }

@@ -49,15 +49,21 @@ namespace MindWord.Desktop.Windows
 
         private async  void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GameService gameService = new GameService();
-            res = await gameService.RandomTranslateTestAsync();
-            lbRandomWord.Content = res[index][0];
-            aBtn.Content = res[index][1];
-            bBtn.Content = res[index][2];
-            cBtn.Content = res[index][3];
-            dBtn.Content = res[index][4];
-
-
+            try
+            {
+                GameService gameService = new GameService();
+                res = await gameService.RandomTranslateTestAsync();
+                lbRandomWord.Content = res[index][0];
+                aBtn.Content = res[index][1];
+                bBtn.Content = res[index][2];
+                cBtn.Content = res[index][3];
+                dBtn.Content = res[index][4];
+            }
+            catch
+            {
+                MessageBox.Show("No word");
+                this.Close();
+            }
         }
 
         private void aBtn_Click(object sender, RoutedEventArgs e)

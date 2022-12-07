@@ -30,24 +30,26 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <TextBlock Foreground="White" 
+                <TextBlock x:Name="tbFirst"
+                           Foreground="White" 
                            FontFamily="JetBrains Mono"
                            FontSize="16"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Margin="0 8 0 0" >
-                    Englash
+                    English
                 </TextBlock>
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <Button Height="45" Background="{DynamicResource PrimaryBackgroundColor}">
+                <Button Height="45" Background="{DynamicResource PrimaryBackgroundColor}" Click="Button_Click">
                     <materialDesign:PackIcon Kind="SwapHorizontal" Foreground="White" Height="19" Width="19"/>
                 </Button>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
-                <TextBlock Foreground="White" 
+                <TextBlock x:Name="tbSecond"
+                           Foreground="White" 
                            FontFamily="JetBrains Mono"
                            FontSize="16"
                            VerticalAlignment="Center"
@@ -65,11 +67,12 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <TextBox Height="40"
+                <TextBox x:Name="txFirst"
+                         Height="40"
                          Foreground="{DynamicResource SecundaryTextColor}"
                          FontFamily="Jetbrains Mono"
                          FontSize="16"
-                         VerticalContentAlignment="Center"/>
+                         VerticalContentAlignment="Center" TextChanged="TextBox_TextChanged"/>
                 <TextBox Visibility="Collapsed"/>
                 <TextBox Visibility="Collapsed"/>
                 <TextBox Visibility="Collapsed"/>
@@ -81,7 +84,8 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <TextBox Height="40"
+                <TextBox x:Name="txSecond"
+                         Height="40"
                          Foreground="{DynamicResource SecundaryTextColor}"
                          FontFamily="Jetbrains Mono"
                          FontSize="16"
