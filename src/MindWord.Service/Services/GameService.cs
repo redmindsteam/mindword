@@ -12,7 +12,9 @@ namespace MindWord.Service.Services
             Random random = new Random();
             List<List<string>> test = new List<List<string>>();
             IWordRepository repository = new WordRepository();
-            var wordsDB = (await repository.GetAllAsync()).Where(x => x.UserId == IdentitySingelton.currentId().updateId).ToList();
+            var id = IdentitySingelton.currentId().UserId;
+            var ALLWORDS = (await repository.GetAllAsync()).ToList();
+            var wordsDB = ALLWORDS.Where(x=>x.UserId == id).ToList();
 
             var words = Shuffle(wordsDB);
 
@@ -42,7 +44,9 @@ namespace MindWord.Service.Services
                 Random random = new Random();
                 List<List<string>> test = new List<List<string>>();
                 IWordRepository repository = new WordRepository();
-                var wordsDB = (await repository.GetAllAsync()).Where(x => x.UserId == IdentitySingelton.currentId().updateId).ToList();
+                var id = IdentitySingelton.currentId().UserId;
+                var ALLWORDS = (await repository.GetAllAsync()).ToList();
+                var wordsDB = ALLWORDS.Where(x => x.UserId == id).ToList();
 
                 var words = Shuffle(wordsDB);
 
@@ -84,7 +88,9 @@ namespace MindWord.Service.Services
         public async Task<List<Word>> RandomTestDescriptionAsync()
         {
             IWordRepository repository = new WordRepository();
-            var wordsDb = (await repository.GetAllAsync()).Where(x =>x.UserId == IdentitySingelton.currentId().updateId).ToList(); ;
+            var id = IdentitySingelton.currentId().UserId;
+            var ALLWORDS = (await repository.GetAllAsync()).ToList();
+            var wordsDb = ALLWORDS.Where(x => x.UserId == id).ToList();
             var words = Shuffle(wordsDb);
             return words;
         }
