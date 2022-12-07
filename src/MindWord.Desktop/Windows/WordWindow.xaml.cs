@@ -80,44 +80,60 @@ namespace MindWord.Desktop.Windows
 
         private async void BtnAddWord_Click(object sender, RoutedEventArgs e)
         {
-            IDefinationAPIService definationAPI = new DefinationAPIService();
+            if (ComboBoxCategory.Text == "")
+            {
+                MessageBox.Show("Please, choose any category if don't have please create!");
+                this.Close();
 
 
-            if (txWord.Text != "" && txTranslation.Text != "")
+            }
+            else
             {
 
-                var Word = await definationAPI.GetWordAsync(txWord.Text);
-                Word.word.Translate = txTranslation.Text;
-                Category category;
-                { 
-                    ICategoryRepository categoryRepository = new CategoryRepository();
-                    category = await categoryRepository.GetByTitleAsync(ComboBoxCategory.SelectedItem.ToString()); 
-                }
-                Word.word.CategoryId = (category).Id;
-                Word.word.UserId = IdentitySingelton.currentId().UserId;
-                if (Word.successful)
-                {
-                    IWordRepository wordRepository = new WordRepository();
+                IDefinationAPIService definationAPI = new DefinationAPIService();
 
-                    var res = await wordRepository.CreateAsync(Word.word);
-                    if (res)
-                        MessageBox.Show("Added Word");
+
+                if (txWord.Text != "" && txTranslation.Text != "")
+                {
+
+                    var Word = await definationAPI.GetWordAsync(txWord.Text);
+                    Word.word.Translate = txTranslation.Text;
+                    Category category;
+                    {
+                        ICategoryRepository categoryRepository = new CategoryRepository();
+                        category = await categoryRepository.GetByTitleAsync(ComboBoxCategory.SelectedItem.ToString());
+                    }
+                    Word.word.CategoryId = (category).Id;
+                    Word.word.UserId = IdentitySingelton.currentId().UserId;
+                    if (Word.successful)
+                    {
+                        IWordRepository wordRepository = new WordRepository();
+
+                        var res = await wordRepository.CreateAsync(Word.word);
+                        if (res)
+                            MessageBox.Show("Added Word");
+                        else
+                        {
+                            MessageBox.Show("No Added");
+                        }
+
+                    }
                     else
                     {
-                        MessageBox.Show("No Added");
+                        MessageBox.Show("No Word!");
                     }
-
-                }
-                else
-                {
-                    MessageBox.Show("No Word!");
                 }
             }
         }
+            private void btnClose_Click(object sender, RoutedEventArgs e)
+            {
+                this.Close();
+            }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+            private void ComboBoxCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+            {
+
+            }
+        
     }
 }

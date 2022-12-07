@@ -1,3 +1,4 @@
+using MaterialDesignThemes.Wpf;
 using MindWord.DataAccess.Interfaces.Repositories;
 using MindWord.DataAccess.Repositories;
 using MindWord.Desktop.Windows;
@@ -168,6 +169,11 @@ namespace MindWord.Desktop.Pages
             {
                 dgData.ItemsSource = temp;
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
