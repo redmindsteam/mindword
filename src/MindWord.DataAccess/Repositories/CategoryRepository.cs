@@ -133,14 +133,18 @@ namespace MindWord.DataAccess.Repositories
                 string query = $"SELECT * from categories where  title like '{title}'";
                 var command = new SQLiteCommand(query, _con);
                 var reader = await command.ExecuteReaderAsync();
-                if (await reader.ReadAsync())
+                var result = await reader.ReadAsync();  
+                if (result)
                 {
+                    
                     return new Category
                     {
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),
                         Description = reader.GetString(2),
-                        UserId = reader.GetInt32(3),
+                        UserId = reader.GetInt32(3)
+                        
+                        
                     };
                 }
                 else

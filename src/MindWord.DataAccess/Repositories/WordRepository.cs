@@ -11,16 +11,18 @@ namespace MindWord.DataAccess.Repositories
 
         public async Task<bool> CreateAsync(Word item)
         {
-            using (var con = _con) { }
-            try
+            using (var con = _con)
             {
-                await _con.OpenAsync();
-                string query = "INSERT INTO Words(name,description,translate,voice,correct_coins," +
-                            " error_coins,category_id,user_id)" +
-                            " VALUES($name,$description,$translate,$voice,$correct_coins,$error_coins,$category_id,$user_id)";
-                var command = new SQLiteCommand(query, _con)
+                try
                 {
-                    Parameters =
+
+                    await con.OpenAsync();
+                    string query = "INSERT INTO Words(name,description,translate,voice,correct_coins," +
+                                " error_coins,category_id,user_id)" +
+                                " VALUES($name,$description,$translate,$voice,$correct_coins,$error_coins,$category_id,$user_id)";
+                    var command = new SQLiteCommand(query, con)
+                    {
+                        Parameters =
                     {
                         new SQLiteParameter("$name", item.Name),
                         new SQLiteParameter("$description", item.Description),
@@ -31,23 +33,28 @@ namespace MindWord.DataAccess.Repositories
                         new SQLiteParameter("$category_id",item.CategoryId),
                         new SQLiteParameter("$user_id",item.UserId)
                     }
-                };
-                var result = await command.ExecuteNonQueryAsync();
+                    };
+                   
+                    var result = await command.ExecuteNonQueryAsync();
 
-                if (result != 0)
-                {
-                    return true;
+                    if (result != 0)
+                    {
+                        return true;
+                    }
+                    else
+                    { return false; }
+
                 }
-                else
-                { return false; }
-
+                catch
+                {
+                    return false;
+                }
+                finally
+                {
+                    if (con.State != System.Data.ConnectionState.Closed)
+                        await con.CloseAsync();
+                }
             }
-            catch
-            {
-                await _con.CloseAsync();
-                return false;
-            }
-            finally { await _con.CloseAsync(); }
         }
 
         public async Task<bool> DeleteAsync(int id)
