@@ -54,8 +54,13 @@
 
                     </StackPanel>
 
-                    <Path Grid.Row="3" Data="{DynamicResource information}" Fill="{DynamicResource TertiaryTextColor}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0 0 0"/>
-                    <Border Grid.Row="3" CornerRadius="18" Width="110" Height="35" Background="{DynamicResource TertiaryBackgroundColor}" HorizontalAlignment="Right" Margin="0 0 20 0">
+                    <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Orientation="Horizontal" Width="200" Margin="0 0 0 20">
+                        <Ellipse Width="40" Height="40" Margin="10 0 0 0">
+                            
+                        </Ellipse>
+                    </StackPanel>
+                    
+                    <Border Grid.Row="3" CornerRadius="18" Width="110" Height="35" Background="{DynamicResource TertiaryBackgroundColor}" HorizontalAlignment="Right" Margin="0 40 20 0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Path Data="{DynamicResource sun}" Height="16" Width="16" Stretch="UniformToFill" Fill="{DynamicResource PrimaryYellowColor}" VerticalAlignment="Center"/>
                             <ToggleButton x:Name="Themes"
