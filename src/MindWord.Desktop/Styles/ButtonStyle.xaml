@@ -24,11 +24,11 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource SecundaryBlueColor}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource TertiaryBlueColor}"/>
                         </Trigger>
 
                         <Trigger Property="IsMouseOver" Value="False">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource TertiaryBlueColor}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource SecundaryBlueColor}"/>
                         </Trigger>
 
                         <Trigger Property="IsPressed" Value="True">

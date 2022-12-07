@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Images\Avatars\Default.jpg" />
     <None Remove="Images\btn_mute_P.png" />
     <None Remove="Images\btn_pause_P.png" />
     <None Remove="Images\btn_play_P.png" />
@@ -23,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Images\" />
     <Folder Include="Assets\Audios\" />
   </ItemGroup>
 
@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Images\Avatars\Default.jpg" />
     <Resource Include="Images\btn_mute_P.png" />
     <Resource Include="Images\btn_pause_P.png" />
     <Resource Include="Images\btn_play_P.png" />
