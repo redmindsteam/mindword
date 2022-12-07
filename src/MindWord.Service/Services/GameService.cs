@@ -79,5 +79,13 @@ namespace MindWord.Service.Services
             }
             return list;
         }
+
+        public async Task<List<Word>> RandomTestDescriptionAsync()
+        {
+            IWordRepository repository = new WordRepository();
+            var wordsDb = (await repository.GetAllAsync()).ToList(); ;
+            var words = Shuffle(wordsDb);
+            return words;
+        }
     }
 }
