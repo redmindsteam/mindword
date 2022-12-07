@@ -232,14 +232,80 @@ namespace MindWord.Desktop.Windows
             this.Close();
         }
 
-        private void btncheckbxShowPas(object sender, RoutedEventArgs e)
+        private void CheckBox_Changed(object sender, RoutedEventArgs e)
         {
-            
+            if(btnCheckbox.IsChecked == true)
+            {
+                txbPasswordBox.Text = txPasswordBox.Password;
+                txbPasswordBox.Visibility = Visibility.Visible;
+                txPasswordBox.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                txPasswordBox.Password  = txbPasswordBox.Text;
+                txbPasswordBox.Visibility = Visibility.Collapsed;
+                txPasswordBox.Visibility = Visibility.Visible;
+            }
         }
 
-        private void btncheckbxShowPas2(object sender, RoutedEventArgs e)
+        private void CheckBox_Changed2(object sender, RoutedEventArgs e)
         {
-
+            if (btnCheckbox2.IsChecked == true)
+            {
+                txbPasswordRegistorBox.Text = txPasswordRegistorBox.Password;
+                txbPasswordRegistorBox.Visibility = Visibility.Visible;
+                txPasswordRegistorBox.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                txPasswordRegistorBox.Password = txbPasswordRegistorBox.Text;
+                txbPasswordRegistorBox.Visibility = Visibility.Collapsed;
+                txPasswordRegistorBox.Visibility = Visibility.Visible;
+            }
         }
+
+
+        private void txPasswordRegis_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StrongPasswordAttribute passwordAttribute = new StrongPasswordAttribute();
+            var result = passwordAttribute.IsValid(txPasswordBox.Password);
+            if (result.isSuccessful)
+            {
+                txbPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+            }
+            else
+            {
+                txbPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
+            }
+        }
+
+        private void txPasswordLogin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StrongPasswordAttribute passwordAttribute = new StrongPasswordAttribute();
+            var result = passwordAttribute.IsValid(txPasswordBox.Password);
+            if (result.isSuccessful)
+            {
+                txbPasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+            }
+            else
+            {
+                txbPasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
+            }
+        }
+
+        private void txbPasswordRegis_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StrongPasswordAttribute passwordAttribute = new StrongPasswordAttribute();
+            var result = passwordAttribute.IsValid(txPasswordBox.Password);
+            if (result.isSuccessful)
+            {
+                txbPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(50, 205, 50));
+            }
+            else
+            {
+                txbPasswordRegistorBox.BorderBrush = new SolidColorBrush(Color.FromRgb(188, 32, 32));
+            }
+        }
+
     }
 }
