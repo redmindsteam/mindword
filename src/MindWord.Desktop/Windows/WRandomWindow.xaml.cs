@@ -47,6 +47,11 @@ namespace MindWord.Desktop.Windows
             {
                 GameService gameService = new GameService();
                 res = await gameService.RandomTestAsync();
+                if(res.Count == 0)
+                {
+                    MessageBox.Show("So'z yetarli emas !");
+                    this.Close();
+                }
                 lbRandomWord.Content = res[index][0];
                 aBtn.Content = res[index][1];
                 bBtn.Content = res[index][2];

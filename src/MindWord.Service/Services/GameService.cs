@@ -2,6 +2,7 @@
 using MindWord.DataAccess.Repositories;
 using MindWord.Domain.Entities;
 using MindWord.Service.Attributes;
+using System.Data.Entity.Core.Metadata.Edm;
 
 namespace MindWord.Service.Services
 {
@@ -17,25 +18,30 @@ namespace MindWord.Service.Services
             var wordsDB = ALLWORDS.Where(x=>x.UserId == id).ToList();
 
             var words = Shuffle(wordsDB);
-
-            for(int i=0; i < words.Count; i++)
+            if (words.Count > 4)
             {
-                List<string> list = new List<string>() { "","","","","",""};
-                list[0] =words[i].Name;
-                list[random.Next(1, 4)] = words[i].Translate;
-                list[5] = words[i].Translate;
-                while (list[1] == "" || list[2] == "" || list[3] == "" || list[4] == "")
+                for (int i = 0; i < words.Count; i++)
                 {
-                    var res =  words[random.Next(0, words.Count)].Translate;
-                    for (int l = 1; l < 5; l++)
+                    List<string> list = new List<string>() { "", "", "", "", "", "" };
+                    list[0] = words[i].Name;
+                    list[random.Next(1, 4)] = words[i].Translate;
+                    list[5] = words[i].Translate;
+                    while (list[1] == "" || list[2] == "" || list[3] == "" || list[4] == "")
                     {
-                        if (list[l] == "" && !list.Contains(res))
-                            list[l] = res;
+                        var res = words[random.Next(0, words.Count)].Translate;
+                        for (int l = 1; l < 5; l++)
+                        {
+                            if (list[l] == "" && !list.Contains(res))
+                                list[l] = res;
+                        }
                     }
+                    test.Add(list);
                 }
-                test.Add(list);
+                return test;
             }
-            return test;
+            else return new List<List<string>>();
+
+
         }
         public async Task<List<List<string>>> RandomTranslateTestAsync()
         {
@@ -50,24 +56,29 @@ namespace MindWord.Service.Services
 
                 var words = Shuffle(wordsDB);
 
-                for (int i = 0; i < words.Count; i++)
+                if(words.Count > 4)
                 {
-                    List<string> list = new List<string>() { "", "", "", "", "", "" };
-                    list[0] = words[i].Translate;
-                    list[random.Next(1, 4)] = words[i].Name;
-                    list[5] = words[i].Name;
-                    while (list[1] == "" || list[2] == "" || list[3] == "" || list[4] == "")
+                    for (int i = 0; i < words.Count; i++)
                     {
-                        var res = words[random.Next(0, words.Count)].Name;
-                        for (int l = 1; l < 5; l++)
+                        List<string> list = new List<string>() { "", "", "", "", "", "" };
+                        list[0] = words[i].Translate;
+                        list[random.Next(1, 4)] = words[i].Name;
+                        list[5] = words[i].Name;
+                        while (list[1] == "" || list[2] == "" || list[3] == "" || list[4] == "")
                         {
-                            if (list[l] == "" && !list.Contains(res))
-                                list[l] = res;
+                            var res = words[random.Next(0, words.Count)].Name;
+                            for (int l = 1; l < 5; l++)
+                            {
+                                if (list[l] == "" && !list.Contains(res))
+                                    list[l] = res;
+                            }
                         }
+                        test.Add(list);
                     }
-                    test.Add(list);
+                    return test;
                 }
-                return test;
+                else return new List<List<string>>();
+
             }
         }
         public static List<Word> Shuffle(List<Word> list)

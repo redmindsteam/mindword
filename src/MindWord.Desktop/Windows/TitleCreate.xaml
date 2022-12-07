@@ -7,52 +7,68 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="TitleCreate" Height="308" Width="500"
         WindowStyle="None" ResizeMode="NoResize"
+        Background="Transparent"
         MouseDown="MainWindow_OnMouseDown">
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Margin="-15,0,0,0">
-            <StackPanel Margin="33,30,10,40" RenderTransformOrigin="0.367,0.493" >
-                <Label Style="{DynamicResource MaterialDesignLabel}" 
-                       Margin="5, 40, 5, 0"
-                       FontSize="17"
+    <Border CornerRadius="8"
+            Background="{DynamicResource TertiaryBackgroundColor}">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="145"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="-15,0,0,0">
+                <StackPanel Margin="33,30,10,40" RenderTransformOrigin="0.367,0.493" >
+                    <Label Style="{DynamicResource MaterialDesignLabel}" 
+                       Margin="0, 40, 5, 0"
+                       FontFamily="JetBrains Mono"
+                       Foreground="{DynamicResource SecundaryTextColor}"
+                       FontSize="16"
                        FontWeight="SemiBold" Width="110">
-                    Title
-                </Label>
+                        Title
+                    </Label>
 
-                <Label Style="{DynamicResource MaterialDesignLabel}" 
-                       Margin="5, 40, 5, 0"
-                       FontSize="17"
+                    <Label Style="{DynamicResource MaterialDesignLabel}" 
+                       Margin="0, 40, 5, 0"
+                       FontFamily="JetBrains Mono"
+                       Foreground="{DynamicResource SecundaryTextColor}"
+                       FontSize="16"
                        FontWeight="SemiBold">
-                    Description
-                </Label>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="315,0,0,0" Foreground="Black"/>
-            <Grid Grid.Row="1">
-                <StackPanel Margin="15,30,0,10" HorizontalAlignment="Left" Width="318" >
-                    <TextBox x:Name="txTitle" Style="{DynamicResource FormTextBox}" 
-                         Margin="15, 10 ,15 ,0" >
-
-                    </TextBox>
-
-                    <TextBox x:Name="txDescriptionTitle" Style="{DynamicResource FormTextBox}" 
-                         Margin="15, 35 ,15 ,0">
-                    </TextBox>
-
-                    <Button Style="{DynamicResource PrimaryButton}" 
-                        Margin="200, 50, 15, 0" Click="Button_Click">
-                        Add
-                    </Button>
+                       Description
+                    </Label>
                 </StackPanel>
             </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="330,0,0,0" Foreground="Black"/>
+                <Grid Grid.Row="1">
+                    <StackPanel Margin="15,30,0,10" HorizontalAlignment="Left" Width="318" >
+                        <TextBox x:Name="txTitle" Style="{DynamicResource FormTextBox}" 
+                         Margin="15, 10 ,15 ,0" >
+
+                        </TextBox>
+
+                        <TextBox x:Name="txDescriptionTitle" Style="{DynamicResource FormTextBox}" 
+                         Margin="15, 35 ,15 ,0">
+                        </TextBox>
+
+                        <Button Style="{DynamicResource BtnGameTest}" 
+                        Margin="200, 50, 15, 0" Click="Button_Click">
+                            Add
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Grid>
-    </Grid>
+
+        <Border.BitmapEffect>
+            <DropShadowBitmapEffect
+                ShadowDepth="1"
+                Direction="0"
+                Color="#5B8DEF"
+                Softness="1"/>
+        </Border.BitmapEffect>
+    </Border>
 </Window>

@@ -29,6 +29,8 @@ namespace MindWord.Desktop.Windows
 
                 var res =  await categoryService.CreateAsync(model);
                 MessageBox.Show(res.Message);
+                txDescriptionTitle.Text = "";
+                txTitle.Text = "";
             }
             else
             {
