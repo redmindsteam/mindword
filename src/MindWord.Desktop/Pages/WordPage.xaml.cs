@@ -46,8 +46,6 @@ namespace MindWord.Desktop.Pages
             btnRight.IsEnabled = words.HasNextPage;
             dgData.ItemsSource = words;
             lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
-
-
         }
 
         private async void btnCreate_Click(object sender, RoutedEventArgs e)
@@ -152,16 +150,14 @@ namespace MindWord.Desktop.Pages
             }
         }
 
-        private async void tbSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void tbSearchBox_TextChanged(string txt)
         {
-
-            var txt = tbSearchBox.Text;
             IWordRepository repository = new WordRepository();
             var words = await repository.GetAllAsync();
-            var temp = words.Where(x => x.UserId == IdentitySingelton.currentId().UserId);
+            var temp = words.Where(x => x.UserId == IdentitySingelton.currentId().UserId).ToList();
             if (txt != "")
             {
-                var searchedlist = temp.Where(p => p.Name.ToLower().Contains(txt)).ToList();
+                var searchedlist = temp.Where(p => p.Name.StartsWith(txt.ToLower())).ToList();
                 dgData.ItemsSource = null;
                 dgData.ItemsSource = searchedlist; 
             }
@@ -172,6 +168,11 @@ namespace MindWord.Desktop.Pages
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SearchBox_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

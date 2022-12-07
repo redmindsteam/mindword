@@ -49,7 +49,7 @@
                 Margin="0 0 15 0"
                 Height="35"
                 VerticalAlignment="Top"
-                TextParentChangedEvent="tbSearchBox_TextChanged"/>
+                TextParentChangedEvent="tbSearchBox_TextChanged" Loaded="SearchBox_Loaded"/>
 
             <!--Create Button-->
             <Button x:Name="btnCreate"
