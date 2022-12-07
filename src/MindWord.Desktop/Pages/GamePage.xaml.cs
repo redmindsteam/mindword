@@ -22,7 +22,7 @@ namespace MindWord.Desktop.Pages
 
         private void btnWVoice_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            WVoiceWindow wVoiceWindow = new WVoiceWindow();
+            WVoiceWindow wVoiceWindow = new WVoiceWindow(); 
             wVoiceWindow.ShowDialog();
         }
 
