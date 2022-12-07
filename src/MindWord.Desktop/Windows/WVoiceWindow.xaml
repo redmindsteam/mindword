@@ -4,10 +4,125 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStyle="None"
+        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" 
-        Title="WVoiceWindow" Height="580" Width="930">
+        Title="WVoiceWindow" Height="480" Width="730"
+        MouseDown="MainWindow_OnMouseDown">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="250"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid x:Name="RootGrid" Background="Black">
+                <Border x:Name="bordelista" CornerRadius="1" Visibility="Collapsed" Height="486" Margin="950,22,0,0" VerticalAlignment="Top"
+                Background="#CC000000">
+                    <ListBox x:Name="lbLista"  BorderBrush="{x:Null}" Background="Transparent" AllowDrop="True" Foreground="#FF008BFF" FontSize="10" Drop="lbLista_Drop" />
+                </Border>
+
+                <Grid x:Name="gridmedia" Height="100" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <MediaElement x:Name="mediacontrol"  UnloadedBehavior="Manual" Volume="{Binding Value, ElementName=slidervol}" AllowDrop="True"  LoadedBehavior="Manual" MouseLeftButtonDown="mediacontrol_MouseLeftButtonDown" MediaOpened="mediacontrol_MediaOpened" MediaEnded="mediacontrol_MediaEnded" Stretch="Fill" MouseMove="mediacontrol_MouseMove" />
+                </Grid>
+
+                <Border x:Name="bordercontroles" BorderBrush="#00000000" BorderThickness="0" Height="35" 
+                VerticalAlignment="Top" Background="Black">
+                    <Grid x:Name="GridControls" >
+                        <Button x:Name="btminimiza"  Style="{StaticResource IconButtonsStyle}"
+                        Content="{DynamicResource close}" VerticalAlignment="Center" HorizontalAlignment="Right"
+                        Click="btnClose_Click" Tag="IsCloseButton"  Margin="0, 0, 10, 0"/>
+                    </Grid>
+
+                </Border>
+                <Border x:Name="BorderMediaControls" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00000000" >
+                    <Grid x:Name="GridControl">
+                        <Slider x:Name="slidervol" HorizontalAlignment="Left" VerticalAlignment="Top" Width="57" Margin="610,33,0,-3" Height="30" Maximum="1" TickFrequency="0.1" Value="0.5" IsMoveToPointEnabled="True" Style="{DynamicResource Estilo}" />
+                        
+                        <Label x:Name="lbstop"  Content="Detener" HorizontalAlignment="Left" Margin="340,17,0,0" VerticalAlignment="Top" Foreground="White" FontSize="8">
+                            <Label.Style>
+                                <Style TargetType="{x:Type Label}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=btStop}"
+    								Value="True"   >
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+
+                        <Label x:Name="lbPausa"  Content="Pausa" HorizontalAlignment="Left" Margin="374,17,0,0" VerticalAlignment="Top" Foreground="White" FontSize="8">
+                            <Label.Style>
+                                <Style TargetType="{x:Type Label}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=btPausa}"
+    								Value="True"   >
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+
+                        <Label x:Name="lbPlay"  Content="Reproducir" HorizontalAlignment="Left" Margin="365,17,0,0" VerticalAlignment="Top" Foreground="White" FontSize="8">
+                            <Label.Style>
+                                <Style TargetType="{x:Type Label}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=btPlay}"
+    								Value="True"   >
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+
+                        <Label x:Name="lbVol"  Content="Silenciar" HorizontalAlignment="Left" Margin="588,20,0,0" VerticalAlignment="Top" Foreground="White" FontSize="8">
+                            <Label.Style>
+                                <Style TargetType="{x:Type Label}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=btVol}"
+    								Value="True"   >
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+
+                        <Image x:Name="btStop" HorizontalAlignment="Left" Height="20" Margin="347,36,0,0" VerticalAlignment="Top" Width="20" Stretch="UniformToFill"  MouseLeftButtonDown="btStop_MouseLeftButtonDown" Source="/Images/btn_stop_P.png"  />
+                        <Image x:Name="btPausa" HorizontalAlignment="Left" Height="20" Margin="379,36,0,0" VerticalAlignment="Top" Width="20"  MouseLeftButtonDown="btPausa_MouseLeftButtonDown"  Source="/Images/btn_pause_P.png" StretchDirection="DownOnly"  />
+                        <Image x:Name="btPlay" HorizontalAlignment="Left" Height="20" Margin="379,36,0,0" VerticalAlignment="Top" Width="20"  MouseLeftButtonDown="btPlay_MouseLeftButtonDown"  Source="/Images/btn_play_P.png" StretchDirection="DownOnly"  />
+                        <Image x:Name="btVol" HorizontalAlignment="Left" Height="20" Margin="588,33,0,0" VerticalAlignment="Top" Width="20" Stretch="UniformToFill"  Source="/Images/btn_volume_P.png"  />
+                        <Slider x:Name="slideravance" HorizontalAlignment="Left" Margin="47,10,0,0" VerticalAlignment="Top" Width="620" Style="{DynamicResource Estilo}" IsMoveToPointEnabled="True" MouseLeftButtonUp="slideravance_MouseLeftButtonUp"/>
+                        <Label x:Name="lbtime" Margin="893,8,24,31" Foreground="White" FontSize="10"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="Yellow">
+            <Grid Width="350">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                    <TextBox FontSize="20"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                    <Button Style="{DynamicResource BtnGameTest}"/>
+                </StackPanel>
+                
+            </Grid>
+        </Grid>
+
     </Grid>
 </Window>

@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\btn_mute_P.png" />
+    <None Remove="Images\btn_pause_P.png" />
+    <None Remove="Images\btn_play_P.png" />
+    <None Remove="Images\btn_stop_P.png" />
+    <None Remove="Images\btn_volume_P.png" />
     <None Remove="Images\signIn.jpg" />
     <None Remove="Images\SignUp.jpg" />
   </ItemGroup>
@@ -29,6 +34,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\btn_mute_P.png" />
+    <Resource Include="Images\btn_pause_P.png" />
+    <Resource Include="Images\btn_play_P.png" />
+    <Resource Include="Images\btn_stop_P.png" />
+    <Resource Include="Images\btn_volume_P.png" />
     <Resource Include="Images\signIn.jpg" />
     <Resource Include="Images\SignUp.jpg" />
   </ItemGroup>
