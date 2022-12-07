@@ -25,7 +25,6 @@
   <ItemGroup>
     <Folder Include="Assets\Images\" />
     <Folder Include="Assets\Audios\" />
-    <Folder Include="Components\" />
   </ItemGroup>
 
   <ItemGroup>

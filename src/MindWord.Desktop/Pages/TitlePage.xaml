@@ -4,6 +4,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:basicComponents ="clr-namespace:MindWord.Desktop.Components.Basic"
       xmlns:local="clr-namespace:MindWord.Desktop.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -29,6 +30,9 @@
                       Foreground="{DynamicResource SecundaryTextColor}"
                       Grid.Column="0"
                       Width="80"
+                      Height="35"
+                      VerticalContentAlignment="Center"
+                      HorizontalContentAlignment="Center"
                       Background="{DynamicResource SecundaryBackgroundColor}"
                       FontFamily="Jetbrains Mono"
                       HorizontalAlignment="Center"
@@ -40,12 +44,12 @@
             </ComboBox>
 
             <!--Search TextBox-->
-            <TextBox x:Name="tbSearchBox" 
-                     Grid.Column="1"
-                     VerticalAlignment="Top"
-                     Margin="15 0"
-                     Style="{DynamicResource SearchBox}"
-                     TextChanged="tbSearchBox_TextChanged"/>
+            <basicComponents:SearchBox 
+                Grid.Column="1"
+                Margin="0 0 15 0"
+                Height="35"
+                VerticalAlignment="Top"
+                TextParentChangedEvent="tbSearchBox_TextChanged"/>
 
             <!--Create Button-->
             <Button x:Name="btnCreate"
@@ -90,7 +94,7 @@
     
                 <!--View-->
                 <DataGridTemplateColumn Header="Info"
-                                    Width="155">
+                                    Width="160">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

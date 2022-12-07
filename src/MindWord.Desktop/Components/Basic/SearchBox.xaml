@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="MindWord.Desktop.Components.Basic.SearchBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MindWord.Desktop.Components.Basic"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="300">
+    
+    <Border Padding="5" Background="{DynamicResource SecundaryBackgroundColor}"
+                            CornerRadius="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="35"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="tbSearchBox"
+                     Grid.Column="0"
+                     BorderThickness="0"
+                     VerticalAlignment="Center"
+                     FontSize="14"
+                     Background="Transparent"
+                     Margin="5 0"
+                     FontFamily="JetBrains Mono"
+                     TextChanged="tbSearchBox_TextChanged"
+                     Foreground="{DynamicResource SecundaryTextColor}"
+                     materialDesign:HintAssist.Hint="Search..."/>
+
+            <materialDesign:PackIcon
+                    Foreground="{DynamicResource PrimaryTextColor}"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="25"
+                    Height="25"
+                    Kind="Magnify"/>
+        </Grid>
+    </Border>
+</UserControl>
