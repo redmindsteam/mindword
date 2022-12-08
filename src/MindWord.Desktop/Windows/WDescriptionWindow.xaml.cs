@@ -25,6 +25,7 @@ namespace MindWord.Desktop.Windows
     {
         static int correctPoints = 0;
         static int index = 0;
+        static int maxPage;
         static List<Word> words;
         public WDescriptionWindow()
         {
@@ -83,6 +84,7 @@ namespace MindWord.Desktop.Windows
             }
             lbDesc.Text = words[index].Description;
             txDesc.Text = null;
+            lbPage.Content = $"{index + 1}/{maxPage}";
         }
 
         private void txDesc_TextChanged(object sender, TextChangedEventArgs e)
@@ -96,13 +98,30 @@ namespace MindWord.Desktop.Windows
             {
                 GameService gameService = new GameService();
                 words = await gameService.RandomTestDescriptionAsync();
-                lbDesc.Text = words[index].Description;
+                if(words.Count == 0)
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    lbDesc.Text = words[index].Description;
+                    if (words.Count <= 15)
+                    {
+                        lbPage.Content = $"{index + 1}/{words.Count}";
+                        maxPage = words.Count;
+                    }
+                    else
+                    {
+                        lbPage.Content = $"{index + 1}/{15}";
+                        maxPage = 15;
+                    }
+                }
 
             }
             catch
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
-                helperShowWindow.tbHelperShow.Text = "No word";
+                helperShowWindow.tbHelperShow.Text = "Word is not enough!";
                 helperShowWindow.ShowDialog();
                 this.Close();
             }

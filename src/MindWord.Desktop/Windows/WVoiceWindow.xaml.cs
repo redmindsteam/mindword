@@ -21,6 +21,7 @@ namespace MindWord.Desktop.Windows
     {
         static int index = 0;
         static int correctPoints = 0;
+        static int maxPage;
         static List<Word> res;
 
         public WVoiceWindow()
@@ -64,8 +65,9 @@ namespace MindWord.Desktop.Windows
             };
             await repository.UpdateAsync(res[index].Id, word);
             txVoice.Text = "";
+            lbPage.Content = $"{index + 1}/{maxPage}";
             index++;
-            if (index == res.Count)
+            if (index == res.Count || index >= 15)
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints} from {res.Count}!";
@@ -88,11 +90,28 @@ namespace MindWord.Desktop.Windows
             {
                 GameService gameService = new GameService();
                 res = await gameService.RandomTestVoiceAsync();
+                if (res.Count == 0)
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    if (res.Count <= 15)
+                    {
+                        lbPage.Content = $"{index + 1}/{res.Count}";
+                        maxPage = res.Count;
+                    }
+                    else
+                    {
+                        lbPage.Content = $"{index + 1}/{15}";
+                        maxPage = 15;
+                    }
+                }
             }
             catch
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
-                helperShowWindow.tbHelperShow.Text = "No word";
+                helperShowWindow.tbHelperShow.Text = "Word is not enough!";
                 helperShowWindow.ShowDialog();
                 this.Close();
             }

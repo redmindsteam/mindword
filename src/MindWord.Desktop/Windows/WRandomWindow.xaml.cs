@@ -50,10 +50,7 @@ namespace MindWord.Desktop.Windows
                 res = await gameService.RandomTestAsync();
                 if(res.Count == 0)
                 {
-                    HelperShowWindow helperShowWindow = new HelperShowWindow();
-                    helperShowWindow.tbHelperShow.Text = "So'z yetarli emas !";
-                    helperShowWindow.ShowDialog();
-                    this.Close();
+                    throw new Exception();
                 }
                 lbRandomWord.Content = res[index][0];
                 aBtn.Content = res[index][1];
@@ -75,7 +72,7 @@ namespace MindWord.Desktop.Windows
             catch
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
-                helperShowWindow.tbHelperShow.Text = "No Word";
+                helperShowWindow.tbHelperShow.Text = "Word is not enough!";
                 helperShowWindow.ShowDialog();
                 this.Close();
             }
