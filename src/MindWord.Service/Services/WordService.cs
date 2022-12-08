@@ -31,6 +31,27 @@ namespace MindWord.Service.Services
 
         }
 
+        public async Task<List<WordCreateViewModel>> GetSearchListAsync()
+        {
+            List<WordCreateViewModel> list = new List<WordCreateViewModel>();
+            IWordRepository repository = new WordRepository();
+            var result = await repository.GetAllAsync();
+            var res = result.Where(x => x.UserId == IdentitySingelton.currentId().UserId).ToList();
+            foreach (var item in res)
+            {
+                WordCreateViewModel model = new WordCreateViewModel()
+                {
+                    Id = item.Id,
+                    Title = item.Description,
+                    Word = item.Name,
+                    Translate = item.Translate
+                };
+                list.Add(model);
+            }
+            return list;
+
+        }
+
         public async Task<bool> WordCreateAsync(WordCreateViewModel viewModel)
         {
             IWordRepository wordRepository = new WordRepository();

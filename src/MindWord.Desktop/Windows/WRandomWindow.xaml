@@ -85,7 +85,7 @@
             <Grid Grid.Row="3">
                 <Label x:Name="lbPage"
                    FontFamily="JetBrains Mono"
-                   FontSize="16"
+                   FontSize="18"
                    Content="1/10"
                    Foreground="{DynamicResource SecundaryTextColor}"
                    HorizontalAlignment="Center"

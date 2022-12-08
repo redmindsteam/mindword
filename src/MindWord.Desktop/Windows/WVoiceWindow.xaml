@@ -29,7 +29,20 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"/>
 
-            <Border Grid.Row="1" CornerRadius="80" Background="{DynamicResource TertiaryBlueColor}"
+            <!--Voice-->
+            <Label Grid.Row="2"
+                   Content="1/15"
+                   Foreground="{DynamicResource SecundaryTextColor}"
+                   FontWeight="SemiBold"
+                   FontSize="18"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Margin="45"
+                   FontFamily="JetBrains Mono">
+            </Label>
+            
+            <Border Grid.Row="1" CornerRadius="80"
+                    Background="{DynamicResource TertiaryBlueColor}"
                     Height="80" Width="80">
                 <Button x:Name="btPlay"
                         Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Background="Transparent" Tag="{DynamicResource voice}" Click="btPlay_Click">
