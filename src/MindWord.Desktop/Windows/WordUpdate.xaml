@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d" 
+        AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None" 
         Background="{DynamicResource TertiaryBackgroundColor}"
@@ -45,7 +46,7 @@
 
 
             <Label Content="Translation"
-                    FontFamily="Jetbrains Mono"
+                    FontFamily="JetBrains Mono"
                     Foreground="#DB872F"
                     FontSize="20"
                     FontWeight="SemiBold" 
@@ -57,11 +58,14 @@
             <ComboBox x:Name="ComboBoxCategory" Width="350" Height="40" Margin="0, 55, 0, 20" 
                       Background="{DynamicResource TertiaryBlueColor}"
                       VerticalContentAlignment="Center"
-                      Foreground="{DynamicResource Secun}">
+                      FontFamily="JetBrains Mono"
+                      FontSize="16"
+                      Foreground="{DynamicResource SecundaryTextColor}">
                 <TextBlock>Salom</TextBlock>
                 <TextBlock>Hayer</TextBlock>
                 <TextBlock>limon</TextBlock>
                 <TextBlock>Asal</TextBlock>
+      
             </ComboBox>
             <Button x:Name="BtnUpdateWord" Margin="0, 35, 0, 0" Content="UPDATE" Width="150"
                     Style="{DynamicResource BtnGameTest}" Click="BtnUpdateWord_Click" />
@@ -75,7 +79,7 @@
                     Tag="IsCloseButton" Margin="75,0,0,410" Foreground="{DynamicResource SecundaryTextColor}"/>
             <Button x:Name="BtnVoice" Width="45" Height="35" Margin="8, 8, 0, 282" HorizontalAlignment="Left"
                     Click="BtnLoad_Click"
-                    Background="{DynamicResource SecundaryBlackColor}">
+                    Background="{DynamicResource SecundaryBackgroundColor}">
                 <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center"/>
             </Button>
         </Grid>

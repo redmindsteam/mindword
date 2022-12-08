@@ -1,5 +1,6 @@
 ﻿using Integrated.Interfaces;
 using Integrated.Services;
+using MaterialDesignColors.Recommended;
 using MindWord.DataAccess.Interfaces.Repositories;
 using MindWord.DataAccess.Repositories;
 using MindWord.Domain.Entities;
@@ -59,6 +60,7 @@ namespace MindWord.Desktop.Windows
         {
             IWordRepository wordRepository = new WordRepository();
             ICategoryRepository categoryRepository = new CategoryRepository();
+            
             Word word = new Word()
             {
                 Name = txWord.Text,

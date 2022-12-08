@@ -8,6 +8,7 @@
         WindowStartupLocation="CenterScreen" 
         Title="WDescriptionWindow" 
         Height="400" Width="600"
+        AllowsTransparency="True"
         WindowStyle="None"
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
