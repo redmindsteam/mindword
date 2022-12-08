@@ -17,11 +17,22 @@
             Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="150"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <Label Grid.Row="2"
+                   Content="1/15"
+                   Foreground="{DynamicResource SecundaryTextColor}"
+                   FontSize="18"
+                   FontWeight="SemiBold"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Margin="45">
+                
+            </Label>
+            
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
