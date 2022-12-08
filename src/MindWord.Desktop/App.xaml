@@ -15,7 +15,6 @@
 
                 <!--Themes-->
                 <ResourceDictionary Source="Themes/LightTheme.xaml"/>
-                <ResourceDictionary Source="Themes/DarkTheme.xaml"/>
                 <ResourceDictionary Source="Assets/Icons/Icons.xaml"/>
 
                 <!--Styles-->
