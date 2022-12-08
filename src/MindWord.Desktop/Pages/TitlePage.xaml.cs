@@ -110,6 +110,9 @@ namespace MindWord.Desktop.Pages
             
             IdentitySingelton.SaveUpdateId(UpdateId);
             TitleUpdate titleUpdate = new TitleUpdate();
+            titleUpdate.txTitle.Text = res.Title;
+            titleUpdate.txDescriptionTitle.Text = res.Description;
+            
             titleUpdate.ShowDialog();
 
             categories = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
@@ -157,6 +160,15 @@ namespace MindWord.Desktop.Pages
         private void SearchBox_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private async void pageSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void TitlePage_Loaded(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

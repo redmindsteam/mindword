@@ -125,6 +125,16 @@ namespace MindWord.Desktop.Pages
             int UpdateId = res.Id;
             IdentitySingelton.SaveUpdateId(UpdateId);
             WordUpdate update = new WordUpdate();
+            ICategoryService categoryService = new CategoryService();
+            var categories = await categoryService.GetStringsAsync();
+            foreach (var item in categories)
+            {
+                update.ComboBoxCategory.Items.Add(item);
+            }
+            if (update.ComboBoxCategory.Items.Count > 0)
+                update.ComboBoxCategory.SelectedIndex = 0;
+            update.txWord.Text = res.Word;
+            update.txTranslation.Text = res.Translate;
             update.ShowDialog();
 
             words = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
@@ -183,6 +193,15 @@ namespace MindWord.Desktop.Pages
         private void SearchBox_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private async void pageSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void WordPage_Loaded(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

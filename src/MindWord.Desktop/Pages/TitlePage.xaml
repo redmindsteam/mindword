@@ -6,6 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:basicComponents ="clr-namespace:MindWord.Desktop.Components.Basic"
       xmlns:local="clr-namespace:MindWord.Desktop.Pages"
+      Loaded="TitlePage_Loaded"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TitlePage">
@@ -37,7 +38,7 @@
                       FontFamily="Jetbrains Mono"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Top"
-                      SelectedIndex="0">
+                      SelectedIndex="0" SelectionChanged="pageSize_SelectionChanged">
                 <ComboBoxItem Tag="10">10</ComboBoxItem>
                 <ComboBoxItem Tag="20">20</ComboBoxItem>
                 <ComboBoxItem Tag="30">30</ComboBoxItem>

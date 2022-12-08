@@ -8,7 +8,8 @@
         mc:Ignorable="d" 
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" 
-        WindowStyle="None" 
+        WindowStyle="None"
+        Loaded="WordUpdate_Loaded"
         Background="{DynamicResource TertiaryBackgroundColor}"
         Title="WordPage" Height="500" Width="520"
         ResizeMode="NoResize"
@@ -28,8 +29,7 @@
                     HorizontalAlignment="Left"
                     Margin="0 20 0 0"/>
             <TextBox x:Name="txWord"
-                    Style="{DynamicResource FormTextBox}" 
-                    TextChanged="txWord_TextChanged_1" />
+                    Style="{DynamicResource FormTextBox}" />
 
 
             <TextBlock x:Name="TxbDescription"
@@ -61,11 +61,6 @@
                       FontFamily="JetBrains Mono"
                       FontSize="16"
                       Foreground="{DynamicResource SecundaryTextColor}">
-                <TextBlock>Salom</TextBlock>
-                <TextBlock>Hayer</TextBlock>
-                <TextBlock>limon</TextBlock>
-                <TextBlock>Asal</TextBlock>
-      
             </ComboBox>
             <Button x:Name="BtnUpdateWord" Margin="0, 35, 0, 0" Content="UPDATE" Width="150"
                     Style="{DynamicResource BtnGameTest}" Click="BtnUpdateWord_Click" />

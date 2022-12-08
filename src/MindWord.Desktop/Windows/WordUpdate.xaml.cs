@@ -41,13 +41,7 @@ namespace MindWord.Desktop.Windows
 
         }
 
-
         private async void BtnLoad_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void txWord_TextChanged_1(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
 
         }
@@ -86,6 +80,11 @@ namespace MindWord.Desktop.Windows
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void WordUpdate_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

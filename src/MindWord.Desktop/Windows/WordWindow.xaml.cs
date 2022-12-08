@@ -42,7 +42,6 @@ namespace MindWord.Desktop.Windows
 
         }
 
-
         private async void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
             //BtnVoice.Visibility = Visibility.Collapsed;
@@ -142,10 +141,6 @@ namespace MindWord.Desktop.Windows
                 this.Close();
             }
 
-            private void ComboBoxCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
-            {
-
-            }
         
     }
 }
