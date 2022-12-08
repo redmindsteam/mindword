@@ -23,7 +23,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="2"
+            <Label x:Name="lbPage"
+                   Grid.Row="2"
                    Content="1/15"
                    Foreground="{DynamicResource SecundaryTextColor}"
                    FontSize="18"
