@@ -40,7 +40,9 @@ namespace MindWord.Desktop.Windows
         {
             if (index == words.Count())
             {
-                MessageBox.Show($"Your result is {correctPoints}");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = $"Your result is {correctPoints}";
+                helperShowWindow.ShowDialog();
                 correctPoints = 0;
                 index = 0;
                 this.Close();
@@ -72,7 +74,9 @@ namespace MindWord.Desktop.Windows
             index++;
             if (index == words.Count())
             {
-                MessageBox.Show($"Your result is {correctPoints}");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = $"Your result is {correctPoints}";
+                helperShowWindow.ShowDialog();
                 correctPoints = 0;
                 index = 0;
                 this.Close();
@@ -97,7 +101,9 @@ namespace MindWord.Desktop.Windows
             }
             catch
             {
-                MessageBox.Show("No word");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "No word";
+                helperShowWindow.ShowDialog();
                 this.Close();
             }
             

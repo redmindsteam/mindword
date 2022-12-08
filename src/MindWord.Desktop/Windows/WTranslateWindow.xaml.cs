@@ -55,7 +55,9 @@ namespace MindWord.Desktop.Windows
                 res = await gameService.RandomTranslateTestAsync();
                 if (res.Count == 0)
                 {
-                    MessageBox.Show("So'z yetarli emas !");
+                    HelperShowWindow helperShowWindow = new HelperShowWindow();
+                    helperShowWindow.tbHelperShow.Text = "So'z yetarli emas !";
+                    helperShowWindow.ShowDialog();
                     this.Close();
                 }
                 lbRandomWord.Content = res[index][0];
@@ -66,7 +68,9 @@ namespace MindWord.Desktop.Windows
             }
             catch
             {
-                MessageBox.Show("No word");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "No word";
+                helperShowWindow.ShowDialog();
                 this.Close();
             }
         }
@@ -80,7 +84,9 @@ namespace MindWord.Desktop.Windows
             index++;
             if (index == res.Count)
             {
-                MessageBox.Show($"Your score is {correctPoints}!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
+                helperShowWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
                 this.Close();
@@ -101,7 +107,9 @@ namespace MindWord.Desktop.Windows
             index++;
             if (index == res.Count)
             {
-                MessageBox.Show($"Your score is {correctPoints}!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
+                helperShowWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
                 this.Close();
@@ -122,7 +130,9 @@ namespace MindWord.Desktop.Windows
             index++;
             if (index == res.Count)
             {
-                MessageBox.Show($"Your score is {correctPoints}!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
+                helperShowWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
                 this.Close();
@@ -145,7 +155,9 @@ namespace MindWord.Desktop.Windows
             index++;
             if (index == res.Count)
             {
-                MessageBox.Show($"Your score is {correctPoints}!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
+                helperShowWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
                 this.Close();

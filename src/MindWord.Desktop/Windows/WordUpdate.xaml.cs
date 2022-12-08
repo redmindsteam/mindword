@@ -69,12 +69,16 @@ namespace MindWord.Desktop.Windows
             var res = await wordRepository.UpdateAsync(IdentitySingelton.UpdateId().updateId,word);
             if(res == true)
             {
-                MessageBox.Show("Updated");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Updated";
+                helperShowWindow.ShowDialog();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Not updated");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Not updated";
+                helperShowWindow.ShowDialog();
             }
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)

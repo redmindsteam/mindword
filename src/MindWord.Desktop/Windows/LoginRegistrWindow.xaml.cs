@@ -91,11 +91,15 @@ namespace MindWord.Desktop.Windows
             if (res.isSuccessful == true)
             {
                 // go main menu
-                MessageBox.Show("Succes");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Succes";
+                helperShowWindow.ShowDialog();
             }
             else
             {
-                MessageBox.Show(res.Message);
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = res.Message;
+                helperShowWindow.ShowDialog();
 
             }
         }
@@ -130,6 +134,7 @@ namespace MindWord.Desktop.Windows
             }
         }
 
+        //Register
         private async void BtnRegistr(object sender, RoutedEventArgs e)
         {
 
@@ -156,7 +161,9 @@ namespace MindWord.Desktop.Windows
                     var result = await userService.RegisterAsync(userViewModel);
                     if (result.isSuccessful == true)
                     {
-                        MessageBox.Show(result.Message);
+                        HelperShowWindow helperShowWindow = new HelperShowWindow();
+                        helperShowWindow.tbHelperShow.Text = result.Message;
+                        helperShowWindow.ShowDialog();
                         ImageRegister.Visibility = Visibility.Collapsed;
                         ImageLogin.Visibility = Visibility.Visible;
                         RegisterPage.Visibility = Visibility.Collapsed;
@@ -196,18 +203,24 @@ namespace MindWord.Desktop.Windows
                     }
                     else
                     {
-                        MessageBox.Show(resultRegister.Message);
+                        HelperShowWindow helperShowWindow = new HelperShowWindow();
+                        helperShowWindow.tbHelperShow.Text = resultRegister.Message;
+                        helperShowWindow.ShowDialog();
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show(result.Message);
+                    HelperShowWindow helperShowWindow = new HelperShowWindow();
+                    helperShowWindow.tbHelperShow.Text = result.Message;
+                    helperShowWindow.ShowDialog();
                 }
             }
             else
             {
-                MessageBox.Show(res.Message);
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = res.Message;
+                helperShowWindow.ShowDialog();
             }
         }
 
@@ -223,7 +236,9 @@ namespace MindWord.Desktop.Windows
             }
             else
             {
-                MessageBox.Show(result.Message);
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = result.Message;
+                helperShowWindow.ShowDialog();
             }
         }
 

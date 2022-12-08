@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using MindWord.DataAccess.Interfaces.Repositories;
 using MindWord.DataAccess.Repositories;
+using MindWord.Desktop.Windows;
 using MindWord.Domain.Constants;
 using MindWord.Service.Attributes;
 using MindWord.Service.Security;
@@ -112,11 +113,15 @@ namespace MindWord.Desktop.Pages
 
             if (res)
             {
-                MessageBox.Show("Updated");
-
-            }else
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Updated";
+                helperShowWindow.ShowDialog();
+            }
+            else
             {
-                MessageBox.Show("Not updated");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Not updated";
+                helperShowWindow.ShowDialog();
             }
         }
 

@@ -103,11 +103,15 @@ namespace MindWord.Desktop.Pages
                 int id = res.Id;
                 var result = words.First(x => x.Id == id);
                 var desc = result.Title;
-                MessageBox.Show(desc);
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = desc;
+                helperShowWindow.ShowDialog();
             }
             catch
             {
-                MessageBox.Show("Sorry, Description is not found!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Sorry, Description is not found!";
+                helperShowWindow.ShowDialog();
             }
         }
 
@@ -134,7 +138,9 @@ namespace MindWord.Desktop.Pages
             var result = await wordRepository.DeleteAsync(DeletedId);
             if (result == true)
             {
-                MessageBox.Show("Deleted");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Deleted";
+                helperShowWindow.ShowDialog();
 
                 words = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
                 btnLeft.IsEnabled = words.HasPreviousPage;
@@ -144,7 +150,9 @@ namespace MindWord.Desktop.Pages
             }
             else
             {
-                MessageBox.Show("Failed to delete");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Failed to delete";
+                helperShowWindow.ShowDialog();
             }
         }
 

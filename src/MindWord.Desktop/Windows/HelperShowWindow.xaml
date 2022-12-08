@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
@@ -17,14 +18,21 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" 
+                    Background="{DynamicResource SecundaryWhiteColor}"
                     Content="{DynamicResource close}" 
                     Click="btnClose_Click" Tag="IsCloseButton"
                     HorizontalAlignment="Right"/>
 
+            <Border CornerRadius="0 0 8 8" Grid.Row="1" Background="{DynamicResource TertiaryWhiteColor}">
+                <Grid Grid.Row="1" Background="Transparent"/>
+            </Border>
+            
             <TextBlock x:Name="tbHelperShow" Grid.Row="1"
-                       Width="250"
                        Margin="0 10"
-                       Foreground="{DynamicResource SecundaryBlackColor}"
+                       Background="{DynamicResource TertiaryWhiteColor}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"                 
+                       Foreground="{DynamicResource PrimaryBlackColor}"
                        TextWrapping="Wrap"
                        FontFamily="JetBrains Mono"
                        FontWeight="SemiBold"

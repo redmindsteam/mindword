@@ -111,7 +111,7 @@ namespace MindWord.Service.Services
             IWordRepository repository = new WordRepository();
             var id = IdentitySingelton.currentId().UserId;
             var ALLWORDS = (await repository.GetAllAsync()).ToList();
-            var wordsDb = ALLWORDS.Where(x => x.UserId == id).ToList();
+            var wordsDb = ALLWORDS.Where(x => x.UserId == id && x.AudioPath != null).ToList();
             var words = Shuffle(wordsDb);
             return words;
         }
