@@ -158,18 +158,16 @@ namespace MindWord.Desktop.Pages
 
         private async void tbSearchBox_TextChanged(string txt)
         {
-            IWordRepository repository = new WordRepository();
-            var words = await repository.GetAllAsync();
-            var temp = words.Where(x => x.UserId == IdentitySingelton.currentId().UserId).ToList();
+            WordService wordService = new WordService();
+            var list = await wordService.GetSearchListAsync();
             if (txt != "")
             {
-                var searchedlist = temp.Where(p => p.Name.StartsWith(txt.ToLower())).ToList();
-                dgData.ItemsSource = null;
+                var searchedlist = list.Where(p => p.Word.StartsWith(txt.ToLower())).ToList();
                 dgData.ItemsSource = searchedlist; 
             }
             else
             {
-                dgData.ItemsSource = temp;
+                dgData.ItemsSource = list;
             }
         }
 
