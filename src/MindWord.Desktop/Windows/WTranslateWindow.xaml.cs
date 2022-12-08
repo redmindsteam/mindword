@@ -23,6 +23,7 @@ namespace MindWord.Desktop.Windows
 
         static int index = 0;
         static int correctPoints = 0;
+        static int maxPage;
         static List<List<string>> res;
         public WTranslateWindow()
         {
@@ -65,6 +66,17 @@ namespace MindWord.Desktop.Windows
                 bBtn.Content = res[index][2];
                 cBtn.Content = res[index][3];
                 dBtn.Content = res[index][4];
+
+                if (res.Count <= 15)
+                {
+                    lbPage.Content = $"{index + 1}/{res.Count}";
+                    maxPage = res.Count;
+                }
+                else
+                {
+                    lbPage.Content = $"{index + 1}/{15}";
+                    maxPage = 15;
+                }
             }
             catch
             {
@@ -77,12 +89,12 @@ namespace MindWord.Desktop.Windows
 
         private void aBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (aBtn.Content == res[index][5])
+            if (aBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
             }
             index++;
-            if (index == res.Count)
+            if (index == res.Count || index >= 15)
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
@@ -96,16 +108,17 @@ namespace MindWord.Desktop.Windows
             bBtn.Content = res[index][2];
             cBtn.Content = res[index][3];
             dBtn.Content = res[index][4];
+            lbPage.Content = $"{index + 1}/{maxPage}";
         }
 
         private void bBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (bBtn.Content == res[index][5])
+            if (bBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
             }
             index++;
-            if (index == res.Count)
+            if (index == res.Count || index >= 15)
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
@@ -119,16 +132,17 @@ namespace MindWord.Desktop.Windows
             bBtn.Content = res[index][2];
             cBtn.Content = res[index][3];
             dBtn.Content = res[index][4];
+            lbPage.Content = $"{index + 1}/{maxPage}";
         }
 
         private void cBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (cBtn.Content == res[index][5])
+            if (cBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
             }
             index++;
-            if (index == res.Count)
+            if (index == res.Count || index >= 15)
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
@@ -142,18 +156,17 @@ namespace MindWord.Desktop.Windows
             bBtn.Content = res[index][2];
             cBtn.Content = res[index][3];
             dBtn.Content = res[index][4];
-
-
+            lbPage.Content = $"{index + 1}/{maxPage}";
         }
 
         private void dBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (dBtn.Content == res[index][5])
+            if (dBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
             }
             index++;
-            if (index == res.Count)
+            if (index == res.Count || index >= 15)
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
@@ -167,6 +180,7 @@ namespace MindWord.Desktop.Windows
             bBtn.Content = res[index][2];
             cBtn.Content = res[index][3];
             dBtn.Content = res[index][4];
+            lbPage.Content = $"{index + 1}/{maxPage}";
         }
     }
 }

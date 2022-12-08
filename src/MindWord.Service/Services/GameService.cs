@@ -18,7 +18,7 @@ namespace MindWord.Service.Services
             var wordsDB = ALLWORDS.Where(x=>x.UserId == id).ToList();
 
             var words = Shuffle(wordsDB);
-            if (words.Count > 4)
+            if (words.Count >= 4)
             {
                 for (int i = 0; i < words.Count; i++)
                 {
@@ -56,7 +56,7 @@ namespace MindWord.Service.Services
 
                 var words = Shuffle(wordsDB);
 
-                if(words.Count > 4)
+                if(words.Count >= 4)
                 {
                     for (int i = 0; i < words.Count; i++)
                     {
