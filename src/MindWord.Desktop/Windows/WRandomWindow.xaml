@@ -83,7 +83,8 @@
             </Grid>
 
             <Grid Grid.Row="3">
-                <Label FontFamily="JetBrains Mono"
+                <Label x:Name="lbPage"
+                   FontFamily="JetBrains Mono"
                    FontSize="18"
                    Content="1/10"
                    Foreground="{DynamicResource SecundaryTextColor}"
