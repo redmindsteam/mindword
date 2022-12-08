@@ -6,10 +6,41 @@
       xmlns:local="clr-namespace:MindWord.Desktop.Pages"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      FontFamily="{DynamicResource MaterialDesignFont}"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage">
+      Title="HomePage" 
+      Loaded="Page_Loaded">
 
     <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" Width="300" Height="200" HorizontalAlignment="Center">
+                    <lvc:PieChart x:Name="circleCharts"  LegendLocation="Right" Foreground="{DynamicResource SecundaryTextColor}">
+
+                    </lvc:PieChart>
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Width="570" Height="200" HorizontalAlignment="Center">
+                <lvc:CartesianChart  Series="{Binding SeriesCollection}" LegendLocation="Right" Foreground="{DynamicResource SecundaryTextColor}">
+
+                </lvc:CartesianChart>
+            </Grid>
+
+        </Grid>
+
     </Border>
 </Page>
