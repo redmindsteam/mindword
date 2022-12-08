@@ -18,7 +18,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="150"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -33,25 +33,30 @@
                 </StackPanel>
             </Grid>
 
+            
             <TextBlock Grid.Row="1"
-                   x:Name="lbDesc"
-                   FontFamily="JetBrains Mono"
-                   Foreground="{DynamicResource SecundaryTextColor}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="20">
+                        Width="400"
+                        x:Name="lbDesc"
+                        TextWrapping="Wrap"
+                        FontFamily="JetBrains Mono"
+                        Foreground="{DynamicResource SecundaryTextColor}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16">
             </TextBlock>
+         
 
             <StackPanel Grid.Row="2"
                         Orientation="Vertical"
-                        VerticalAlignment="Center"
+                        VerticalAlignment="Top"
                         HorizontalAlignment="Center">
                 <Border CornerRadius="5"
+                        Margin="0 10"
                     Background="{DynamicResource TertiaryBlueColor}">
                     <TextBox Height="40" Width="350"
                              x:Name="txDesc"
                              FontSize="16"
-                             VerticalContentAlignment="Center"
+                             VerticalContentAlignment="Top"
                              Foreground="{DynamicResource SecundaryTextColor}" TextChanged="txDesc_TextChanged">
                     </TextBox>
                 </Border>
@@ -59,7 +64,7 @@
                 <Button Content="SUBMIT"
                         x:Name="btDesc"
                         Click="btDesc_Click"
-                        Margin="0 40 0 0"
+                        Margin="0 30 0 0"
                         Style="{DynamicResource BtnGameTest}">
                     
                 </Button>
