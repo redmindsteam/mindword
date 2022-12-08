@@ -34,7 +34,9 @@ namespace MindWord.Desktop.Windows
             int err = 0;
             if(index == res.Count)
             {
-                MessageBox.Show($"Your score is {correctPoints} from {res.Count}!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints} from {res.Count}!";
+                helperShowWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
                 this.Close();
@@ -65,7 +67,9 @@ namespace MindWord.Desktop.Windows
             index++;
             if (index == res.Count)
             {
-                MessageBox.Show($"Your score is {correctPoints} from {res.Count}!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints} from {res.Count}!";
+                helperShowWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
                 this.Close();

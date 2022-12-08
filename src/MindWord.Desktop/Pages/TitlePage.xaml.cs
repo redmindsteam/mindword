@@ -91,11 +91,15 @@ namespace MindWord.Desktop.Pages
                 int id = res.Id;
                 var result = categories.First(x => x.Id == id);
                 var desc = result.Description;
-                MessageBox.Show(desc);
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = desc;
+                helperShowWindow.ShowDialog();
             }
             catch
             {
-                MessageBox.Show("Sorry, Description is not found!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Sorry, Description is not found!";
+                helperShowWindow.ShowDialog();
             }
         }
 

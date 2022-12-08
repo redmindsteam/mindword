@@ -54,12 +54,16 @@ namespace MindWord.Desktop.Windows
             var res = await categoryRepository.UpdateAsync(IdentitySingelton.UpdateId().updateId, category);
             if(res == true)
             {
-                MessageBox.Show("Updated");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Updated";
+                helperShowWindow.ShowDialog();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Failed!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Failed!";
+                helperShowWindow.ShowDialog();
             }
         }
     }

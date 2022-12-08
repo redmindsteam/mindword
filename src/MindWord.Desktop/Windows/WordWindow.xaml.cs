@@ -80,7 +80,9 @@ namespace MindWord.Desktop.Windows
         {
             if (ComboBoxCategory.Text == "")
             {
-                MessageBox.Show("Please, choose any category if don't have please create!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Please, choose any category if don't have please create!";
+                helperShowWindow.ShowDialog();
                 this.Close();
             }
             else
@@ -108,21 +110,27 @@ namespace MindWord.Desktop.Windows
                         var res = await wordRepository.CreateAsync(Word.word);
                         if (res)
                         {
-                            MessageBox.Show("Added Word");
+                            HelperShowWindow helperShowWindow = new HelperShowWindow();
+                            helperShowWindow.tbHelperShow.Text = "Added Word";
+                            helperShowWindow.ShowDialog();
                             txWord.Text = "";
                             txTranslation.Text = "";
                             TxbDescription.Text = "";
                         }
                         else
                         {
-                            MessageBox.Show("No Added");
+                            HelperShowWindow helperShowWindow = new HelperShowWindow();
+                            helperShowWindow.tbHelperShow.Text = "No Added";
+                            helperShowWindow.ShowDialog();
                             TxbDescription.Text = "";
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("No Word!");
+                        HelperShowWindow helperShowWindow = new HelperShowWindow();
+                        helperShowWindow.tbHelperShow.Text = "No Word!";
+                        helperShowWindow.ShowDialog();
                     }
                 }
             }

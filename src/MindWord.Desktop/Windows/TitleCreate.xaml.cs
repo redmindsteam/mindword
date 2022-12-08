@@ -36,7 +36,9 @@ namespace MindWord.Desktop.Windows
             }
             else
             {
-                MessageBox.Show("Failed!");
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Failed!";
+                helperShowWindow.ShowDialog();
             }
             
         }
