@@ -59,6 +59,8 @@ namespace MindWord.Desktop.Pages
             {
                 wordWindow.ComboBoxCategory.Items.Add(item);
             }
+            if(wordWindow.ComboBoxCategory.Items.Count > 0) 
+               wordWindow.ComboBoxCategory.SelectedIndex = 0;  
             wordWindow.ShowDialog();
 
             words = await service.GetPagedListAsync(PageNumber, int.Parse(pageSize.Text));
@@ -105,6 +107,8 @@ namespace MindWord.Desktop.Pages
                 var desc = result.Title;
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = desc;
+                helperShowWindow.Height = 270;
+                helperShowWindow.Width = 400;
                 helperShowWindow.ShowDialog();
             }
             catch

@@ -11,6 +11,7 @@
         Background="Transparent"
         Title="WordPage" Height="500" Width="520"
         ResizeMode="NoResize"
+        AllowsTransparency="True"
         MouseDown="MainWindow_OnMouseDown">
     <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
@@ -61,7 +62,10 @@
                           Width="350" Height="40" Margin="0, 55, 0, 20" 
                           VerticalContentAlignment="Center"
                           SelectionChanged="ComboBoxCategory_SelectionChanged" 
-                          Background="{DynamicResource TertiaryBlueColor}">
+                          Background="{DynamicResource TertiaryBlueColor}"
+                          FontFamily="JetBrains Mono"
+                          FontSize="16"
+                          Foreground="{DynamicResource SecundaryTextColor}">
                     <TextBlock>Salom</TextBlock>
                     <TextBlock>Hayer</TextBlock>
                     <TextBlock>limon</TextBlock>
@@ -79,7 +83,7 @@
                         VerticalAlignment="Top"/>
                 <Button x:Name="BtnVoice" Width="45" Height="35" Margin="5, 8, 0, 282" HorizontalAlignment="Left"
                     Click="BtnLoad_Click"
-                        Background="{DynamicResource SecundaryBlackColor}">
+                        Background="{DynamicResource SecundaryBackgroundColor}">
                     <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center" />
                 </Button>
             </Grid>

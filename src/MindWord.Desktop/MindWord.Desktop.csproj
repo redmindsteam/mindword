@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\mindWordLogo.png" />
     <None Remove="Assets\Images\Avatars\Default.jpg" />
     <None Remove="Images\btn_mute_P.png" />
     <None Remove="Images\btn_pause_P.png" />
@@ -34,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Icons\mindWordLogo.png" />
     <Resource Include="Assets\Images\Avatars\Default.jpg" />
     <Resource Include="Images\btn_mute_P.png" />
     <Resource Include="Images\btn_pause_P.png" />

@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        AllowsTransparency="True"
         ResizeMode="NoResize"
         Background="Transparent"
         Title="HelperShowWindow" Height="170" Width="300">

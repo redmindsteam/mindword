@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
         Title="TitleUpdate" Height="308" Width="500"
         WindowStyle="None" ResizeMode="NoResize"
         Background="Transparent"
