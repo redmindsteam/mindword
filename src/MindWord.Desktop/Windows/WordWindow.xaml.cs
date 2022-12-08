@@ -43,7 +43,7 @@ namespace MindWord.Desktop.Windows
 
         private async void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
-            BtnVoice.Visibility = Visibility.Collapsed;
+            //BtnVoice.Visibility = Visibility.Collapsed;
             IDefinationAPIService definationAPI = new DefinationAPIService();
 
             
@@ -111,11 +111,12 @@ namespace MindWord.Desktop.Windows
                             MessageBox.Show("Added Word");
                             txWord.Text = "";
                             txTranslation.Text = "";
+                            TxbDescription.Text = "";
                         }
-
                         else
                         {
                             MessageBox.Show("No Added");
+                            TxbDescription.Text = "";
                         }
 
                     }

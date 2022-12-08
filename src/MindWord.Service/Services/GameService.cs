@@ -105,5 +105,15 @@ namespace MindWord.Service.Services
             var words = Shuffle(wordsDb);
             return words;
         }
+
+        public async Task<List<Word>> RandomTestVoiceAsync()
+        {
+            IWordRepository repository = new WordRepository();
+            var id = IdentitySingelton.currentId().UserId;
+            var ALLWORDS = (await repository.GetAllAsync()).ToList();
+            var wordsDb = ALLWORDS.Where(x => x.UserId == id).ToList();
+            var words = Shuffle(wordsDb);
+            return words;
+        }
     }
 }
