@@ -28,7 +28,9 @@ namespace MindWord.Desktop.Windows
                 ICategoryService categoryService = new CategoryService();
 
                 var res =  await categoryService.CreateAsync(model);
-                MessageBox.Show(res.Message);
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = res.Message;
+                helperShowWindow.ShowDialog();
                 txDescriptionTitle.Text = "";
                 txTitle.Text = "";
             }
