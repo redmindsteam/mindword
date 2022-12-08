@@ -14,7 +14,7 @@
         Background="Transparent">
     
     <Border CornerRadius="8" 
-            Background="{DynamicResource PrimaryBackgroundColor}">
+            Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -33,22 +33,21 @@
                 </StackPanel>
             </Grid>
 
-            <Label Grid.Row="1"
+            <TextBlock Grid.Row="1"
                    x:Name="lbDesc"
-                   Content="Description"
                    FontFamily="JetBrains Mono"
                    Foreground="{DynamicResource SecundaryTextColor}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="20">
-            </Label>
+            </TextBlock>
 
             <StackPanel Grid.Row="2"
                         Orientation="Vertical"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <Border CornerRadius="5"
-                    Background="{DynamicResource SecundaryBackgroundColor}">
+                    Background="{DynamicResource TertiaryBlueColor}">
                     <TextBox Height="40" Width="350"
                              x:Name="txDesc"
                              FontSize="16"

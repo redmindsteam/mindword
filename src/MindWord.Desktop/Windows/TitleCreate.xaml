@@ -21,7 +21,7 @@
                     <Label Style="{DynamicResource MaterialDesignLabel}" 
                        Margin="0, 40, 5, 0"
                        FontFamily="JetBrains Mono"
-                       Foreground="{DynamicResource SecundaryTextColor}"
+                       Foreground="#DB872F"
                        FontSize="16"
                        FontWeight="SemiBold" Width="110">
                         Title
@@ -30,7 +30,7 @@
                     <Label Style="{DynamicResource MaterialDesignLabel}" 
                        Margin="0, 40, 5, 0"
                        FontFamily="JetBrains Mono"
-                       Foreground="{DynamicResource SecundaryTextColor}"
+                       Foreground="#DB872F"
                        FontSize="16"
                        FontWeight="SemiBold">
                        Description
@@ -63,12 +63,13 @@
             </Grid>
         </Grid>
 
-        <Border.BitmapEffect>
-            <DropShadowBitmapEffect
-                ShadowDepth="1"
-                Direction="0"
-                Color="#5B8DEF"
-                Softness="1"/>
-        </Border.BitmapEffect>
+        <Border.Effect>
+            <DropShadowEffect
+                ShadowDepth="2"
+                Direction="75"
+                Opacity="1"
+                BlurRadius="35"
+                Color="#5B8DEF"/>
+        </Border.Effect>
     </Border>
 </Window>
