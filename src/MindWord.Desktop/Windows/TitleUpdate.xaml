@@ -11,7 +11,7 @@
         WindowStyle="None" ResizeMode="NoResize"
         Background="Transparent"
         MouseDown="MainWindow_OnMouseDown">
-    <Border Background="{DynamicResource TertiaryBackgroundColor}">
+    <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="145"/>
@@ -44,7 +44,7 @@
                     <RowDefinition Height="25"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="315,0,0,0" Foreground="Black"/>
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="320,0,0,0" Foreground="Black"/>
                 <Grid Grid.Row="1">
                     <StackPanel Margin="15,30,0,10" HorizontalAlignment="Left" Width="318" >
                         <TextBox x:Name="txTitle" Style="{DynamicResource FormTextBox}" 

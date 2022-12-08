@@ -7,16 +7,15 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 
+                <!--Themes-->
+                <ResourceDictionary Source="Themes/LightTheme.xaml"/>
+                <ResourceDictionary Source="Assets/Icons/Icons.xaml"/>
+                
                 <!--Material Design-->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Grey.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-
-                <!--Themes-->
-                <ResourceDictionary Source="Themes/LightTheme.xaml"/>
-                <ResourceDictionary Source="Themes/DarkTheme.xaml"/>
-                <ResourceDictionary Source="Assets/Icons/Icons.xaml"/>
 
                 <!--Styles-->
                 <ResourceDictionary Source="/Styles/ButtonStyle.xaml"/>
