@@ -68,7 +68,7 @@ namespace MindWord.Desktop.Windows
                 CategoryId= words[index].CategoryId,
                 UserId= words[index].UserId
             };
-            await repository.UpdateAsync(word.Id, word);
+            await repository.UpdateAsync(words[index].Id, word);
             index++;
             if (index == words.Count())
             {

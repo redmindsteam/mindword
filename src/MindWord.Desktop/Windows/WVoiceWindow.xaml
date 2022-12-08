@@ -4,7 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
-        mc:Ignorable="d" WindowStyle="None"
+        mc:Ignorable="d" 
+        Loaded="Window_Loaded"
+        WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         WindowStartupLocation="CenterScreen" 
@@ -29,7 +31,8 @@
 
             <Border Grid.Row="1" CornerRadius="80" Background="{DynamicResource TertiaryBackgroundColor}"
                     Height="80" Width="80">
-                <Button Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Background="Transparent" Tag="{DynamicResource voice}">
+                <Button x:Name="btPlay"
+                        Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Background="Transparent" Tag="{DynamicResource voice}" Click="btPlay_Click">
                     <Path Data="{DynamicResource voice}" Fill="{DynamicResource SecundaryWhiteColor}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 5 0"/>
                 </Button>
             </Border>
