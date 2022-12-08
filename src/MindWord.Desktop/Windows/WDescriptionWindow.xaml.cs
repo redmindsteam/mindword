@@ -77,7 +77,7 @@ namespace MindWord.Desktop.Windows
                 index = 0;
                 this.Close();
             }
-            lbDesc.Content = words[index].Description;
+            lbDesc.Text = words[index].Description;
             txDesc.Text = null;
         }
 
@@ -92,7 +92,7 @@ namespace MindWord.Desktop.Windows
             {
                 GameService gameService = new GameService();
                 words = await gameService.RandomTestDescriptionAsync();
-                lbDesc.Content= words[index].Description;
+                lbDesc.Text = words[index].Description;
 
             }
             catch
