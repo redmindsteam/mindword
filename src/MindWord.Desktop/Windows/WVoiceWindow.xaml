@@ -12,7 +12,7 @@
         WindowStartupLocation="CenterScreen" 
         Title="WVoiceWindow" Height="500" Width="500">
     <Border CornerRadius="8"
-        Background="{DynamicResource SecundaryBackgroundColor}">
+        Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -29,7 +29,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"/>
 
-            <Border Grid.Row="1" CornerRadius="80" Background="{DynamicResource TertiaryBackgroundColor}"
+            <Border Grid.Row="1" CornerRadius="80" Background="{DynamicResource TertiaryBlueColor}"
                     Height="80" Width="80">
                 <Button x:Name="btPlay"
                         Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Background="Transparent" Tag="{DynamicResource voice}" Click="btPlay_Click">
@@ -46,13 +46,13 @@
                          VerticalContentAlignment="Center"
                          FontSize="16"
                          Foreground="{DynamicResource SecundaryTextColor}"
-                         Background="{DynamicResource TertiaryBackgroundColor}">
+                         Background="{DynamicResource TertiaryBlueColor}">
                     
                 </TextBox>
 
                 <Button x:Name="btVoice"
                         Click="btVoice_Click"
-                        Margin="0 40"
+                        Margin="0 50"
                         Height="45"
                         FontFamily="JetBrains Mono"
                         FontWeight="SemiBold"

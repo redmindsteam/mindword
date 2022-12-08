@@ -8,73 +8,81 @@
         mc:Ignorable="d" 
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None" 
-        Title="WordPage" Height="450" Width="520"
+        Background="Transparent"
+        Title="WordPage" Height="500" Width="520"
         ResizeMode="NoResize"
         MouseDown="MainWindow_OnMouseDown">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="420"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Height="420" Width="350" HorizontalAlignment="Right">
-            <Label Content="Word"
+    <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="420"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Height="420" Width="350" HorizontalAlignment="Right">
+                <Label Content="Word"
                     FontFamily="Jetbrains Mono"
                     Foreground="#DB872F"
                     FontSize="20"
                     FontWeight="SemiBold" 
                     HorizontalAlignment="Left"
                     Margin="0 20 0 0"/>
-            <TextBox x:Name="txWord"
+
+                <TextBox x:Name="txWord"
                     Style="{DynamicResource FormTextBox}" 
                      TextChanged="txWord_TextChanged_1" />
 
 
-            <TextBlock x:Name="TxbDescription"
+                <TextBlock x:Name="TxbDescription"
                     Height="30"
                     MaxWidth="350"
                     MaxHeight="30"
                     FontFamily="Jetbrains Mono"
                     Foreground="#E13E4E"
-                    FontSize="13"
+                    FontSize="12"
                     FontWeight="Medium" 
                     HorizontalAlignment="Left"
                     TextWrapping="Wrap"
                     Margin="0 5 0 0"/>
 
 
-
-
-
-            <Label Content="Translation"
+                <Label Content="Translation"
                     FontFamily="Jetbrains Mono"
                     Foreground="#DB872F"
                     FontSize="20"
                     FontWeight="SemiBold" 
-                    HorizontalAlignment="Left"
-                    Margin="0 30 0 0"/>
+                    HorizontalAlignment="Left"/>
 
-            <TextBox x:Name="txTranslation"
+                <TextBox x:Name="txTranslation"
                     Style="{DynamicResource FormTextBox}"/>
 
 
+                <ComboBox x:Name="ComboBoxCategory" 
+                          Width="350" Height="40" Margin="0, 55, 0, 20" 
+                          VerticalContentAlignment="Center"
+                          SelectionChanged="ComboBoxCategory_SelectionChanged" 
+                          Background="{DynamicResource TertiaryBlueColor}">
+                    <TextBlock>Salom</TextBlock>
+                    <TextBlock>Hayer</TextBlock>
+                    <TextBlock>limon</TextBlock>
+                    <TextBlock>Asal</TextBlock>
+                </ComboBox>
 
-            <ComboBox x:Name="ComboBoxCategory" Width="200" Height="30" Margin="40, 35, 0, 20" SelectionChanged="ComboBoxCategory_SelectionChanged" >
-                <TextBlock>Salom</TextBlock>
-                <TextBlock>Hayer</TextBlock>
-                <TextBlock>limon</TextBlock>
-                <TextBlock>Asal</TextBlock>
-            </ComboBox>
-            <Button x:Name="BtnAddWord" Margin="40, 35, 0, 0" Content="Add" Width="150"
-                    Style="{DynamicResource PrimaryButton}" Click="BtnAddWord_Click" />
-        </StackPanel>
-        <Grid Grid.Column="1">
-            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="55,0,0,410" Foreground="Black"/>
-            <Button x:Name="BtnVoice" Width="45" Height="35" Margin="5, 0, 0, 282" HorizontalAlignment="Left"
-                    Click="BtnLoad_Click">
-                <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center" />
+                <Button x:Name="BtnAddWord" Margin="0, 35, 0, 0" Content="ADD" Width="150"
+                    Style="{DynamicResource BtnGameTest}" Click="BtnAddWord_Click" />
+            </StackPanel>
 
-            </Button>
-
+            <Grid Grid.Column="1">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" 
+                        Click="btnClose_Click" Tag="IsCloseButton" 
+                        Margin="70, 0, 0, 0" 
+                        VerticalAlignment="Top"/>
+                <Button x:Name="BtnVoice" Width="45" Height="35" Margin="5, 8, 0, 282" HorizontalAlignment="Left"
+                    Click="BtnLoad_Click"
+                        Background="{DynamicResource SecundaryBlackColor}">
+                    <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center" />
+                </Button>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>
