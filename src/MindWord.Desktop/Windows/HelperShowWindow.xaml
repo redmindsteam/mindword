@@ -8,15 +8,28 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        Title="HelperShowWindow" Height="200" Width="400">
-    <Border CornerRadius="8" Background="{DynamicResource SecundaryYellowColor}">
-        <TextBlock x:Name="tbHelperShow" 
-                   Foreground="{DynamicResource PrimaryWhiteColor}"
-                   TextWrapping="Wrap"
-                   FontFamily="JetBrains Mono"
-                   FontWeight="SemiBold"
-                   FontSize="16">
-        </TextBlock>
-        
+        Title="HelperShowWindow" Height="170" Width="300">
+    <Border CornerRadius="8" Background="{DynamicResource SecundaryWhiteColor}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" 
+                    Content="{DynamicResource close}" 
+                    Click="btnClose_Click" Tag="IsCloseButton"
+                    HorizontalAlignment="Right"/>
+
+            <TextBlock x:Name="tbHelperShow" Grid.Row="1"
+                       Width="250"
+                       Margin="0 10"
+                       Foreground="{DynamicResource SecundaryBlackColor}"
+                       TextWrapping="Wrap"
+                       FontFamily="JetBrains Mono"
+                       FontWeight="SemiBold"
+                       FontSize="16">
+            </TextBlock>
+        </Grid>
     </Border>
 </Window>
