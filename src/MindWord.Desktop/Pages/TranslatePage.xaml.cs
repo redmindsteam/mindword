@@ -40,30 +40,37 @@ namespace MindWord.Desktop.Pages
 
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ITranslateAPIService translateAPI = new TranslateAPIService();
-            if(tbFirst.Text == "Uzbek")
+            if (tbFirst.Text.Length > 0)
             {
-                var res = await translateAPI.GetTranslatedWordAsync("uz","en",txFirst.Text.ToLower());
-                if(res.isSuccessful == true)
+                ITranslateAPIService translateAPI = new TranslateAPIService();
+                if (tbFirst.Text == "Uzbek")
                 {
-                    txSecond.Text = res.TranslatedWord;
+                    var res = await translateAPI.GetTranslatedWordAsync("uz", "en", txFirst.Text.ToLower());
+                    if (res.isSuccessful == true)
+                    {
+                        txSecond.Text = res.TranslatedWord;
+                    }
+                    else
+                    {
+                        txSecond.Text = res.TranslatedWord;
+                    }
                 }
-                else
+                if (tbFirst.Text == "English")
                 {
-                    txSecond.Text = res.TranslatedWord;
+                    var res = await translateAPI.GetTranslatedWordAsync("en", "uz", txFirst.Text.ToLower());
+                    if (res.isSuccessful == true)
+                    {
+                        txSecond.Text = res.TranslatedWord;
+                    }
+                    else
+                    {
+                        txSecond.Text = res.TranslatedWord;
+                    }
                 }
             }
-            if(tbFirst.Text == "English")
+            else
             {
-                var res = await translateAPI.GetTranslatedWordAsync("en", "uz", txFirst.Text.ToLower());
-                if(res.isSuccessful == true)
-                {
-                    txSecond.Text = res.TranslatedWord;
-                }
-                else
-                {
-                    txSecond.Text = res.TranslatedWord;
-                }
+                tbSecond.Text = "";
             }
         }
     }
