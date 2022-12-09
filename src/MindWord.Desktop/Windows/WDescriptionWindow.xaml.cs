@@ -46,7 +46,7 @@ namespace MindWord.Desktop.Windows
             {
                 GameResultWindow gameResultWindow = new GameResultWindow();
                 WordService wordService = new WordService();
-                var pagelist = await wordService.GetAnswersPagedListAsync(1, int.Parse(gameResultWindow.pageSize.Text), Answers);
+                var pagelist = await wordService.GetAnswersPagedListAsync(1, 10, Answers);
                 gameResultWindow.dgData.ItemsSource = pagelist;
                 gameResultWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, Answers.Count);
 
@@ -92,7 +92,7 @@ namespace MindWord.Desktop.Windows
             {
                 GameResultWindow gameResultWindow = new GameResultWindow();
                 WordService wordService = new WordService();
-                var pagelist = await wordService.GetAnswersPagedListAsync(1,int.Parse(gameResultWindow.pageSize.Text),Answers);
+                var pagelist = await wordService.GetAnswersPagedListAsync(1, 10, Answers);
                 gameResultWindow.dgData.ItemsSource = pagelist;
                 gameResultWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, Answers.Count);
 

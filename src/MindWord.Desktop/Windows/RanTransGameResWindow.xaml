@@ -8,6 +8,7 @@
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
         ResizeMode="NoResize"
+        AllowsTransparency="True"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
@@ -15,7 +16,7 @@
     <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
@@ -27,35 +28,8 @@
                     <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
 
-                <!--Choose pagenation count-->
-                <ComboBox x:Name="pageSize" 
-                      IsReadOnly="True"
-                      Foreground="{DynamicResource SecundaryTextColor}"
-                      Grid.Column="0"
-                      Width="80"
-                      Height="35"
-                      VerticalContentAlignment="Center"
-                      HorizontalContentAlignment="Center"
-                      Background="{DynamicResource SecundaryBackgroundColor}"
-                      FontFamily="Jetbrains Mono"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center"
-                      SelectedIndex="0" SelectionChanged="pageSize_SelectionChanged">
-                    <ComboBoxItem Tag="10">10</ComboBoxItem>
-                    <ComboBoxItem Tag="20">20</ComboBoxItem>
-                    <ComboBoxItem Tag="30">30</ComboBoxItem>
-                </ComboBox>
-
-                <!--Search TextBox-->
-                <basicComponents:SearchBox 
-                    Grid.Column="1"
-                    Margin="0 0 5 0"
-                    Height="35"
-                    VerticalAlignment="Center"
-                    TextParentChangedEvent="tbSearchBox_TextChanged" Loaded="SearchBox_Loaded"/>
-
                 <!--Close-->
-                <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 5, 5, 0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                     <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
                 </StackPanel>
             </Grid>
