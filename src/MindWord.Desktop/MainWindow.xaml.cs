@@ -3,6 +3,7 @@ using MindWord.DataAccess.Repositories;
 using MindWord.Desktop.Themes;
 using MindWord.Domain.Entities;
 using MindWord.Service.Attributes;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
@@ -40,9 +41,10 @@ namespace MindWord.Desktop
         private void Themes_Click(object sender, RoutedEventArgs e)
         {
             if (Themes.IsChecked == true)
-                ThemesController.SetTheme(ThemesController.ThemeTypes.Light);
-            else
                 ThemesController.SetTheme(ThemesController.ThemeTypes.Dark);
+            else
+                ThemesController.SetTheme(ThemesController.ThemeTypes.Light);
+            
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

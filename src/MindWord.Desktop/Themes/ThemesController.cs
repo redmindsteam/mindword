@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 
 namespace MindWord.Desktop.Themes
@@ -20,12 +21,12 @@ namespace MindWord.Desktop.Themes
 
         private static void ChangeTheme(Uri uri)
         {
-            ThemeDictionary = new ResourceDictionary() { Source = uri };
+            ThemeDictionary.Source = uri ;
         }
 
         public static void SetTheme(ThemeTypes theme)
         {
-            string themeName = "";
+            string themeName = null!;
             CurrentTheme = theme;
             switch (theme)
             {
@@ -36,7 +37,10 @@ namespace MindWord.Desktop.Themes
             try
             {
                 if (!string.IsNullOrEmpty(themeName))
-                    ChangeTheme(new Uri($"Themes/{themeName}.xaml", UriKind.Relative));
+                {
+                    var str = new FileInfo($"../../../Themes/{themeName}.xaml").FullName;
+                    ChangeTheme(new Uri(str));
+                }
             }
             catch { }
         }

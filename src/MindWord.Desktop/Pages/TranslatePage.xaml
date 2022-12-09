@@ -31,7 +31,7 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock x:Name="tbFirst"
-                           Foreground="White" 
+                           Foreground="{DynamicResource SecundaryTextColor}" 
                            FontFamily="JetBrains Mono"
                            FontSize="16"
                            VerticalAlignment="Center"
@@ -49,7 +49,7 @@
 
             <StackPanel Grid.Column="2">
                 <TextBlock x:Name="tbSecond"
-                           Foreground="White" 
+                           Foreground="{DynamicResource SecundaryTextColor}" 
                            FontFamily="JetBrains Mono"
                            FontSize="16"
                            VerticalAlignment="Center"
