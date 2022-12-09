@@ -57,7 +57,7 @@
                                         Binding="{Binding Translate}"/>
 
                     <!--View-->
-                    <DataGridTemplateColumn  Header="Info"
+                    <DataGridTemplateColumn  Header="Choice"
                                              Width="160">    
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
