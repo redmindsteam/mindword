@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MindWord.Service.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,13 @@ namespace MindWord.Desktop.Windows
     /// </summary>
     public partial class RanTransGameResWindow : Window
     {
+        
         public RanTransGameResWindow()
         {
             InitializeComponent();
         }
 
-        private void SearchBox_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+      
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -39,29 +37,11 @@ namespace MindWord.Desktop.Windows
 
         }
 
-        private void btnLeft_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnRight_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void pageSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void dgData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void tbSearchBox_TextChanged(string txt)
-        {
-
-        }
+      
     }
 }
