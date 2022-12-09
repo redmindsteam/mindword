@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:MindWord.Desktop.Pages"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:basicComponents ="clr-namespace:MindWord.Desktop.Components.Basic"
+      Loaded="WordPage_Loaded"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="WordPage">
@@ -37,7 +38,7 @@
                       FontFamily="Jetbrains Mono"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Top"
-                      SelectedIndex="0">
+                      SelectedIndex="0" SelectionChanged="pageSize_SelectionChanged">
                 <ComboBoxItem Tag="10">10</ComboBoxItem>
                 <ComboBoxItem Tag="20">20</ComboBoxItem>
                 <ComboBoxItem Tag="30">30</ComboBoxItem>
