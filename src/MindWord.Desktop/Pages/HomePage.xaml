@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-      FontFamily="{DynamicResource MaterialDesignFont}"
+      FontFamily="JetBrains Mono"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage" 
       Loaded="Page_Loaded">
@@ -35,7 +35,6 @@
 
                     <Grid Grid.Row="1">
                         <lvc:PieChart x:Name="circleCharts"  LegendLocation="Bottom" Foreground="{DynamicResource SecundaryTextColor}">
-
                         </lvc:PieChart>
                     </Grid>
                 </Grid>
@@ -53,13 +52,12 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="1">
                             <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0">
-
                                 <lvc:CartesianChart.DataTooltip>
-                                    <lvc:DefaultTooltip Background="#24336a" Foreground="White"/>
+                                    <lvc:DefaultTooltip Background="{DynamicResource TertiaryBackgroundColor}" Foreground="{DynamicResource SecundaryTextColor}"/>
                                 </lvc:CartesianChart.DataTooltip>
 
                                 <lvc:CartesianChart.AxisX>
-                                    <lvc:Axis Foreground="#bcc0c6" ShowLabels="True">
+                                    <lvc:Axis Foreground="{DynamicResource SecundaryTextColor}" ShowLabels="True">
                                         <lvc:Axis.Separator>
                                             <lvc:Separator StrokeThickness="0" Step="1"/>
                                         </lvc:Axis.Separator>
@@ -67,7 +65,7 @@
                                 </lvc:CartesianChart.AxisX>
 
                                 <lvc:CartesianChart.AxisY>
-                                    <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0" MaxValue="30">
+                                    <lvc:Axis Foreground="{DynamicResource SecundaryTextColor}" ShowLabels="True" MinValue="0" MaxValue="30">
                                         <lvc:Axis.Separator>
                                             <lvc:Separator StrokeThickness="0"/>
                                         </lvc:Axis.Separator>
@@ -100,13 +98,13 @@
 
                     <Grid Grid.Row="1">
                         <lvc:CartesianChart  Series="{Binding SeriesCollection}" LegendLocation="Bottom"  Foreground="{DynamicResource SecundaryTextColor}">
-
+                            <lvc:CartesianChart.DataTooltip>
+                                <lvc:DefaultTooltip Background="{DynamicResource TertiaryBackgroundColor}"/>
+                            </lvc:CartesianChart.DataTooltip>
                         </lvc:CartesianChart>
                     </Grid>
                 </Grid>
             </Grid>
-
         </Grid>
-
     </Border>
 </Page>

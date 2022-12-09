@@ -11,6 +11,9 @@
     <SolidColorBrush x:Key="PrimaryTextColor" Color="#C0C9EA"/>
     <SolidColorBrush x:Key="SecundaryTextColor" Color="#EDF4FF"/>
     <SolidColorBrush x:Key="TertiaryTextColor" Color="#FFFFFF"/>
+    
+    <!-- Border Thickness Color -->
+    <SolidColorBrush x:Key="BorderThicknessColor" Color="#C0C9EA"/>
 
     <!-- Blue Colors-->
     <SolidColorBrush x:Key="PrimaryBlueColor" Color="#004FC4"/>
