@@ -76,8 +76,8 @@ namespace MindWord.Desktop.Windows
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = "Word is not enough!";
-                helperShowWindow.ShowDialog();
                 this.Close();
+                helperShowWindow.ShowDialog();
             }
         }
 

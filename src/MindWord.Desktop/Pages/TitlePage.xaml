@@ -103,7 +103,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button
                                     x:Name="btInfoTitle"
-                                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                                    Style="{StaticResource BorderButtonStyle}"
                                     ToolTip="View description"
                                     Click="btnInfoTitle">
                                     
