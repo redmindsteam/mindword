@@ -4,15 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
-        AllowsTransparency="True"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="TitleCreate" Height="308" Width="500"
         WindowStyle="None" ResizeMode="NoResize"
         Background="Transparent"
+        AllowsTransparency="True"
         MouseDown="MainWindow_OnMouseDown">
     <Border CornerRadius="8"
             Background="{DynamicResource TertiaryBackgroundColor}">
-        <Grid >
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="145"/>
                 <ColumnDefinition/>
@@ -38,6 +38,7 @@
                     </Label>
                 </StackPanel>
             </Grid>
+            
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25"/>
@@ -67,7 +68,7 @@
         <Border.Effect>
             <DropShadowEffect
                 ShadowDepth="2"
-                Direction="75"
+                Direction="-75"
                 Opacity="1"
                 BlurRadius="35"
                 Color="#5B8DEF"/>

@@ -76,6 +76,7 @@
         <DataGrid Grid.Row="1"
                   Name="dgData"
                   FontSize="15"
+                  Foreground="{DynamicResource SecundaryTextColor}"
                   FontFamily="Jetbrains Mono"
                   AutoGenerateColumns="False"
                   CanUserResizeColumns="False"
@@ -105,7 +106,7 @@
                                 <Button x:Name="btinfo"
                                     Style="{StaticResource MaterialDesignOutlinedButton}"
                                     ToolTip="View description"
-                                        Click="BtnInfo_click">
+                                    Click="BtnInfo_click">
                                     Description
                                 </Button>
                             </StackPanel>
@@ -115,7 +116,7 @@
 
                 <!--Action-->
                 <DataGridTemplateColumn Header="Action"
-                                    Width="105">
+                                        Width="105">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -125,8 +126,8 @@
                                     BorderThickness="0"
                                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
                                     ToolTip="Word update"
-                                         Click="btnUpdate">
-                                    <materialDesign:PackIcon Foreground="White"
+                                    Click="btnUpdate">
+                                    <materialDesign:PackIcon Foreground="{DynamicResource SecundaryTextColor}"
                                                              Margin="-6"
                                                              Kind="Pencil"/>
                                 </Button>

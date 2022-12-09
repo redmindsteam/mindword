@@ -78,10 +78,6 @@ namespace MindWord.Desktop.Pages
             lbPage.Content = string.Format("Page{0}/{1}", PageNumber, categories.PageCount);
         }
 
-        private void dgDataTitle_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
 
         private void btnInfoTitle(object sender, RoutedEventArgs e)
         {
@@ -170,5 +166,6 @@ namespace MindWord.Desktop.Pages
         private void TitlePage_Loaded(object sender, RoutedEventArgs e)
         {
         }
+
     }
 }

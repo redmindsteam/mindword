@@ -61,10 +61,11 @@
                 <ComboBox x:Name="ComboBoxCategory" 
                           Width="350" Height="40" Margin="0, 55, 0, 20" 
                           VerticalContentAlignment="Center" 
+                          TextElement.Foreground="{DynamicResource PrimaryYellowColor}"
                           Background="{DynamicResource TertiaryBlueColor}"
                           FontFamily="JetBrains Mono"
                           FontSize="16"
-                          Foreground="{DynamicResource SecundaryTextColor}">
+                          Foreground="{DynamicResource PrimaryBlackColor}">
                 </ComboBox>
 
                 <Button x:Name="BtnAddWord" Margin="0, 35, 0, 0" Content="ADD" Width="150"
