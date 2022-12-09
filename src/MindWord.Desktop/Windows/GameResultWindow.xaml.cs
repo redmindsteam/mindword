@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MindWord.Domain.Entities;
+using MindWord.Service.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,11 @@ namespace MindWord.Desktop.Windows
     /// </summary>
     public partial class GameResultWindow : Window
     {
+        static List<WordAnswerViewModel> answers;
+        public void SaveAnswers(List<WordAnswerViewModel> Answers)
+        {
+            answers = Answers;
+        }
         public GameResultWindow()
         {
             InitializeComponent();
@@ -41,17 +48,24 @@ namespace MindWord.Desktop.Windows
 
         private void BtnInfo_click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void btnUpdate(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnDelete(object sender, RoutedEventArgs e)
-        {
-
+            try
+            {
+                var res = (WordAnswerViewModel)dgData.SelectedItem;
+                int id = res.Id;
+                var result = answers.First(x => x.Id == id);
+                var desc = result.Info;
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = desc;
+                helperShowWindow.Height = 270;
+                helperShowWindow.Width = 400;
+                helperShowWindow.ShowDialog();
+            }
+            catch
+            {
+                HelperShowWindow helperShowWindow = new HelperShowWindow();
+                helperShowWindow.tbHelperShow.Text = "Sorry, Description is not found!";
+                helperShowWindow.ShowDialog();
+            }
         }
 
         private void dgData_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -70,16 +84,6 @@ namespace MindWord.Desktop.Windows
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void pageSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private async void tbSearchBox_TextChanged(string txt)
         {
 
         }

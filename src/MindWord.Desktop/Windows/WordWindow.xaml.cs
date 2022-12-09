@@ -96,6 +96,14 @@ namespace MindWord.Desktop.Windows
                 {
 
                     var Word = await definationAPI.GetWordAsync(txWord.Text);
+                    if(Word.word == null)
+                    {
+                        Word.word = new Word()
+                        {
+                            Name = txWord.Text,
+                        };
+                        Word.successful = true;
+                    }
                     Word.word.Translate = txTranslation.Text;
                     Category category;
                     {
