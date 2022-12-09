@@ -76,6 +76,7 @@
         <DataGrid Grid.Row="1"
                   Name="dgDataTitle"
                   FontSize="15"
+                  Foreground="{DynamicResource SecundaryTextColor}"
                   FontFamily="Jetbrains Mono"
                   AutoGenerateColumns="False"
                   CanUserReorderColumns="False"
@@ -84,7 +85,7 @@
                   IsReadOnly="True"
                   Background="{DynamicResource SecundaryBackgroundColor}"
                   TextElement.Foreground="{DynamicResource SecundaryTextColor}"
-                  Loaded="DataGrid_Loaded" SelectionChanged="dgDataTitle_SelectionChanged">
+                  Loaded="DataGrid_Loaded">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id"
                                     Width="70"
@@ -125,7 +126,7 @@
                                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
                                     ToolTip="Title update"
                                      Click="btnUpdate">
-                                    <materialDesign:PackIcon Foreground="White"
+                                    <materialDesign:PackIcon Foreground="{DynamicResource SecundaryBackgroundColor}"
                                                              Margin="-6"
                                                              Kind="Pencil"/>
                                 </Button>
