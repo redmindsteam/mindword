@@ -28,10 +28,11 @@ namespace MindWord.Desktop.Windows
         static int index = 0;
         static int maxPage;
         static List<Word> words;
-        static List<WordAnswerViewModel>  Answers;
+        static List<WordAnswerViewModel>  Answers = new List<WordAnswerViewModel>();
         public WDescriptionWindow()
         {
             InitializeComponent();
+            Answers.Clear();    
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -43,9 +44,13 @@ namespace MindWord.Desktop.Windows
         {
             if (index == words.Count())
             {
-                HelperShowWindow helperShowWindow = new HelperShowWindow();
-                helperShowWindow.tbHelperShow.Text = $"Your result is {correctPoints}";
-                helperShowWindow.ShowDialog();
+                GameResultWindow gameResultWindow = new GameResultWindow();
+                WordService wordService = new WordService();
+                var pagelist = await wordService.GetAnswersPagedListAsync(1, int.Parse(gameResultWindow.pageSize.Text), Answers);
+                gameResultWindow.dgData.ItemsSource = pagelist;
+                gameResultWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, Answers.Count);
+
+                gameResultWindow.ShowDialog();
                 correctPoints = 0;
                 index = 0;
                 this.Close();
@@ -75,7 +80,7 @@ namespace MindWord.Desktop.Windows
                     Word = words[index].Name,
                     Translate = words[index].Translate,
                     Info = words[index].Description,
-                    Status = "✅"
+                    Status = "✔️"
                 };
                 Answers.Add(wordAnswerView);
             }
@@ -85,9 +90,15 @@ namespace MindWord.Desktop.Windows
             index++;
             if (index == words.Count())
             {
-                HelperShowWindow helperShowWindow = new HelperShowWindow();
-                helperShowWindow.tbHelperShow.Text = $"Your result is {correctPoints}";
-                helperShowWindow.ShowDialog();
+                GameResultWindow gameResultWindow = new GameResultWindow();
+                WordService wordService = new WordService();
+                var pagelist = await wordService.GetAnswersPagedListAsync(1,int.Parse(gameResultWindow.pageSize.Text),Answers);
+                gameResultWindow.dgData.ItemsSource = pagelist;
+                gameResultWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, Answers.Count);
+
+                gameResultWindow.ShowDialog();
+
+               
                 correctPoints = 0;
                 index = 0;
                 this.Close();

@@ -170,9 +170,9 @@
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="1"
@@ -220,9 +220,14 @@
                 </StackPanel>
 
                 <Border Grid.Column="3" Margin="15,5,10,0" CornerRadius="0 0 5 0" Background="Transparent">
-                    <Button  Style="{DynamicResource MaterialDesignFlatButton}" Tag="{DynamicResource game}" Margin="0,5,0,8" Click="Button_Click">
-                        <Path Data="{DynamicResource game}" Height="25" Width="38"  Fill="{DynamicResource PrimaryBlueColor}" VerticalAlignment="Center" Stretch="Fill"/>
-                    </Button>
+                    <Label x:Name="lbResultgame"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="{DynamicResource SecundaryTextColor}"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           FontFamily="JetBrains Mono">
+                    </Label>
                 </Border>
             </Grid>
         </Grid>
