@@ -35,6 +35,9 @@
 
                     <Grid Grid.Row="1">
                         <lvc:PieChart x:Name="circleCharts"  LegendLocation="Bottom" Foreground="{DynamicResource SecundaryTextColor}">
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip Background="{DynamicResource TertiaryBackgroundColor}"/>
+                            </lvc:PieChart.DataTooltip>
                         </lvc:PieChart>
                     </Grid>
                 </Grid>
