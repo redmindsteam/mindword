@@ -28,6 +28,7 @@
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="370, 0, 0, 420"/>
             <StackPanel x:Name="Login" Width="350" Height="400" 
                 Visibility="Visible">
+
                 <Label Content="Login"
                     FontFamily="Jetbrains Mono"
                     Foreground="#DB872F"

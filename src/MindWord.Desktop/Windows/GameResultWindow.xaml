@@ -9,8 +9,9 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        Title="GameResultWindow" Height="450" Width="800">
+        Title="GameResultWindow" Height="500" Width="800">
     <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
@@ -152,7 +153,7 @@
                                     <Border.Style>
                                         <Style TargetType="Border">
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Status}" Value="✅">
+                                                <DataTrigger Binding="{Binding Status}" Value="✔️">
                                                     <Setter Property="Background" Value="#50C878" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding Status}" Value="❌">
@@ -188,6 +189,7 @@
                         VerticalContentAlignment="Top"
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
                         Background="{DynamicResource SecundaryBlueColor}" Click="btnLeft_Click">
                     </Button>
 
@@ -215,6 +217,7 @@
                         VerticalContentAlignment="Top"
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth2"    
                         Background="{DynamicResource SecundaryBlueColor}" Click="btnRight_Click">
                     </Button>
                 </StackPanel>
