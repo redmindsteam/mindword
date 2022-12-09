@@ -1,12 +1,12 @@
 ﻿<Window x:Class="MindWord.Desktop.Windows.GameResultWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:basicComponents ="clr-namespace:MindWord.Desktop.Components.Basic"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
+        AllowsTransparency="True"
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -15,7 +15,7 @@
     <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
@@ -27,34 +27,7 @@
                     <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
 
-                <!--Choose pagenation count-->
-                <ComboBox x:Name="pageSize" 
-                      IsReadOnly="True"
-                      Foreground="{DynamicResource SecundaryTextColor}"
-                      Grid.Column="0"
-                      Width="80"
-                      Height="35"
-                      VerticalContentAlignment="Center"
-                      HorizontalContentAlignment="Center"
-                      Background="{DynamicResource SecundaryBackgroundColor}"
-                      FontFamily="Jetbrains Mono"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center"
-                      SelectedIndex="0" SelectionChanged="pageSize_SelectionChanged">
-                    <ComboBoxItem Tag="10">10</ComboBoxItem>
-                    <ComboBoxItem Tag="20">20</ComboBoxItem>
-                    <ComboBoxItem Tag="30">30</ComboBoxItem>
-                </ComboBox>
-
-                <!--Search TextBox-->
-                <basicComponents:SearchBox 
-                    Grid.Column="1"
-                    Margin="0 0 5 0"
-                    Height="35"
-                    VerticalAlignment="Center"
-                    TextParentChangedEvent="tbSearchBox_TextChanged" Loaded="SearchBox_Loaded"/>
-
-                <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 5, 5, 0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                     <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
                 </StackPanel>
             </Grid>
@@ -100,40 +73,6 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     
-                    <!--Action-->
-                    <DataGridTemplateColumn Header="Action"
-                                            Width="105">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button  x:Name="btnUpdate"
-                                             Width="35"
-                                             Background="#318CE7"
-                                             BorderThickness="0"
-                                             Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-                                             ToolTip="Word update"
-                                             Click="btnUpdate">
-                                        <materialDesign:PackIcon Foreground="{DynamicResource SecundaryTextColor}"
-                                                                 Margin="-6"
-                                                                 Kind="Pencil"/>
-                                    </Button>
-                                    <Button x:Name="btnDelete"
-                                            Margin="2 0 0 0"
-                                            Width="35"
-                                            BorderThickness="0"
-                                            Background="#DE665D"
-                                            Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-                                            ToolTip="Word delete"
-                                            Click="btnDelete">
-                                        <materialDesign:PackIcon Foreground="White"
-                                                                 Margin="-6"
-                                                                 Kind="Delete"/>
-                                    </Button>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-
                     <!--Status-->
                     <DataGridTemplateColumn Header="Status"
                                             Width="90">
