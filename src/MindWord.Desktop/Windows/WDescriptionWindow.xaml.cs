@@ -2,6 +2,7 @@
 using MindWord.DataAccess.Repositories;
 using MindWord.Domain.Entities;
 using MindWord.Service.Services;
+using MindWord.Service.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace MindWord.Desktop.Windows
         static int index = 0;
         static int maxPage;
         static List<Word> words;
+        static List<WordAnswerViewModel>  Answers;
         public WDescriptionWindow()
         {
             InitializeComponent();
@@ -53,25 +55,33 @@ namespace MindWord.Desktop.Windows
             if (txDesc.Text is null || words[index].Name.ToLower() != txDesc.Text.ToLower())
             {
                 err= 1;
+                WordAnswerViewModel wordAnswerView = new WordAnswerViewModel()
+                {
+                    Id = words[index].Id,   
+                    Word = words[index].Name,
+                    Translate = words[index].Translate,
+                    Info = words[index].Description,
+                    Status = "❌"
+                }; 
+                Answers.Add(wordAnswerView);    
             }
             else
             {
                 cor= 1;
                 correctPoints++;
+                WordAnswerViewModel wordAnswerView = new WordAnswerViewModel()
+                {
+                    Id = words[index].Id,
+                    Word = words[index].Name,
+                    Translate = words[index].Translate,
+                    Info = words[index].Description,
+                    Status = "✅"
+                };
+                Answers.Add(wordAnswerView);
             }
             IWordRepository repository = new WordRepository();
-            Word word = new Word() 
-            {
-                Name = words[index].Name,
-                Description= words[index].Description,
-                Translate = words[index].Translate,
-                AudioPath= words[index].AudioPath,
-                ErrorCoins = (words[index].ErrorCoins + err),
-                CorrectCoins = (words[index].CorrectCoins + cor),
-                CategoryId= words[index].CategoryId,
-                UserId= words[index].UserId
-            };
-            await repository.UpdateAsync(words[index].Id, word);
+            
+            await repository.UpdateAsync(words[index].Id, words[index]);
             index++;
             if (index == words.Count())
             {
