@@ -30,6 +30,10 @@ namespace MindWord.Service.Services
             return list.ToPagedList(pageNumber, pageSize);
 
         }
+        public async Task<IPagedList<WordAnswerViewModel>> GetAnswersPagedListAsync(int pageNumber, int pageSize, List<WordAnswerViewModel> list)
+        {
+            return list.ToPagedList(pageNumber, pageSize);
+        }
 
         public async Task<List<WordCreateViewModel>> GetSearchListAsync()
         {
