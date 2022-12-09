@@ -1,4 +1,5 @@
 ﻿using MindWord.Service.Services;
+using MindWord.Service.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace MindWord.Desktop.Windows
         static int correctPoints = 0;
         static int maxPage;
         static List<List<string>> res;
+        static List<RandomTestViewModel> listTestAnswer = new List<RandomTestViewModel>();  
         public WRandomWindow()
         {
             InitializeComponent();
@@ -80,12 +82,23 @@ namespace MindWord.Desktop.Windows
 
         private void aBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            RandomTestViewModel viewModel = new RandomTestViewModel()
+            {
+                Id = index + 1,
+                Word = res[index][0],
+                Translate = res[index][5],
+                Choice= aBtn.Content.ToString(),
+                Status  = "❌"
+               
+                
+            };
             if(aBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
+                viewModel.Status = "✔️";
             }
             index++;
+            listTestAnswer.Add(viewModel);  
             if (index == res.Count || index >= 15)
             {
                 MessageBox.Show($"Your score is {correctPoints}!");
@@ -103,11 +116,24 @@ namespace MindWord.Desktop.Windows
 
         private void cBtn_Click(object sender, RoutedEventArgs e)
         {
+            RandomTestViewModel viewModel = new RandomTestViewModel()
+            {
+                Id = index + 1,
+                Word = res[index][0],
+                Translate = res[index][5],
+                Choice = aBtn.Content.ToString(),
+                Status = "❌"
+
+
+            };
             if (cBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
+                viewModel.Status = "✔️";
             }
             index++;
+            listTestAnswer.Add(viewModel);
+
             if (index == res.Count || index >= 15)
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
@@ -127,11 +153,24 @@ namespace MindWord.Desktop.Windows
 
         private void bBtn_Click(object sender, RoutedEventArgs e)
         {
+            RandomTestViewModel viewModel = new RandomTestViewModel()
+            {
+                Id = index + 1,
+                Word = res[index][0],
+                Translate = res[index][5],
+                Choice = aBtn.Content.ToString(),
+                Status = "❌"
+
+
+            };
             if (bBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
+                viewModel.Status = "✔️";
             }
             index++;
+            listTestAnswer.Add(viewModel);
+
             if (index == res.Count || index >= 15 )
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
@@ -151,11 +190,24 @@ namespace MindWord.Desktop.Windows
 
         private void dBtn_Click(object sender, RoutedEventArgs e)
         {
+            RandomTestViewModel viewModel = new RandomTestViewModel()
+            {
+                Id = index + 1,
+                Word = res[index][0],
+                Translate = res[index][5],
+                Choice = aBtn.Content.ToString(),
+                Status = "❌"
+
+
+            };
             if (dBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
+                viewModel.Status = "✔️";
             }
             index++;
+            listTestAnswer.Add(viewModel);
+
             if (index == res.Count || index >= 15 )
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
