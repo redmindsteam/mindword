@@ -67,6 +67,7 @@
                 HorizontalContentAlignment="Center"
                 HorizontalAlignment="Right"
                 Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
                 ToolTip="MaterialDesignFlatMidButton"
                 Click="btnCreate_Click">
                 +Word add
@@ -170,6 +171,7 @@
                         VerticalContentAlignment="Top"
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
                         Background="{DynamicResource SecundaryBlueColor}" Click="btnLeft_Click">
                 </Button>
 
@@ -197,6 +199,7 @@
                         VerticalContentAlignment="Top"
                         Width="60"
                         Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
                         Background="{DynamicResource SecundaryBlueColor}" Click="btnRight_Click">
 
                 </Button>

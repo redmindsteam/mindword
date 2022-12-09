@@ -127,6 +127,7 @@
                     FontFamily="Jetbrains Mono"
                     Background="{DynamicResource SecundaryBlueColor}"
                     Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
                     Click="BtnUpdate_click">
                     
             </Button>

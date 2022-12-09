@@ -169,7 +169,7 @@ namespace MindWord.Desktop.Pages
                 helperShowWindow.ShowDialog();
             }
         }
-
+        
         private async void tbSearchBox_TextChanged(string txt)
         {
             WordService wordService = new WordService();
