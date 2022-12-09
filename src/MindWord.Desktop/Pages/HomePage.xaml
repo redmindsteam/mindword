@@ -26,48 +26,84 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0" Width="300" Height="200" HorizontalAlignment="Center">
-                    <lvc:PieChart x:Name="circleCharts"  LegendLocation="Bottom" Foreground="{DynamicResource SecundaryTextColor}">
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
 
-                    </lvc:PieChart>
+                    <Grid Grid.Row="1">
+                        <lvc:PieChart x:Name="circleCharts"  LegendLocation="Bottom" Foreground="{DynamicResource SecundaryTextColor}">
+
+                        </lvc:PieChart>
+                    </Grid>
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0">
 
-                        <lvc:CartesianChart.DataTooltip>
-                            <lvc:DefaultTooltip Background="#24336a" Foreground="White"/>
-                        </lvc:CartesianChart.DataTooltip>
+                                <lvc:CartesianChart.DataTooltip>
+                                    <lvc:DefaultTooltip Background="#24336a" Foreground="White"/>
+                                </lvc:CartesianChart.DataTooltip>
 
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="True">
-                                <lvc:Axis.Separator>
-                                    <lvc:Separator StrokeThickness="0" Step="1"/>
-                                </lvc:Axis.Separator>
-                            </lvc:Axis>
-                        </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Foreground="#bcc0c6" ShowLabels="True">
+                                        <lvc:Axis.Separator>
+                                            <lvc:Separator StrokeThickness="0" Step="1"/>
+                                        </lvc:Axis.Separator>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
 
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0" MaxValue="30">
-                                <lvc:Axis.Separator>
-                                    <lvc:Separator StrokeThickness="0"/>
-                                </lvc:Axis.Separator>
-                            </lvc:Axis>
-                        </lvc:CartesianChart.AxisY>
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0" MaxValue="30">
+                                        <lvc:Axis.Separator>
+                                            <lvc:Separator StrokeThickness="0"/>
+                                        </lvc:Axis.Separator>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
 
-                        <lvc:CartesianChart.Series>
-                            <lvc:StackedColumnSeries Fill="#7166f9" MaxColumnWidth="15" Values="11, 13, 17, 20, 17, 15, 16, 13"/>
-                            <lvc:StackedColumnSeries Fill="#101a28" MaxColumnWidth="15" Values="6, 5, 6, 4, 6, 6, 7, 6"/>
-                        </lvc:CartesianChart.Series>
-                    </lvc:CartesianChart>
+                                <lvc:CartesianChart.Series>
+                                    <lvc:StackedColumnSeries Fill="#7166f9" MaxColumnWidth="15" Values="11, 13, 17, 20, 17, 15, 16, 13"/>
+                                    <lvc:StackedColumnSeries Fill="#101a28" MaxColumnWidth="15" Values="6, 5, 6, 4, 6, 6, 7, 6"/>
+                                </lvc:CartesianChart.Series>
+                            </lvc:CartesianChart>
+                        </Grid>
+                    </Grid>
                 </Grid>
 
             </Grid>
 
-            <Grid Grid.Row="1" Width="570" Height="200" HorizontalAlignment="Center">
-                <lvc:CartesianChart  Series="{Binding SeriesCollection}" LegendLocation="Bottom"  Foreground="{DynamicResource SecundaryTextColor}">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
 
-                </lvc:CartesianChart>
+                    <Grid Grid.Row="1">
+                        <lvc:CartesianChart  Series="{Binding SeriesCollection}" LegendLocation="Bottom"  Foreground="{DynamicResource SecundaryTextColor}">
+
+                        </lvc:CartesianChart>
+                    </Grid>
+                </Grid>
             </Grid>
 
         </Grid>
