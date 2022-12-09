@@ -96,7 +96,6 @@ namespace MindWord.Desktop.Windows
                 var pagelist = await wordService.GetAnswersPagedListAsync(1, 10, Answers);
                 gameResultWindow.dgData.ItemsSource = pagelist;
                 gameResultWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, Answers.Count);
-
                 gameResultWindow.ShowDialog();
 
                
@@ -119,7 +118,7 @@ namespace MindWord.Desktop.Windows
             try
             {
                 GameService gameService = new GameService();
-                words = await gameService.RandomTestDescriptionAsync();
+                words = (await gameService.RandomTestDescriptionAsync()).Take(15).ToList();
                 if(words.Count == 0)
                 {
                     throw new Exception();
