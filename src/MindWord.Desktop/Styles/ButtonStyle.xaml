@@ -39,7 +39,12 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+    <!--Border Button-->
+    <Style x:Key="BorderButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{DynamicResource }"/>
+        <Setter Property="Foreground" Value="{DynamicResource }"/>
+    </Style>
 
     <!-- Start: ProButtonStyle -->
     <Style x:Key="ProButtonStyle" TargetType="{x:Type Button}">

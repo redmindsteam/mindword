@@ -10,29 +10,30 @@
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
         Loaded="WordUpdate_Loaded"
-        Background="{DynamicResource TertiaryBackgroundColor}"
+        Background="Transparent"
         Title="WordPage" Height="500" Width="520"
         ResizeMode="NoResize"
         MouseDown="MainWindow_OnMouseDown">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="420"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <StackPanel Height="420" Width="350" HorizontalAlignment="Right">
-            <Label Content="Word"
+    <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="420"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Height="420" Width="350" HorizontalAlignment="Right">
+                <Label Content="Word"
                     FontFamily="Jetbrains Mono"
                     Foreground="#DB872F"
                     FontSize="20"
                     FontWeight="SemiBold" 
                     HorizontalAlignment="Left"
                     Margin="0 20 0 0"/>
-            <TextBox x:Name="txWord"
+                <TextBox x:Name="txWord"
                     Style="{DynamicResource FormTextBox}" />
 
 
-            <TextBlock x:Name="TxbDescription"
+                <TextBlock x:Name="TxbDescription"
                     Height="30"
                     MaxWidth="350"
                     MaxHeight="30"
@@ -45,38 +46,39 @@
                     Margin="0 5 0 0"/>
 
 
-            <Label Content="Translation"
+                <Label Content="Translation"
                     FontFamily="JetBrains Mono"
                     Foreground="#DB872F"
                     FontSize="20"
                     FontWeight="SemiBold" 
                     HorizontalAlignment="Left"/>
 
-            <TextBox x:Name="txTranslation"
+                <TextBox x:Name="txTranslation"
                     Style="{DynamicResource FormTextBox}"/>
 
-            <ComboBox x:Name="ComboBoxCategory" Width="350" Height="40" Margin="0, 55, 0, 20" 
+                <ComboBox x:Name="ComboBoxCategory" Width="350" Height="40" Margin="0, 55, 0, 20" 
                       Background="{DynamicResource TertiaryBlueColor}"
                       VerticalContentAlignment="Center"
                       FontFamily="JetBrains Mono"
                       FontSize="16"
                       Foreground="{DynamicResource SecundaryTextColor}">
-            </ComboBox>
-            <Button x:Name="BtnUpdateWord" Margin="0, 35, 0, 0" Content="UPDATE" Width="150"
+                </ComboBox>
+                <Button x:Name="BtnUpdateWord" Margin="0, 35, 0, 0" Content="UPDATE" Width="150"
                     Style="{DynamicResource BtnGameTest}" Click="BtnUpdateWord_Click" />
-        </StackPanel>
-        
-        <Grid Grid.Column="1">
-            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}"
+            </StackPanel>
+
+            <Grid Grid.Column="1">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}"
                     VerticalAlignment="Top"
                     Content="{DynamicResource close}" 
                     Click="btnClose_Click" 
                     Tag="IsCloseButton" Margin="75,0,0,410" Foreground="{DynamicResource SecundaryTextColor}"/>
-            <Button x:Name="BtnVoice" Width="45" Height="35" Margin="8, 8, 0, 282" HorizontalAlignment="Left"
+                <Button x:Name="BtnVoice" Width="45" Height="35" Margin="8, 8, 0, 282" HorizontalAlignment="Left"
                     Click="BtnLoad_Click"
                     Background="{DynamicResource SecundaryBackgroundColor}">
-                <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center"/>
-            </Button>
+                    <materialDesign:PackIcon Kind="VolumeSource" VerticalAlignment="Center"/>
+                </Button>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>
