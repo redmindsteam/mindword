@@ -1,4 +1,5 @@
 ﻿using MindWord.Service.Services;
+using MindWord.Service.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,11 @@ namespace MindWord.Desktop.Windows
         static int correctPoints = 0;
         static int maxPage;
         static List<List<string>> res;
+        static List<RandomTestViewModel> listTestAnswer = new List<RandomTestViewModel>();  
         public WRandomWindow()
         {
             InitializeComponent();
+            listTestAnswer.Clear(); 
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -80,18 +83,33 @@ namespace MindWord.Desktop.Windows
 
         private void aBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            RandomTestViewModel viewModel = new RandomTestViewModel()
+            {
+                Id = index + 1,
+                Word = res[index][0],
+                Translate = res[index][5],
+                Choice= aBtn.Content.ToString(),
+                Status  = "❌"
+               
+                
+            };
             if(aBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
+                viewModel.Status = "✔️";
             }
             index++;
+            listTestAnswer.Add(viewModel);  
             if (index == res.Count || index >= 15)
             {
-                MessageBox.Show($"Your score is {correctPoints}!");
+                RanTransGameResWindow gameResWindow = new RanTransGameResWindow();  
+                gameResWindow.dgData.ItemsSource= listTestAnswer; 
+                gameResWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, listTestAnswer.Count);
+                this.Close();
+                gameResWindow.ShowDialog(); 
                 index= 0;
                 correctPoints= 0;
-                this.Close();
+                
             }
             lbRandomWord.Content = res[index][0];
             aBtn.Content = res[index][1];
@@ -103,19 +121,34 @@ namespace MindWord.Desktop.Windows
 
         private void cBtn_Click(object sender, RoutedEventArgs e)
         {
+            RandomTestViewModel viewModel = new RandomTestViewModel()
+            {
+                Id = index + 1,
+                Word = res[index][0],
+                Translate = res[index][5],
+                Choice = cBtn.Content.ToString(),
+                Status = "❌"
+
+
+            };
             if (cBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
+                viewModel.Status = "✔️";
             }
             index++;
+            listTestAnswer.Add(viewModel);
+
             if (index == res.Count || index >= 15)
             {
-                HelperShowWindow helperShowWindow = new HelperShowWindow();
-                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
-                helperShowWindow.ShowDialog();
+                RanTransGameResWindow gameResWindow = new RanTransGameResWindow();
+                gameResWindow.dgData.ItemsSource = listTestAnswer;
+                gameResWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, listTestAnswer.Count);
+                this.Close();
+                gameResWindow.ShowDialog();
                 index = 0;
                 correctPoints =0;
-                this.Close();
+               
             }
             lbRandomWord.Content = res[index][0];
             aBtn.Content = res[index][1];
@@ -127,19 +160,33 @@ namespace MindWord.Desktop.Windows
 
         private void bBtn_Click(object sender, RoutedEventArgs e)
         {
+            RandomTestViewModel viewModel = new RandomTestViewModel()
+            {
+                Id = index + 1,
+                Word = res[index][0],
+                Translate = res[index][5],
+                Choice = bBtn.Content.ToString(),
+                Status = "❌"
+
+
+            };
             if (bBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
+                viewModel.Status = "✔️";
             }
             index++;
+            listTestAnswer.Add(viewModel);
+
             if (index == res.Count || index >= 15 )
             {
-                HelperShowWindow helperShowWindow = new HelperShowWindow();
-                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
-                helperShowWindow.ShowDialog();
+                RanTransGameResWindow gameResWindow = new RanTransGameResWindow();
+                gameResWindow.dgData.ItemsSource = listTestAnswer;
+                gameResWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, listTestAnswer.Count);
+                this.Close();
+                gameResWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
-                this.Close();
             }
             lbRandomWord.Content = res[index][0];
             aBtn.Content = res[index][1];
@@ -151,19 +198,33 @@ namespace MindWord.Desktop.Windows
 
         private void dBtn_Click(object sender, RoutedEventArgs e)
         {
+            RandomTestViewModel viewModel = new RandomTestViewModel()
+            {
+                Id = index + 1,
+                Word = res[index][0],
+                Translate = res[index][5],
+                Choice = dBtn.Content.ToString(),
+                Status = "❌"
+
+
+            };
             if (dBtn.Content.ToString() == res[index][5])
             {
                 correctPoints++;
+                viewModel.Status = "✔️";
             }
             index++;
+            listTestAnswer.Add(viewModel);
+
             if (index == res.Count || index >= 15 )
             {
-                HelperShowWindow helperShowWindow = new HelperShowWindow();
-                helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints}!";
-                helperShowWindow.ShowDialog();
+                RanTransGameResWindow gameResWindow = new RanTransGameResWindow();
+                gameResWindow.dgData.ItemsSource = listTestAnswer;
+                gameResWindow.lbResultgame.Content = string.Format("Result: {0}/{1}", correctPoints, listTestAnswer.Count);
+                this.Close();
+                gameResWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
-                this.Close();
             }
             lbRandomWord.Content = res[index][0];
             aBtn.Content = res[index][1];

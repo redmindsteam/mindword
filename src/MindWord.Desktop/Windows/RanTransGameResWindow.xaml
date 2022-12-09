@@ -58,6 +58,9 @@
                     <DataGridTextColumn Header="Translate"
                                         Width="5*"
                                         Binding="{Binding Translate}"/>
+                    <DataGridTextColumn Header="Choice"
+                                        Width="4*"
+                                        Binding="{Binding Choice}"/>
 
                     <!--Status-->
                     <DataGridTemplateColumn Header="Status"
@@ -101,53 +104,8 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="1"
-                Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-                    <Button x:Name="btnLeft"
-                        Grid.Column="1"
-                        Tag="{DynamicResource right}"
-                        Content="&lt;"
-                        FontSize="18"
-                        FontFamily="Jetbrains Mono"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Top"
-                        Width="60"
-                        Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                        Background="{DynamicResource SecundaryBlueColor}" Click="btnLeft_Click">
-                    </Button>
-
-                    <Label x:Name="lbPage"
-                       Margin="5 0 5 0"
-                       Grid.Column="1"
-                       Content="0/10"
-                       Width="100"
-                       
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center"
-                       FontWeight="SemiBold"
-                       FontSize="16"
-                       Foreground="{DynamicResource SecundaryTextColor}"
-                       FontFamily="Jetbrains Mono">
-                    </Label>
-
-                    <Button x:Name="btnRight"
-                        Grid.Column="1"
-                        Tag="{DynamicResource right}"
-                        FontSize="18"
-                        Content=">"
-                        FontFamily="Jetbrains Mono"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Top"
-                        Width="60"
-                        Style="{DynamicResource MaterialDesignFlatDarkBgButton}"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth2"    
-                        Background="{DynamicResource SecundaryBlueColor}" Click="btnRight_Click">
-                    </Button>
-                </StackPanel>
-
-                <Border Grid.Column="3" Margin="15,5,10,0" CornerRadius="0 0 5 0" Background="Transparent">
+               
+                <Border Grid.Column="1" Margin="15,5,10,0" CornerRadius="0 0 5 0" Background="Transparent">
                     <Label x:Name="lbResultgame"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
