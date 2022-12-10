@@ -6,12 +6,19 @@
         xmlns:local="clr-namespace:MindWord.Desktop.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        MouseDown="mouse"
         WindowStyle="None"
         AllowsTransparency="True"
         ResizeMode="NoResize"
         Background="Transparent"
         Title="HelperShowWindow" Height="170" Width="300">
     <Border CornerRadius="8" Background="{DynamicResource SecundaryWhiteColor}">
+        <Border.Effect>
+            <DropShadowEffect Direction="-75" ShadowDepth="2" Opacity="1"
+                              BlurRadius="35" Color="#004FC4">
+            </DropShadowEffect>
+        </Border.Effect>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
