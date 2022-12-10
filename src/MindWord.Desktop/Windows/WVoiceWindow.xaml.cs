@@ -142,5 +142,11 @@ namespace MindWord.Desktop.Windows
             mediaPlayer.Open(new Uri(file));
             mediaPlayer.Play();
         }
+
+        private void mouse(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
     }
 }
