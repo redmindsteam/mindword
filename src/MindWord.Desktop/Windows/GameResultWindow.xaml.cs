@@ -70,5 +70,11 @@ namespace MindWord.Desktop.Windows
         {
 
         }
+
+        private void mouse(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
     }
 }
