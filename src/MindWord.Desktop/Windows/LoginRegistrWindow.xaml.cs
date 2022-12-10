@@ -83,7 +83,6 @@ namespace MindWord.Desktop.Windows
             }
         }
 
-
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             IUserService service = new UserService();
