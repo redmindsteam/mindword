@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MindWord.Service.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,6 +44,12 @@ namespace MindWord.Desktop.Windows
 
         private void BtnInfo_click(object sender, RoutedEventArgs e)
         {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            var res = (VoicetestResultViewModel) dgData.SelectedItem;
+            FileInfo fileInfo = new FileInfo(res.AudioPath);
+            var file = fileInfo.FullName;
+            mediaPlayer.Open(new Uri(file));
+            mediaPlayer.Play();
 
         }
     }
