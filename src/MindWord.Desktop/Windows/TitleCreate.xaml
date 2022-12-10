@@ -64,13 +64,13 @@
             </Grid>
         </Grid>
 
-        <Border.Effect>
+        <!--<Border.Effect>
             <DropShadowEffect
                 ShadowDepth="2"
                 Direction="-75"
                 Opacity="1"
                 BlurRadius="35"
                 Color="#5B8DEF"/>
-        </Border.Effect>
+        </Border.Effect>-->
     </Border>
 </Window>

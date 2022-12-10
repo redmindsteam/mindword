@@ -23,8 +23,6 @@ namespace MindWord.Desktop.Windows
     /// </summary>
     public partial class GameResultWindow : Window
     {
-        int PageNumber = 1;
-        static IPagedList<WordAnswerViewModel> words;
         static List<WordAnswerViewModel> answers;
         WordService service = new WordService();
         public void SaveAnswers(List<WordAnswerViewModel> Answers)
@@ -43,11 +41,7 @@ namespace MindWord.Desktop.Windows
 
         private async void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            words = await service.GetAnswersPagedListAsync(PageNumber, 10, answers);
-            btnLeft.IsEnabled = words.HasPreviousPage;
-            btnRight.IsEnabled = words.HasNextPage;
-            dgData.ItemsSource = words;
-            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
+
         }
 
         private void BtnInfo_click(object sender, RoutedEventArgs e)
@@ -75,24 +69,6 @@ namespace MindWord.Desktop.Windows
         private void dgData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-        }
-
-        private async void btnLeft_Click(object sender, RoutedEventArgs e)
-        {
-            words = await service.GetAnswersPagedListAsync(--PageNumber, 10, answers);
-            btnLeft.IsEnabled = words.HasPreviousPage;
-            btnRight.IsEnabled = words.HasNextPage;
-            dgData.ItemsSource = words;
-            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
-        }
-
-        private async void btnRight_Click(object sender, RoutedEventArgs e)
-        {
-            words = await service.GetAnswersPagedListAsync(++PageNumber, 10, answers);
-            btnRight.IsEnabled = words.HasNextPage;
-            btnLeft.IsEnabled = words.HasPreviousPage;
-            dgData.ItemsSource = words;
-            lbPage.Content = string.Format("Page{0}/{1}", PageNumber, words.PageCount);
         }
     }
 }

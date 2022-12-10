@@ -37,10 +37,10 @@ namespace MindWord.Desktop.Windows
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints} from {res.Count}!";
+                this.Close();
                 helperShowWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
-                this.Close();
             }
             else if(txVoice.Text.ToString().ToLower() == res[index].Translate.ToLower())
             {
@@ -51,6 +51,7 @@ namespace MindWord.Desktop.Windows
             {
                 err = 1;
             }
+            
             IWordRepository repository = new WordRepository();
             Word word = new Word()
             {
@@ -63,18 +64,20 @@ namespace MindWord.Desktop.Windows
                 CategoryId = res[index].CategoryId,
                 UserId = res[index].UserId
             };
+
             await repository.UpdateAsync(res[index].Id, word);
             txVoice.Text = "";
             lbPage.Content = $"{index + 1}/{maxPage}";
             index++;
+            
             if (index == res.Count || index >= 15)
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = $"Your score is {correctPoints} from {res.Count}!";
+                this.Close();
                 helperShowWindow.ShowDialog();
                 index = 0;
                 correctPoints = 0;
-                this.Close();
             }
 
         }
@@ -112,8 +115,8 @@ namespace MindWord.Desktop.Windows
             {
                 HelperShowWindow helperShowWindow = new HelperShowWindow();
                 helperShowWindow.tbHelperShow.Text = "Word is not enough!";
-                helperShowWindow.ShowDialog();
                 this.Close();
+                helperShowWindow.ShowDialog();
             }
         }
 
