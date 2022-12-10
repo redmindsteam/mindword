@@ -27,7 +27,7 @@
             <Border CornerRadius="0 0 8 8" Grid.Row="1" Background="{DynamicResource TertiaryWhiteColor}">
                 <Grid Grid.Row="1" Background="Transparent"/>
             </Border>
-            
+
             <TextBlock x:Name="tbHelperShow" Grid.Row="1"
                        Margin="0 10"
                        Background="{DynamicResource TertiaryWhiteColor}"
@@ -42,3 +42,4 @@
         </Grid>
     </Border>
 </Window>
+    
