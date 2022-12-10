@@ -27,80 +27,80 @@
             </Grid>
 
             <Grid Grid.Column="1" Background="Transparent">
-                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="370, 0, 0, 420"/>
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Margin="345, 0, 0, 420"/>
                 <StackPanel x:Name="Login" Width="320" Height="400" 
                 Visibility="Visible">
 
                     <Label Content="Login"
-                    FontFamily="Jetbrains Mono"
-                    Foreground="#DB872F"
-                    FontSize="20"
-                    FontWeight="SemiBold" 
-                    HorizontalAlignment="Left"
-                    Margin="0 30 0 0"/>
+                        FontFamily="Jetbrains Mono"
+                        Foreground="#DB872F"
+                        FontSize="20"
+                        FontWeight="SemiBold" 
+                        HorizontalAlignment="Left"
+                        Margin="0 30 0 0"/>
 
                     <TextBox x:Name="txEmail"
-                    FontFamily="JetBrains Mono"
-                    HorizontalAlignment="Center"
-                    Margin="0, 30, 0, 0"
-                    materialDesign:HintAssist.Hint="Email"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-                    Width="320" Height="50" TextChanged="txEmail_TextChanged"/>
+                            FontFamily="JetBrains Mono"
+                            HorizontalAlignment="Center"
+                            Margin="0, 30, 0, 0"
+                            materialDesign:HintAssist.Hint="Email"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+                            Width="320" Height="50" TextChanged="txEmail_TextChanged"/>
 
                     <Label x:Name="LbEmailIsCorrect" Content=""
-                    FontFamily="Jetbrains Mono"
-                    Foreground="#E13E4E"
-                    FontSize="13"
-                    FontWeight="Medium" 
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 0"/>
+                            FontFamily="Jetbrains Mono"
+                            Foreground="#E13E4E"
+                            FontSize="13"
+                            FontWeight="Medium" 
+                            HorizontalAlignment="Left"
+                            Margin="0 5 0 0"/>
 
                     <PasswordBox
-                    FontFamily="Jetbrains Mono"
-                    x:Name="txPasswordBox"
-                    Visibility="Visible"
-                    Foreground="Black"
-                    Background="White"
-                    Margin="0, 20, 0, 0"
-                    Width="320"
-                    Height="50"
-                    materialDesign:HintAssist.Hint="Password"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
-                    PasswordChanged="txPasswordLogin_TextChanged"></PasswordBox>
+                            FontFamily="Jetbrains Mono"
+                            x:Name="txPasswordBox"
+                            Visibility="Visible"
+                            Foreground="Black"
+                            Background="White"
+                            Margin="0, 20, 0, 0"
+                            Width="320"
+                            Height="50"
+                            materialDesign:HintAssist.Hint="Password"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                            PasswordChanged="txPasswordLogin_TextChanged"></PasswordBox>
 
                     <TextBox
-                    FontFamily="Jetbrains Mono"
-                    x:Name="txbPasswordBox"
-                    Visibility="Collapsed"
-                    Foreground="Black"
-                    Background="White"
-                    Margin="0, 20, 0, 0"
-                    Width="320"
-                    Height="50"
-                    materialDesign:HintAssist.Hint="Password"
+                            FontFamily="Jetbrains Mono"
+                            x:Name="txbPasswordBox"
+                            Visibility="Collapsed"
+                            Foreground="Black"
+                            Background="White"
+                            Margin="0, 20, 0, 0"
+                            Width="320"
+                            Height="50"
+                            materialDesign:HintAssist.Hint="Password"
                    
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    TextChanged="txPasswordLogin_TextChanged"></TextBox>
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            TextChanged="txPasswordLogin_TextChanged"></TextBox>
 
 
                     <CheckBox x:Name="btnCheckbox"
-                    Content="Show Password"
-                    Foreground="{DynamicResource SecundaryBlueColor}"
-                    FontSize="15"
-                    FontFamily="JetBrains Mono"
-                    FontWeight="Medium" 
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="190 15 0 0"
-                    Checked="CheckBox_Changed" 
-                    Unchecked="CheckBox_Changed"
-                     Style="{DynamicResource MaterialDesignUserForegroundCheckBox}"/>
+                            Content="Show Password"
+                            Foreground="{DynamicResource SecundaryBlueColor}"
+                            FontSize="15"
+                            FontFamily="JetBrains Mono"
+                            FontWeight="Medium" 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="190 15 0 0"
+                            Checked="CheckBox_Changed" 
+                            Unchecked="CheckBox_Changed"
+                             Style="{DynamicResource MaterialDesignUserForegroundCheckBox}"/>
 
                     <Button Content="LOGIN" Style="{StaticResource PrimaryButton}"
-                    Margin="0 30" Click="Button_Click_1">
+                            Margin="0 30" Click="Button_Click_1">
 
                     </Button>
 
@@ -120,31 +120,31 @@
                       Visibility="Collapsed">
 
                     <Label Content="Registration"
-                    FontFamily="Jetbrains Mono"
-                    Foreground="#DB872F"
-                    FontSize="20"
-                    Margin="0 0 0 0"
-                    FontWeight="SemiBold" 
-                    HorizontalAlignment="Left"/>
+                            FontFamily="Jetbrains Mono"
+                            Foreground="#DB872F"
+                            FontSize="20"
+                            Margin="0 0 0 0"
+                            FontWeight="SemiBold" 
+                            HorizontalAlignment="Left"/>
 
                     <TextBox x:Name="txFullName"
-                    FontFamily="Jetbrains Mono"
-                    HorizontalAlignment="Center"
-                    Margin="0, 20, 0, 0"
-                    materialDesign:HintAssist.Hint="Full Name"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-                    Width="320" Height="50" />
+                            FontFamily="Jetbrains Mono"
+                            HorizontalAlignment="Center"
+                            Margin="0, 20, 0, 0"
+                            materialDesign:HintAssist.Hint="Full Name"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+                            Width="320" Height="50" />
 
 
                     <TextBox x:Name="txEmailRegistor"
-                    FontFamily="Jetbrains Mono"
-                    HorizontalAlignment="Center"
-                    Margin="0, 30, 0, 0"
-                    materialDesign:HintAssist.Hint="Email"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-                    Width="320" Height="50" TextChanged="txEmailRegis_TextChanged" Text=""/>
+                            FontFamily="Jetbrains Mono"
+                            HorizontalAlignment="Center"
+                            Margin="0, 30, 0, 0"
+                            materialDesign:HintAssist.Hint="Email"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+                            Width="320" Height="50" TextChanged="txEmailRegis_TextChanged" Text=""/>
 
                     <Label x:Name="RegistLbEmail" Content=""
                             FontFamily="Jetbrains Mono"
@@ -169,55 +169,55 @@
                         PasswordChanged="txPasswordRegis_TextChanged"/>
 
                     <TextBox
-                    FontFamily="Jetbrains Mono"
-                    x:Name="txbPasswordRegistorBox"
-                    Visibility="Collapsed"
-                    Foreground="Black"
-                    Background="White"
-                    Margin="0, 7, 0, 0"
-                    Width="320"
-                    Height="50"
-                    materialDesign:HintAssist.Hint="Password"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    TextChanged="txbPasswordRegis_TextChanged"/>
+                        FontFamily="Jetbrains Mono"
+                        x:Name="txbPasswordRegistorBox"
+                        Visibility="Collapsed"
+                        Foreground="Black"
+                        Background="White"
+                        Margin="0, 7, 0, 0"
+                        Width="320"
+                        Height="50"
+                        materialDesign:HintAssist.Hint="Password"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        TextChanged="txbPasswordRegis_TextChanged"/>
 
 
                     <Label x:Name="RegistLbPassword" Content=""
-                    FontFamily="Jetbrains Mono"
-                    Foreground="#E13E4E"
-                    FontSize="13"
-                    FontWeight="Medium" 
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 0"/>
+                            FontFamily="Jetbrains Mono"
+                            Foreground="#E13E4E"
+                            FontSize="13"
+                            FontWeight="Medium" 
+                            HorizontalAlignment="Left"
+                            Margin="0 5 0 0"/>
 
                     <CheckBox x:Name="btnCheckbox2"
-                    Content="Show Password"
-                    VerticalAlignment="Center"
-                    Foreground="{DynamicResource SecundaryBlueColor}"
-                    FontSize="15"
-                    FontFamily="JetBrains Mono"
-                    FontWeight="SemiBold" 
-                    HorizontalAlignment="Left"
-                    Margin="190 0 0 0"
-                    Checked="CheckBox_Changed2" 
-                    Unchecked="CheckBox_Changed2"
-                    Style="{DynamicResource MaterialDesignUserForegroundCheckBox}">
-                    </CheckBox>
+                            Content="Show Password"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource SecundaryBlueColor}"
+                            FontSize="15"
+                            FontFamily="JetBrains Mono"
+                            FontWeight="SemiBold" 
+                            HorizontalAlignment="Left"
+                            Margin="190 0 0 0"
+                            Checked="CheckBox_Changed2" 
+                            Unchecked="CheckBox_Changed2"
+                            Style="{DynamicResource MaterialDesignUserForegroundCheckBox}">
+                            </CheckBox>
 
                     <Button Content="REGISTER" Style="{StaticResource PrimaryButton}"
                         Margin="0 15 0 0" Click="Register_Click">
                     </Button>
 
                     <TextBlock Grid.Column="1"
-                    FontSize="14"
-                    FontFamily="Jetbrains Mono"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"   
-                    Margin="0, 25" Text="Already have account? ">
-                    <Hyperlink TextDecorations="None" Click="Login_Click">
-                        Login
-                    </Hyperlink>
+                                FontSize="14"
+                                FontFamily="Jetbrains Mono"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"   
+                                Margin="0, 25" Text="Already have account? ">
+                        <Hyperlink TextDecorations="None" Click="Login_Click">
+                            Login
+                        </Hyperlink>
                     </TextBlock>
                 </StackPanel>
             </Grid>
