@@ -233,5 +233,11 @@ namespace MindWord.Desktop.Windows
             dBtn.Content = res[index][4];
             lbPage.Content = $"{index + 1}/{maxPage}";
         }
+
+        private void mouse(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
     }
 }
