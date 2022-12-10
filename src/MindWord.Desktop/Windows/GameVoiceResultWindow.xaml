@@ -58,9 +58,9 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Button x:Name="btinfo"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
-                                            ToolTip="View description"
+                                            ToolTip="Listen"
                                             Click="BtnInfo_click">
-                                        Description
+                                        Voice
                                     </Button>
                                 </StackPanel>
                             </DataTemplate>
@@ -72,7 +72,7 @@
                                         Binding="{Binding Translate}"/>
                     <DataGridTextColumn Header="Answer"
                                         Width="5*"
-                                        Binding="{Binding Asnwer}"/>
+                                        Binding="{Binding Answer}"/>
 
                     <!--Status-->
                     <DataGridTemplateColumn Header="Status"

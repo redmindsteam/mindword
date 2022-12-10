@@ -39,7 +39,7 @@
                     MaxWidth="350"
                     MaxHeight="30"
                     FontFamily="Jetbrains Mono"
-                    Foreground="#E13E4E"
+                    Foreground="{DynamicResource SecundaryOrangeColor}"
                     FontSize="12"
                     FontWeight="Medium" 
                     HorizontalAlignment="Left"
