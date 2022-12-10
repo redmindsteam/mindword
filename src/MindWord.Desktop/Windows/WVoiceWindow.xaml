@@ -80,12 +80,12 @@
             
         </Grid>
 
-        <Border.BitmapEffect>
+        <!--<Border.BitmapEffect>
             <DropShadowBitmapEffect
                 ShadowDepth="1"
                 Direction="0"
                 Color="#5B8DEF"
                 Softness="10"/>
-        </Border.BitmapEffect>
+        </Border.BitmapEffect>-->
     </Border>
 </Window>

@@ -19,10 +19,10 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" 
-                    Background="{DynamicResource SecundaryWhiteColor}"
                     Content="{DynamicResource close}" 
                     Click="btnClose_Click" Tag="IsCloseButton"
-                    HorizontalAlignment="Right"/>
+                    HorizontalAlignment="Right"
+                    Margin="0 5 5 0"/>
 
             <Border CornerRadius="0 0 8 8" Grid.Row="1" Background="{DynamicResource TertiaryWhiteColor}">
                 <Grid Grid.Row="1" Background="Transparent"/>
