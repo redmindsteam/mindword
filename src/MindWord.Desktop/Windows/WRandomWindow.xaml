@@ -13,7 +13,7 @@
         WindowStyle="None"
         Background="Transparent"
         Title="WRandomWindow" Height="580" Width="930">
-    <Border CornerRadius="8"
+    <Border CornerRadius="8" BorderThickness="2" BorderBrush="{DynamicResource PrimaryBackgroundColor}"
             Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
