@@ -12,7 +12,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         Title="HelperShowWindow" Height="170" Width="300">
-    <Border CornerRadius="8" Background="{DynamicResource PrimaryTealColor}">
+    <Border CornerRadius="8" Background="{DynamicResource PrimaryBlueColor}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -25,7 +25,7 @@
                     HorizontalAlignment="Right"
                     Margin="0 5 5 0"/>
 
-            <Border CornerRadius="0 0 8 8" Grid.Row="1" Background="{DynamicResource TertiaryTealColor}">
+            <Border CornerRadius="0 0 8 8" Grid.Row="1" Background="{DynamicResource TertiaryBlueColor}">
                 <Grid Grid.Row="1" Background="Transparent"/>
             </Border>
 
@@ -34,7 +34,7 @@
                        Background="Transparent"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"                 
-                       Foreground="{DynamicResource PrimaryBlackColor}"
+                       Foreground="{DynamicResource PrimaryTextColor}"
                        TextWrapping="Wrap"
                        FontFamily="JetBrains Mono"
                        FontWeight="SemiBold"
@@ -49,8 +49,9 @@
                     Height="30" Width="50"
                     Content="Ok"
                     Click="Button_Click"
-                    Background="{DynamicResource PrimaryTealColor}">
-                
+                    BorderBrush="{DynamicResource SecundaryBlueColor}"
+                    Foreground="{DynamicResource PrimaryTextColor}"
+                    Background="{DynamicResource PrimaryBlueColor}">
             </Button>
         </Grid>
     </Border>

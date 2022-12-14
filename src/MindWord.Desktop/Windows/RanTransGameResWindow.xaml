@@ -14,7 +14,7 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         Title="GameResultWindow" Height="500" Width="800">
-    <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
+    <Border CornerRadius="8" BorderThickness="2" BorderBrush="{DynamicResource PrimaryBackgroundColor}" Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>

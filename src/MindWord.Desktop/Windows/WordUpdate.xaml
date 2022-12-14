@@ -14,7 +14,7 @@
         Title="WordPage" Height="500" Width="520"
         ResizeMode="NoResize"
         MouseDown="MainWindow_OnMouseDown">
-    <Border CornerRadius="8" Background="{DynamicResource TertiaryBackgroundColor}">
+    <Border CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBackgroundColor}" Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="420"/>

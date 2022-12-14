@@ -10,7 +10,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="MainWindow_OnMouseDown">
-    <Border CornerRadius="8"
+    <Border CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBackgroundColor}"
             Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>

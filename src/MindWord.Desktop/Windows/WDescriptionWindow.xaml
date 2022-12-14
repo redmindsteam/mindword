@@ -14,8 +14,8 @@
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
         Background="Transparent">
-    
-    <Border CornerRadius="8" 
+
+    <Border CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBackgroundColor}"
             Background="{DynamicResource TertiaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
