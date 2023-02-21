@@ -3,7 +3,7 @@
 
 Mind Word is the best open-source memorizing words desktop program. Mind Word is free, and it is one of the most popular WPF projects.
 
-![2023-02-21_10-46-03](https://user-images.githubusercontent.com/110013097/220307197-418b06e6-f978-4b93-832f-b82b21891ff0.png)
+![2023-02-21_16-39-04](https://user-images.githubusercontent.com/110013097/220335324-887f3437-1490-4f0e-9ae2-11737a618172.png)
 
 ### Key features ###
 
@@ -28,7 +28,7 @@ Friendly members of the Mind Word community will always help with advice and sha
 
 Register Page | Login Page
 ----|------
-![regis](https://user-images.githubusercontent.com/110013097/220307459-65310e11-42ab-4ca3-a189-901d5ead742f.jpg) | ![login](https://user-images.githubusercontent.com/110013097/220305473-6dce2d92-907d-4fc7-9ca2-19b81e4131d2.jpg)
+![regis](https://user-images.githubusercontent.com/110013097/220334729-0a9ee8f5-ac41-4a6d-83a1-e179ad003cf2.jpg) | ![login](https://user-images.githubusercontent.com/110013097/220334855-2e908503-a377-429b-984d-1b2a38f81fa5.jpg)
 
 ## Main Components ##
 
