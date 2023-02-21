@@ -94,7 +94,7 @@
                             FontWeight="Medium" 
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left"
-                            Margin="190 15 0 0"
+                            Margin="180 15 0 0"
                             Checked="CheckBox_Changed" 
                             Unchecked="CheckBox_Changed"
                              Style="{DynamicResource MaterialDesignUserForegroundCheckBox}"/>
@@ -199,7 +199,7 @@
                             FontFamily="JetBrains Mono"
                             FontWeight="SemiBold" 
                             HorizontalAlignment="Left"
-                            Margin="190 0 0 0"
+                            Margin="180 0 0 0"
                             Checked="CheckBox_Changed2" 
                             Unchecked="CheckBox_Changed2"
                             Style="{DynamicResource MaterialDesignUserForegroundCheckBox}">

@@ -124,8 +124,6 @@ namespace MindWord.DataAccess.Repositories
                         PasswordHash = reader.GetString("PasswordHash"),
                         Salt = reader.GetString("Salt"),
                         AccountImagePath = reader.GetString("account_image_path")
-
-
                     };
                     reader.Close();
                     return returns;
