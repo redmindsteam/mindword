@@ -5,7 +5,7 @@ using System.Data.SQLite;
 
 namespace MindWord.DataAccess.Repositories
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository : ICategoryRepository 
     {
         private readonly SQLiteConnection _con = new SQLiteConnection(DbConstants.CONNECTION_STRING);
 
